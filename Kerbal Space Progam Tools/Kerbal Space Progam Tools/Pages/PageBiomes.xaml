@@ -1,0 +1,19 @@
+﻿<Page x:Class="Kerbal_Space_Progam_Tools.Pages.PageBiomes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kerbal_Space_Progam_Tools.Pages"
+      mc:Ignorable="d" 
+       d:DesignHeight="590" d:DesignWidth="1180"
+      Title="Biomes" >
+
+    <Grid x:Name="Main1">
+        <Image x:Name="Main" Source="/Images/Biomes/Mun_Biome_Map_0.90.0.png" VerticalAlignment="Bottom"  />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Margin="10,10,0,0" >
+            <ComboBox x:Name="comboBoxMaps"  Text="Choose Delta-V Map"   Width="120" SelectionChanged="comboBoxMaps_SelectionChanged" Height="23"/>
+            <Button x:Name="button" Content="More info" Width="75"  Height="23" Click="button_Click"/>
+            <Button x:Name="buttonNew" Content="New Window" Width="80"  Height="23" Click="button_Click2" Margin="50,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</Page>

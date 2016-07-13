@@ -1,0 +1,165 @@
+﻿<Window x:Class="Kerbal_Space_Progam_Tools.MissionCalculator" x:Name="Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kerbal_Space_Progam_Tools"
+        mc:Ignorable="d"
+        Title="Mission Calculator" Height="590" Width="1180" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/Backgrounds/planets2.png"/>
+    </Window.Background>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="63*"/>
+        </Grid.RowDefinitions>
+
+
+
+
+        <StackPanel Orientation="Horizontal" Height="527" Width="1149" HorizontalAlignment="Center" VerticalAlignment="Top"  Grid.Row="1"    >
+            <StackPanel Width ="200" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Rectangle RadiusX="25" RadiusY="25" HorizontalAlignment="Center" Height="524" Width="200" Stroke="Black" VerticalAlignment="Center"  Opacity="0.1" Fill="#FF01E8FF"/>
+                <TextBlock Margin="0, -520, 0, 0" Name="textBlockOriginTravel" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF02FD69" Height="129" Width="180" Text="Round Trip" FontSize="14" TextDecorations="{x:Null}" TextAlignment="Right"/>
+                <TextBlock Margin="0, -391, 0, 0" x:Name="textBlockStop1Travel" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF9CDBDE" Height="129" Width="180" Text="Stop 1 " FontSize="14" TextDecorations="{x:Null}" TextAlignment="Right"/>
+                <TextBlock Margin="0, -262, 0, 0" x:Name="textBlockStop2Travel" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFDAC5FF" Height="129" Width="180" Text="Stop 2" FontSize="14" TextDecorations="{x:Null}" TextAlignment="Right"/>
+                <TextBlock Margin="0, -133, 0, 0" x:Name="textBlockStop3Travel" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFB3FFC8" Height="129" Width="180" Text="Stop 3" FontSize="14" TextDecorations="{x:Null}" LineHeight="6" TextAlignment="Right"/>
+
+            </StackPanel>
+            <StackPanel Width="308" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <StackPanel  HorizontalAlignment="Left" >
+                    <StackPanel Height="45">
+                        <RadioButton x:Name="radioButtonKerbinTime" GroupName="Time" Checked="button_Click" Content="Kerbin Time (6h days, 426d years)" FontSize="14" Foreground="#FFB3FFC8" Width="238"/>
+                        <RadioButton x:Name="radioButtonEarthTime" GroupName="Time" Checked="button_Click" Content="Earth Time (24h days, 365d years)" FontSize="14" Foreground="#FFB3FFC8" Width="238"/>
+                    </StackPanel>
+
+                    <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Orientation="Horizontal" Width="308">
+                        <StackPanel Height="64" Width="73" VerticalAlignment="Center">
+                            <RadioButton Margin="10, 0,0,0" x:Name="radioButtonNormal" GroupName="mods" Content="Normal  " HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="#FFC4FD01"   Checked="radioButtonNormal_Checked"/>
+                            <RadioButton Margin="10, 0,0,0" x:Name="radioButtonOuter" GroupName="mods" Content="Outer &#xA;Planets " HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="#FFFDDB01"  Checked="radioButtonNormal_Checked"/>
+                            <RadioButton Margin="10, 0,0,0" x:Name="radioButtonRss" GroupName="mods" Content="R.S.S" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="#FF898383" Checked="radioButtonNormal_Checked"/>
+                        </StackPanel>
+                        <StackPanel VerticalAlignment="Center">
+                            <Rectangle Fill="#FF01E8FF" HorizontalAlignment="Center" Height="113"  RadiusY="20" RadiusX="20" Stroke="Black" VerticalAlignment="Center" Width="119" Opacity="0.1"/>
+                            <TextBlock x:Name="textBlockTotalDV" HorizontalAlignment="Center" Margin="0, -30 ,0, 0"  TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FFFF3A00" Height="21" Width="84" />
+                            <Label x:Name="label1" Content="Mission Δv" HorizontalAlignment="Center" Margin="0, -55 ,0, 0"  VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="#FFFF3A00" Width="96"/>
+                            <Label x:Name="label2" Content="Travel Time" HorizontalAlignment="Center" Margin="0, -105 ,0, 0"  VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="#FFFFDC00" Width="96"/>
+                            <TextBlock x:Name="textBlockTotaTime" HorizontalAlignment="Center" Margin="0, -80 ,0, 0"  TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FFFFDC00" Height="21" Width="84" />
+                        </StackPanel>
+                        <Button Content="" x:Name="buttonMissonDVCalc" Template="{DynamicResource BackgroundButton}" Width="116" Height="116"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="button1_Click"  >
+                            <Button.Resources>
+                                <ControlTemplate x:Key="BackgroundButton" TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderThickness="1"  Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" TargetName="border">
+                                                <Setter.Value>
+                                                    <ImageBrush ImageSource="/Images/Buttons/PhaseAngleBtn.png" Stretch="UniformToFill"  />
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Resources>
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Images/Buttons/PhaseAngleBtn.png" Stretch="None" />
+                            </Button.Background>
+                        </Button>
+
+                    </StackPanel>
+
+                </StackPanel>
+                <StackPanel Width="305" Height ="269" VerticalAlignment="Top" HorizontalAlignment="Center">
+
+                    <Rectangle RadiusX="25" RadiusY="25" HorizontalAlignment="Center" Height="269" Stroke="Black" VerticalAlignment="Top" Width="305"  Opacity="0.1" Fill="#FF01E8FF"/>
+
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Height="20" Orientation="Horizontal" Margin="0, -260, 0, 0" Width="235">
+                        <CheckBox x:Name="checkBox" Content="Show All" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF1EEEE" FontWeight="Bold" Unchecked="checkBox_Checked" Checked="checkBox_Checked" Width="76" Height="20"/>
+
+                    </StackPanel>
+                    <Expander x:Name="expanderOrigin" Header="Origin" Margin="0, -240"  Expanded="button_Click" Collapsed="button_Click"  Height="60" Width="260" Foreground="#FF02FD69" FontWeight="Bold" ExpandDirection="Right" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14">
+                        <Grid>
+                            <StackPanel  Orientation="Horizontal"   >
+                                <StackPanel Width="128">
+                                    <ComboBox x:Name="comboBoxOrigin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" FontWeight="Bold" SelectionChanged="button_Click" FontSize="14"/>
+                                </StackPanel>
+                                <StackPanel Width="90">
+                                    <CheckBox x:Name="checkBoxReturn" Content="Round Trip" HorizontalAlignment="Left"  VerticalAlignment="Top"  FontWeight="Bold" Foreground="#FF9AD6D8" Width="90" Height="20" Unchecked="button_Click" Checked="button_Click" FontSize="12"/>
+                                    <CheckBox  x:Name="checkBoxLowOrbit" Checked="button_Click"  Unchecked="button_Click" Content="Start from&#xA;Low Orbit" HorizontalAlignment="Left"  VerticalAlignment="Center" FontWeight="Bold"  Foreground="#FFFFD100"  FontSize="12" Width="90" Height="36"/>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </Grid>
+                    </Expander>
+                    <Expander x:Name="expanderStop1" Header="Stop 1" Margin="0, -180, 0, 0"  Expanded="button_Click" Collapsed="button_Click"  Height="60" Width="260" Foreground="#FF9CDBDE" FontWeight="Bold" ExpandDirection="Right" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14">
+                        <Grid>
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Width="128">
+                                    <ComboBox x:Name="comboBoxStop1" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="120" FontWeight="Bold" SelectionChanged="button_Click"/>
+                                </StackPanel>
+
+
+                                <StackPanel Width="84">
+                                    <RadioButton GroupName="Dest" x:Name="radioButtonLanding1" Content="Landing" HorizontalAlignment="Left"  VerticalAlignment="Top" FontWeight="Bold"  Foreground="#FFFFD100" Checked="button_Click" FontSize="12" Width="84" Height="16"/>
+                                    <RadioButton GroupName="Dest" x:Name="radioButtonLowOrbit1" Content="Stay to&#xA;Low Orbit" HorizontalAlignment="Left"  VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFFD100" Checked="button_Click" FontSize="12"/>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </Grid>
+                    </Expander>
+                    <Expander Margin="0,-120, 0, 0" x:Name="expanderStop2" Header="Stop 2" Expanded="button_Click" Collapsed="button_Click"  Height="60" Width="260" Foreground="#FFC3A7F3" FontWeight="Bold" ExpandDirection="Right" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" >
+                        <Grid >
+                            <StackPanel x:Name="Stop1" Orientation="Horizontal" >
+                                <StackPanel Width="128">
+                                    <ComboBox x:Name="comboBoxStop2" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="120" SelectionChanged="button_Click"/>
+
+                                </StackPanel>
+
+                                <StackPanel Width="79">
+                                    <RadioButton GroupName="Stop1" x:Name="radioButtonLanding2" Content="Landing" HorizontalAlignment="Left"  VerticalAlignment="Top" FontWeight="Bold"  Foreground="#FFFFD100" Checked="button_Click" FontSize="12" Width="79" Height="16"/>
+                                    <RadioButton GroupName="Stop1" x:Name="radioButtonLowOrbit2" Content="Stay to&#xA;Low Orbit" HorizontalAlignment="Left"  VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFFD100" Checked="button_Click" FontSize="12"/>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </Grid>
+                    </Expander>
+                    <Expander Margin="0, -60, 0, 0" x:Name="expanderStop3" Header="Stop 3" Expanded="button_Click" Collapsed="button_Click"   Height="60" Width="260" Foreground="#FFB3FFC8" FontWeight="Bold" ExpandDirection="Right" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14">
+                        <Grid >
+                            <StackPanel x:Name="Stop1_Copy" Orientation="Horizontal"  >
+                                <StackPanel Width="128">
+                                    <ComboBox x:Name="comboBoxStop3" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="120" SelectionChanged="button_Click" />
+                                </StackPanel>
+
+                                <StackPanel>
+                                    <RadioButton GroupName="Stop2" x:Name="radioButtonLanding" Content="Landing" HorizontalAlignment="Left"  VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFFD100" Checked="button_Click" FontSize="12" Width="78" Height="16"/>
+                                    <RadioButton GroupName="Stop2" x:Name="radioButtonLowOrbit" Content="Stay to&#xA;Low Orbit" HorizontalAlignment="Left"  VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFFD100" Checked="button_Click" FontSize="12"/>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </Grid>
+                    </Expander>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Width="674" HorizontalAlignment="Center" >
+                <Rectangle RadiusX="25" RadiusY="25" HorizontalAlignment="Left" Height="524" Stroke="Black" VerticalAlignment="Top" Width="640" Opacity="0.1" Fill="#FF01E8FF" />
+                <TextBlock Margin="10, -520, 0, 0" Name="textBlockOrigin" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF02FD69" Height="129" Width="535" Text="Origin " FontSize="14" TextDecorations="{x:Null}"/>
+                <TextBlock Margin="10, -391, 0, 0" x:Name="textBlockStop1" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF9CDBDE" Height="129" Width="535" Text="Stop 1 " FontSize="14" TextDecorations="{x:Null}"/>
+                <TextBlock Margin="10,-262,0,0" x:Name="textBlockStop2" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFDAC5FF" Height="129" Width="535" Text="Stop 2 " FontSize="14" TextDecorations="{x:Null}"/>
+                <TextBlock Margin="10,-133,0,0" x:Name="textBlockStop3" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFB3FFC8" Height="129" Width="535" Text="Stop 3 " FontSize="14" TextDecorations="{x:Null}"/>
+                <Image x:Name="imageOrigin"  Margin="0,-505,35,0" Height="100" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Planets/Kerbin.png" Stretch="UniformToFill"/>
+                <Image x:Name="imageStop1"  Margin="0,-376,35,0" Height="100" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Planets/Duna.png" Stretch="UniformToFill"/>
+                <Image x:Name="imageStop2"  Margin="0,-247,35,0" Height="100" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Planets/Eve.png" Stretch="UniformToFill"/>
+                <Image x:Name="imageStop3"  Margin="0,-118,35,0" Height="100" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Planets/Jool.png" Stretch="UniformToFill"/>
+            </StackPanel>
+
+        </StackPanel>
+
+
+    </Grid>
+</Window>

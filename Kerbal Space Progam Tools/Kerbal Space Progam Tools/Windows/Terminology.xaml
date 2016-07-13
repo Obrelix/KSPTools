@@ -1,0 +1,130 @@
+﻿<Window x:Class="Kerbal_Space_Progam_Tools.Terminology"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kerbal_Space_Progam_Tools"
+        mc:Ignorable="d"
+        Title="Terminology" Height="395.666" Width="332.667">
+    <Grid>
+        <Label x:Name="label" Content="Under Construction!!!" HorizontalAlignment="Left" Margin="45,166,0,0" VerticalAlignment="Top" Width="244" FontSize="22" FontWeight="Bold"/>
+        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Left" Height="307" Margin="10,39,0,0" VerticalAlignment="Top" Width="294" Visibility="Hidden" >
+            <FlowDocument >
+                <Paragraph NumberSubstitution.CultureSource="User" TextAlignment="Justify">
+                    <Run FontWeight="Bold" Text="Delta-V"/>
+                    <LineBreak/>
+                    <Run Text="Delta v (change in velocity) is the bread and butter of rocket science. It is probably the most important thing to know about your rocket because it determines what your rocket is capable of achieving. Delta v is most likely the most useful thing you will apply to Kerbal Space Program while building a rocket. To find the Delta v of your rocket for each stage at a time we have to sum up the part masses of every single part of the stage"/>
+                </Paragraph>
+                <Paragraph>
+                    <Run Foreground="#FFFF0606" FontWeight="Bold" Text="Total Mass: "/>
+                    <Run Text=" "/>
+                    <Run Foreground="#FF0498FF" FontWeight="Bold" Text="M"/>
+                    <Run FontSize="9" Text="total"/>
+                    <Run Foreground="Red" FontWeight="Bold"/>
+                </Paragraph>
+                <Paragraph>
+                    <Run Foreground="Red" FontWeight="Bold" Text="Fuel Mass:"/>
+                    <Run Foreground="#FF0498FF" FontWeight="Bold" Text="M"/>
+                    <Run FontSize="9" Text="fuel "/>
+                </Paragraph>
+                <Paragraph>
+                    <Run Foreground="Red" FontWeight="Bold" Text="Dry Mass: "/>
+                    <Run Text=" "/>
+                    <Run Foreground="#FF0498FF" FontWeight="Bold" Text="M"/>
+                    <Run FontSize="9" Text="dry"/>
+                    <Run Text=" "/>
+                    <Run Text=" = "/>
+                    <Run Text=" "/>
+                    <Run Foreground="#FF0498FF" FontWeight="Bold" Text="M"/>
+                    <Run FontSize="9" Text="total"/>
+                    <Run Text=" "/>
+                    <Run Text=" - "/>
+                    <Run Text=" "/>
+                    <Run Foreground="#FF0498FF" FontWeight="Bold" Text="M"/>
+                    <Run FontSize="9" Text="fuel"/>
+                </Paragraph>
+                <Paragraph>
+                    <Run Foreground="#FF0498FF" FontWeight="Bold" FontSize="16" Text="Δυ "/>
+                    <Run Text=" "/>
+                    <Run Text="= I"/>
+                    <Run FontSize="9" Text="sp"/>
+                    <Run Text=" * ln ( "/>
+                    <Run Foreground="#FF0498FF" FontWeight="Bold" Text="M"/>
+                    <Run FontSize="9" Text="total"/>
+                    <Run Text=" /"/>
+                    <Run Text=" "/>
+                    <Run Foreground="#FF0498FF" FontWeight="Bold" Text="M"/>
+                    <Run FontSize="9" Text="dry"/>
+                    <Run Text=" ) * g"/>
+                    <Run FontWeight="Bold" FontSize="7" Text="0"/>
+                </Paragraph>
+
+            </FlowDocument>
+        </RichTextBox>
+        <RichTextBox x:Name="richTextBox_Copy" HorizontalAlignment="Left" Height="307" Margin="10,39,0,0" VerticalAlignment="Top" Width="294" FontStretch="Condensed" Visibility="Hidden">
+            <FlowDocument >
+                <Paragraph NumberSubstitution.CultureSource="User" TextAlignment="Justify">
+                    <Run FontWeight="Bold" FontSize="14" Text="I"/>
+                    <Run Text=" "/>
+                    <Run FontWeight="Bold" FontSize="9" Text="sp"/>
+                    <Run FontWeight="Bold" Text=" (Specific impulse)"/>
+                    <LineBreak/>
+                    <Run Text="The specific impulse defines the efficiency of an engine. It is linked to the thrust and fuel consumption. The unit is either meters per second or only seconds. Conversely, if an engine with specific impulse "/>
+                    <Run Text=" "/>
+                    <Run NumberSubstitution.CultureSource="Text" Text="I"/>
+                    <Run NumberSubstitution.CultureSource="Text" FontSize="9" Text="sp,g"/>
+                    <Run Text=" "/>
+                    <Run NumberSubstitution.CultureSource="Text" FontWeight="Bold" FontSize="7" Text="0"/>
+                    <Run Text=" "/>
+                    <Run Text=" (in seconds) is generating  F newtons of thrust, the fuel it burns every second will weigh   F /"/>
+                    <Run Text=" "/>
+                    <Run NumberSubstitution.CultureSource="Text" Text="I"/>
+                    <Run NumberSubstitution.CultureSource="Text" FontSize="9" Text="spg"/>
+                    <Run NumberSubstitution.CultureSource="Text" FontWeight="Bold" FontSize="7" Text="0"/>
+                    <Run Text=" "/>
+                    <Run Text="newtons on Kerbin (the planet whose "/>
+                    <Run NumberSubstitution.CultureSource="Text" Text="g"/>
+                    <Run NumberSubstitution.CultureSource="Text" FontWeight="Bold" FontSize="7" Text="0 "/>
+                    <Run Text="is used to convert the unit of specific impulse into seconds"/>
+                </Paragraph>
+                <Paragraph>
+                    <Run Foreground="Red" FontWeight="Bold" Text="I"/>
+                    <Run Foreground="Red" FontWeight="Bold" FontSize="9" Text="sp"/>
+                    <Run Foreground="Red" FontWeight="Bold" Text=":"/>
+                    <Run Text=" is the specific impulse in meters per second"/>
+                </Paragraph>
+                <Paragraph>
+                    <Run Foreground="Red" FontWeight="Bold" Text="F"/>
+                    <Run Foreground="Red" FontWeight="Bold" FontSize="7" Text="T"/>
+                    <Run Foreground="Red" FontWeight="Bold" Text=":"/>
+                    <Run Text=" the thrust in newtons "/>
+                    <Run Text=" "/>
+                    <Run Text=" "/>
+                    <Run Text=" "/>
+                    <Run FontSize="6" Text="  "/>
+                </Paragraph>
+                <Paragraph>
+                    <Run Foreground="#FFF70000" FontWeight="Bold" Text="m:"/>
+                    <Run Text=" "/>
+                    <Run Foreground="#FFF70000" Text=" "/>
+                    <Run Text="the fuel consumption in kg/s"/>
+                </Paragraph>
+                <Paragraph>
+                    <Run Foreground="#FF0498FF" FontWeight="Bold" FontSize="16" Text="I"/>
+                    <Run Foreground="#FF0498FF" FontWeight="Bold" FontSize="9" Text="sp"/>
+                    <Run Text=" "/>
+                    <Run FontWeight="Bold" Text="="/>
+                    <Run Text=" "/>
+                    <Run FontWeight="Bold" Text="F"/>
+                    <Run FontWeight="Bold" FontSize="7" Text="T"/>
+                    <Run Text=" "/>
+                    <Run FontWeight="Bold" Text="/"/>
+                    <Run Text=" "/>
+                    <Run FontWeight="Bold" Text="m"/>
+                </Paragraph>
+
+            </FlowDocument>
+        </RichTextBox>
+         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>
+        </Grid>
+</Window>

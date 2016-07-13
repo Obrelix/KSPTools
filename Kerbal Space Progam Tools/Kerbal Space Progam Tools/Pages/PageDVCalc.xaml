@@ -1,0 +1,274 @@
+﻿<Page x:Class="Kerbal_Space_Progam_Tools.Pages.PageDVCalc"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kerbal_Space_Progam_Tools.Pages"
+      mc:Ignorable="d" 
+           d:DesignHeight="590" d:DesignWidth="1200" x:Name="Main"
+      Title="PageDVCalc" Loaded="Main_Loaded">
+    <Page.Background>
+        <ImageBrush ImageSource="/Images/Backgrounds/planets2.png"/>
+    </Page.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="232*"/>
+            <ColumnDefinition Width="261*"/>
+            <ColumnDefinition Width="600*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="94*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="120*"/>
+            <RowDefinition Height="105*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.ColumnSpan="2" Fill="#FF01E8FF" HorizontalAlignment="Left" Height="116" Margin="44,1,0,0" RadiusY="20" Grid.Row="6" RadiusX="20" Stroke="Black" VerticalAlignment="Top" Width="357" Opacity="0.1"/>
+
+        <TextBox x:Name="TotalMass" Grid.Column="1" Grid.Row="1" FontWeight="Bold" FontSize="18" Margin="0,9" TextChanged="buttonCalc_Click" VerticalAlignment="Center" Width="150" HorizontalAlignment="Left" Height="35" />
+        <Label x:Name="label" Content="Total Mass (kg)" HorizontalAlignment="Right" Margin="0,9" VerticalAlignment="Center" Grid.Column="0" Height="35" Width="129" FontSize="18" Foreground="#FF00DCFF" Grid.Row="1"/>
+        <TextBox x:Name="FuelMass" Grid.Row="2" Grid.Column="1" FontWeight="Bold" FontSize="18" Margin="0,9" TextChanged="buttonCalc_Click" VerticalAlignment="Center" Width="150" HorizontalAlignment="Left" Height="34" />
+        <Label x:Name="label_Copy" Content="Fuel Mass (kg)" HorizontalAlignment="Right" Margin="0,9" VerticalAlignment="Center" Grid.Row="2" Height="34" Width="122" FontSize="18" Foreground="#FF00DCFF"/>
+        <TextBox x:Name="Isp" Grid.Row="3" Grid.Column="1" FontWeight="Bold" FontSize="18" Margin="0,9" TextChanged="buttonCalc_Click" VerticalAlignment="Center" Width="150" HorizontalAlignment="Left" Height="35"  />
+        <TextBox x:Name="textBoxEngineThrust" Grid.Row="4" Grid.Column="1" FontWeight="Bold" FontSize="18" Margin="0,9" TextChanged="buttonCalc_Click" VerticalAlignment="Center" Width="150" HorizontalAlignment="Left" Height="35"  />
+        <Label x:Name="label_Copy2" Content="Engine Thrust (kN)" HorizontalAlignment="Right" Margin="0,9" VerticalAlignment="Center" Grid.Row="4" Height="35" Width="160" FontSize="18" Foreground="#FFFF5D00" Background="{x:Null}"/>
+        <ComboBox x:Name="comboBoxPlanets" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Width="149" Margin="1,14,0,0" FontWeight="Bold" FontSize="18" Height="32" SelectionChanged="buttonCalc_Click"/>
+        <Label x:Name="label_Copy3" Content="Planet/Moon" HorizontalAlignment="Right" Margin="0,11,0,13" VerticalAlignment="Center" Grid.Row="5" Height="36" Width="115" FontSize="18" Foreground="#FFFF5D00" Background="{x:Null}"/>
+        <Label x:Name="labelTWR" Content="" HorizontalAlignment="Left" Margin="148,4,0,0" VerticalAlignment="Top" Width="240" Height="34" Foreground="#FFFF5D00" FontSize="18" FontWeight="Bold" Grid.Row="6" Grid.ColumnSpan="2"/>
+        <Label x:Name="LabelDeltaV" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Height="34" Foreground="#FF00DCFF" FontSize="18" FontWeight="Bold" Grid.Row="6" Margin="148,38,0,0" Grid.ColumnSpan="2"/>
+        <Button x:Name="buttonAddStage" Content="+" HorizontalAlignment="Left" Margin="164,6,0,0" VerticalAlignment="Top" Width="35" Click="buttonAddStage_Click" Height="32" FontWeight="Bold" Grid.Row="6" Grid.Column="1" FontSize="18"/>
+        <Label x:Name="LabelDeltaV_Copy" Content="&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Height="34" Foreground="#FFF52424" FontSize="18" FontWeight="Bold" Grid.Row="6" Margin="148,72,0,0" Grid.ColumnSpan="2"/>
+        <Label x:Name="label_Copy1" Content="Engine Isp (s)" Margin="0,9" VerticalAlignment="Center" Grid.Row="3" Height="35" Width="115" FontSize="18" Foreground="#FF00DCFF" Background="{x:Null}" HorizontalAlignment="Right"/>
+        <Label x:Name="label1" Content="Add a&#xA; Stage" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Height="42" Width="46" Foreground="#FFE2E2F1" Grid.Row="6" Margin="160,44,0,0" Grid.Column="1"/>
+        <Button x:Name="buttonRemoveStage" Content="-" HorizontalAlignment="Left" Margin="210,6,0,0" VerticalAlignment="Top" Width="35" Height="32" FontWeight="Bold" Grid.Row="6" Click="buttonRemoveStage_Click" Grid.Column="1" FontSize="18"/>
+        <Label x:Name="label1_Copy" Content="Remove&#xD;&#xA;a Stage" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Height="40" Width="55" Foreground="#FFE2E2F1" Grid.Row="6" Margin="206,44,0,0" Grid.Column="1"/>
+        <Button x:Name="buttonReset" Content="Reset Stages" HorizontalAlignment="Left" Margin="160,15,0,0" VerticalAlignment="Top" Width="81" Height="32" Click="buttonReset_Click" Grid.Row="4" FontWeight="Bold" Grid.Column="1"/>
+        <Expander Grid.ColumnSpan="2" Grid.Column="1" Margin="266,0,60,92" Grid.RowSpan="6" ExpandDirection="Right" Grid.Row="1" Foreground="#FF00FF0C" Header="Stages" FontSize="18" IsExpanded="True">
+            <Grid Background="Black">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="35*"/>
+                    <RowDefinition Height="35*"/>
+                    <RowDefinition Height="35*"/>
+                    <RowDefinition Height="35*"/>
+                    <RowDefinition Height="35*"/>
+                    <RowDefinition Height="35*"/>
+                    <RowDefinition Height="35*"/>
+                    <RowDefinition Height="35*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="180*"/>
+                    <ColumnDefinition Width="180*"/>
+                    <ColumnDefinition Width="180*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="textBlockStage1" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="1:" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="1" Grid.Column="1">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3EFF05" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock x:Name="textBlockStage2" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="2:" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="2" Grid.Column="1">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF05A4FF" Offset="0"/>
+                            <GradientStop Color="#FF05F7E1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock x:Name="textBlockStage3" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="3:" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="3" Grid.Column="1">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3EFF05" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock x:Name="textBlockStage4" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="4" Grid.Column="1">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF05A4FF" Offset="0"/>
+                            <GradientStop Color="#FF05F7E1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="4"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage5" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="5" Grid.Column="1">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3EFF05" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="5:"/></TextBlock>
+                <TextBlock x:Name="textBlockStage6" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="6" Grid.Column="1">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF05A4FF" Offset="0"/>
+                            <GradientStop Color="#FF05F7E1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="6"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage7" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="7" Grid.Column="1">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3EFF05" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="7"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage8" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="8" Grid.Column="1">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF05A4FF" Offset="0"/>
+                            <GradientStop Color="#FF05F7E1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="8"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage9" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Column="2" Grid.Row="1">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF05A4FF" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="9"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage10" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="2" Grid.Column="2">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3EFF05" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="10"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage11" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="3" Grid.Column="2">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF05A4FF" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="11"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage12" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="4" Grid.Column="2">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3EFF05" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="12"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage13" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="5" Grid.Column="2">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF05A4FF" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="13"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage14" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="6" Grid.Column="2">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3EFF05" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="14"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage15" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Text="15:" Height="25" FontSize="14" Grid.Row="7" Grid.Column="2">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF05A4FF" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground></TextBlock>
+                <TextBlock x:Name="textBlockStage16" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Column="2" Grid.Row="8">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3EFF05" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="16"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage17" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Column="3" Grid.Row="1">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3EFF05" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="17"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage18" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="2" Grid.Column="3">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF05A4FF" Offset="0"/>
+                            <GradientStop Color="#FF05F7E1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="18"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage19" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="3" Grid.Column="3">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3EFF05" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="19"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage20" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="4" Grid.Column="3">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF05A4FF" Offset="0"/>
+                            <GradientStop Color="#FF05F7E1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="20"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage21" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Text="21:" Height="25" FontSize="14" Grid.Column="3" Grid.Row="5">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3EFF05" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground></TextBlock>
+                <TextBlock x:Name="textBlockStage22" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Row="6" Grid.Column="3">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF05A4FF" Offset="0"/>
+                            <GradientStop Color="#FF05F7E1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="22"/><Run Text=":"/></TextBlock>
+                <TextBlock x:Name="textBlockStage23" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Text="23:" Height="25" FontSize="14" Grid.Column="3" Grid.Row="7">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3EFF05" Offset="0"/>
+                            <GradientStop Color="#FF05F7EC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground></TextBlock>
+                <TextBlock x:Name="textBlockStage24" HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Height="25" FontSize="14" Grid.Column="3" Grid.Row="8">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF05A4FF" Offset="0"/>
+                            <GradientStop Color="#FF05F7E1" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground><Run Text="24"/><Run Text=":"/></TextBlock>
+            </Grid>
+        </Expander>
+        <StackPanel Height="58" VerticalAlignment="Center" Margin="160,2,4,0" Orientation="Vertical" Grid.Row="5" Grid.Column="1">
+            <RadioButton x:Name="radioButtonNormal" GroupName="mods" Content="Normal  " HorizontalAlignment="Left"  VerticalAlignment="Bottom" Foreground="#FFC4FD01"   Checked="radioButtonNormal_Checked" FontSize="14" />
+            <RadioButton x:Name="radioButtonOuter" GroupName="mods" Content="Outer Planets " HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="#FFFDDB01"  Checked="radioButtonNormal_Checked" FontSize="14"/>
+            <RadioButton x:Name="radioButtonRss" GroupName="mods" Content="R.S.S" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="#FF0982FB" Checked="radioButtonNormal_Checked" FontSize="14"/>
+        </StackPanel>
+        <Label x:Name="textBlock" HorizontalAlignment="Left" Margin="91,4,0,0" Grid.Row="6"  Content="TWR :" VerticalAlignment="Top" FontSize="18" Foreground="#FFFF5D00" Width="59" Height="34"/>
+        <Label x:Name="LabelDeltaV_Copy1" Content="Δv :" HorizontalAlignment="Left" VerticalAlignment="Top" Width="44" Height="34" Foreground="#FF00DCFF" FontSize="18" Grid.Row="6" Margin="99,38,0,0"/>
+        <Label x:Name="LabelDeltaV_Copy2" Content="Total Δv : " HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="34" Foreground="#FFF52424" FontSize="18" Grid.Row="6" Margin="63,72,0,0"/>
+        
+        <Button Content="" x:Name="buttonDVCalc" Template="{DynamicResource BackgroundButton}"  Width="110" Height="70" VerticalAlignment="Center" HorizontalAlignment="Center"   Click="buttonDVCalc_Click"   Margin="10,40,539,10" Cursor="Hand" Grid.Column="2" Grid.Row="6"   >
+            <Button.Resources>
+                <ControlTemplate x:Key="BackgroundButton" TargetType="{x:Type Button}">
+                    <Border x:Name="border" BorderThickness="1"  Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/Images/Buttons/KspDVCalc.png" Stretch="UniformToFill" Opacity="0.5" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Resources>
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Buttons/KspDVCalc.png" Stretch="Uniform" />
+            </Button.Background>
+        </Button>
+    </Grid>
+</Page>

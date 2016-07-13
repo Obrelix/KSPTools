@@ -1,0 +1,18 @@
+﻿<Page x:Class="Kerbal_Space_Progam_Tools.Pages.PageTerminologyShipOrientation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kerbal_Space_Progam_Tools.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1180"
+      Title="Terminology">
+
+    <Grid Background="#FFFDFDFD">
+        <ScrollViewer>
+            <TextBlock x:Name="textBlock" Margin="0" TextWrapping="Wrap" FontSize="18" Height="600"><Run FontWeight="Bold" FontSize="24" Text="&#x9;"/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="24" Text="&#x9;&#x9;Ship Orientation"/><LineBreak/><LineBreak/><Run FontSize="14" Text="The ship orientation is always relative to a specific object. The terms are usually defined relative to the cockpit."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="1) Attitude"/><LineBreak/><LineBreak/><Run FontSize="14" Text="The ship's orientation with respect to its direction of motion (prograde)."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="2) Zenith"/><LineBreak/><Run FontSize="14" Text="    Direction in space from the observer pointing away from the parent body (i.e. orbited planet). Opposite of nadir."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="3) Nadir"/><LineBreak/><Run FontSize="14" Text="    Direction in space from the observer pointing towards the orbited body. Opposite of zenith."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="4) Port"/><LineBreak/><Run FontSize="14" Text="    Left side of the ship. Opposite of starboard."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="5) Starboard"/><LineBreak/><Run FontSize="14" Text="    Right side of the ship. Opposite of port."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="6) Forward (Fore)"/><LineBreak/><Run FontSize="14" Text="    Front side/end of the ship which is usually towards the nose or prograde. Opposite of aft."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="7) Aft"/><LineBreak/><Run FontSize="14" Text="    Back side/end of the ship which usually houses the primary rockets and faces retrograde. Opposite of forward."/></TextBlock>
+
+
+        </ScrollViewer>
+    </Grid>
+</Page>

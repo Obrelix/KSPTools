@@ -1,0 +1,185 @@
+﻿<Page x:Class="Kerbal_Space_Progam_Tools.Pages.PageMain"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kerbal_Space_Progam_Tools.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="850"
+        Title="KSP Tools" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="219*"/>
+            <RowDefinition Height="142*"/>
+            <RowDefinition Height="142*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/Backgrounds/kspbg.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="150*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="10,10,0,10" Grid.ColumnSpan="2" >
+            <Image x:Name="image" HorizontalAlignment="Left" Height="123" VerticalAlignment="Bottom" Width="282" Source="/Images/Logo/kspLogo.png"/>
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal"   Width="284" Height="57" >
+                <Rectangle Grid.Column="2" Fill="#FF01E8FF" HorizontalAlignment="Left" Height="57"  RadiusY="20" RadiusX="20" Grid.RowSpan="2" Stroke="Black" VerticalAlignment="Top" Width="288" Margin="0,0,0,-17" Opacity="0.1"/>
+                <TextBlock x:Name="textBoxForum" Margin="-275, 0, 0, 0" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Center" Width="69" ><Hyperlink Click="Forum_Click" FontSize="16"><Run Text="Forums"/></Hyperlink></TextBlock>
+                <TextBlock x:Name="textBoxReddit" Margin="-200, 0, 0, 0" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Center" Width="85"  ><Hyperlink Click="Reddit_Click" FontSize="16"><Run Text="SubReddit"/></Hyperlink></TextBlock>
+                <TextBlock x:Name="textWiki" Margin="-110, 0, 0, 0" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Center" Width="45" ><Hyperlink Click="Wiki_Click" FontSize="16"><Run Text="Wiki"/></Hyperlink></TextBlock>
+                <TextBlock x:Name="textBoxMods" Margin="-60, 0, 0, 0" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow"  VerticalAlignment="Center" Width="41" ><Hyperlink Click="CurseMods_Click" FontSize="16"><Run Text="Mods"/></Hyperlink></TextBlock>
+            </StackPanel>
+        </StackPanel>
+        <Button Content="" Name="StartKsp" Visibility="Hidden" Template="{DynamicResource BackgroundButton}" Click="button_Click"  Grid.Column="4" Width="69" Height="69"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="16,10,84,147"  >
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Buttons/KspStartButton.png" Stretch="Uniform" />
+            </Button.Background>
+            <Button.Resources>
+                <ControlTemplate x:Key="BackgroundButton" TargetType="Button">
+                    <Border Name="border" BorderThickness="1"  Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/Images/Buttons/KspStartButton.png" Stretch="Uniform" Opacity="0.5" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Resources>
+        </Button>
+        <Button Content="" Name="buttonBiomes" Template="{DynamicResource BackgroundButton}" Grid.Column="3"  Grid.Row="2" Width="150" Height="113"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="buttonBiomes_Click"  >
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Buttons/Biomes.png" Stretch="UniformToFill" />
+            </Button.Background>
+            <Button.Resources>
+                <ControlTemplate x:Key="BackgroundButton" TargetType="Button">
+                    <Border Name="border" BorderThickness="1"  Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/Images/Buttons/Biomes.png" Stretch="UniformToFill" Opacity="0.5" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Resources>
+        </Button>
+        <Button Content="" Name="buttonDeltaVMaps" Template="{DynamicResource BackgroundButton}" Grid.Column="4"  Grid.Row="2" Width="150" Height="113"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="buttonDeltaVMaps_Click"  >
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Buttons/DeltaVMapbtn.png" Stretch="UniformToFill" />
+            </Button.Background>
+            <Button.Resources>
+                <ControlTemplate x:Key="BackgroundButton" TargetType="Button">
+                    <Border Name="border" BorderThickness="1"  Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/Images/Buttons/DeltaVMapbtn.png" Stretch="UniformToFill" Opacity="0.5"  />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Resources>
+        </Button>
+        <Button Content="" x:Name="buttonTerminology" Template="{DynamicResource BackgroundButton}" Grid.Column="2"  Grid.Row="2" Width="150" Height="113"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="buttonTerminology_Click"  >
+            <Button.Resources>
+                <ControlTemplate x:Key="BackgroundButton" TargetType="{x:Type Button}">
+                    <Border x:Name="border" BorderThickness="1"  Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/Images/Buttons/terminologi.png" Stretch="UniformToFill" Opacity="0.5" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Resources>
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Buttons/terminologi.png" Stretch="UniformToFill" />
+            </Button.Background>
+        </Button>
+        <Button Content="" x:Name="buttonDVCalc" Template="{DynamicResource BackgroundButton}"  Grid.Row="2" Width="150" Height="113" VerticalAlignment="Center" HorizontalAlignment="Center"  Grid.Column="1" Click="buttonDVCalc_Click"  >
+            <Button.Resources>
+                <ControlTemplate x:Key="BackgroundButton" TargetType="{x:Type Button}">
+                    <Border x:Name="border" BorderThickness="1"  Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/Images/Buttons/KspDVCalc.png" Stretch="UniformToFill" Opacity="0.5" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Resources>
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Buttons/KspDVCalc.png" Stretch="UniformToFill" />
+            </Button.Background>
+        </Button>
+        <Button Content="" x:Name="buttonMissonDVCalc" Template="{DynamicResource BackgroundButton}"  Grid.Row="2" Width="150" Height="113"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="buttonMissonDVCalc_Click" >
+            <Button.Resources>
+                <ControlTemplate x:Key="BackgroundButton" TargetType="{x:Type Button}">
+                    <Border x:Name="border" BorderThickness="1"  Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/Images/Buttons/misionbtn.png" Stretch="UniformToFill" Opacity="0.5" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Resources>
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Buttons/misionbtn.png" Stretch="UniformToFill" />
+            </Button.Background>
+        </Button>
+        <Button Content="" Visibility="Hidden"  x:Name="StartCkan" Template="{DynamicResource BackgroundButton}" Click="button_ClickCkan"  Grid.Column="4" Width="69" Height="69"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="90,10,10,147"  >
+            <Button.Resources>
+                <ControlTemplate x:Key="BackgroundButton" TargetType="{x:Type Button}">
+                    <Border x:Name="border" BorderThickness="1"  Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/Images/Buttons/Ckanbtn.png" Stretch="Uniform" Opacity="0.5" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Resources>
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/Buttons/Ckanbtn.png" Stretch="Uniform" />
+            </Button.Background>
+        </Button>
+    </Grid>
+
+</Page>

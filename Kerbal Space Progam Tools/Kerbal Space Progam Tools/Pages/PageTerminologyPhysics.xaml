@@ -1,0 +1,143 @@
+﻿<Page x:Class="Kerbal_Space_Progam_Tools.Pages.PageTerminologyPhysics"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kerbal_Space_Progam_Tools.Pages"
+      mc:Ignorable="d" d:DesignWidth="1180"
+      Title="Terminology" d:DesignHeight="600">
+
+    <Grid Background="#FFFDFDFD" Margin="0">
+        <ScrollViewer>
+            <TextBlock x:Name="textBlock" Margin="0" TextWrapping="Wrap" FontSize="18"><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="24" Text="&#x9;&#x9;&#x9;Physics"/><LineBreak/><Run/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="1) Acceleration"/><LineBreak/><Run FontSize="14" Text="    Rate of change of velocity. Acceleration is a vector, measured in &quot;m/s^2&quot;."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="2) Ballistic trajectory"/><LineBreak/><Run FontSize="14" Text="    A freely falling object. In rocketry it usually indicates that the object in question is only influenced by gravity and does not exert any force (i.e. thrust) of its own."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="3) Delta-v (Δv)"/><LineBreak/><Run FontSize="14" Text="    The change in a spacecraft's velocity measured in meters per second (m/s). Delta-v can describe a spacecraft accelerating over a period of time (dependent on mass, thrust and duration) or a maneuver from one trajectory to another (independent of a spacecraft's properties). This makes it a useful value for calculating a vehicle's effectiveness. For example, a launch vehicle requires about 4,500 m/s of delta-v to escape Kerbin's atmosphere and achieve a stable orbit, which is fulfilled by having appropriate mass, thrust, fuel, etc."/><LineBreak/><Run FontSize="14" Text="    A general formula for the Delta-v of a vehicle with thrust T and mass"/><LineBreak/><Run FontSize="14" Text="&#x9;"/><InlineUIContainer>
+            		<Image
+
+
+            			Width="125" Source="/Kerbal Space Progam Tools;component/Images/Terminology/dv1.png" x:Name="image" Height="60"/>
+
+
+            	</InlineUIContainer><LineBreak/><Run FontSize="14" Text="For constant thrust in the direction of motion,"/><LineBreak/><Run FontSize="14" Text="&#x9;"/><InlineUIContainer>
+            		<Image d:DesignUseLayoutRounding="True" Width="300" UseLayoutRounding="True" x:Name="image1" Height="60">
+            			<Image.Source>
+
+
+            				<BitmapImage UriSource="/Kerbal Space Progam Tools;component/Images/Terminology/dv2.png" CacheOption="OnLoad" CreateOptions="IgnoreImageCache" BaseUri="pack://application:,,,/"/>
+
+
+            			</Image.Source>
+
+
+            		</Image>
+
+
+            	</InlineUIContainer><LineBreak/><Run FontSize="14" Text="In terms of specific impulse,"/><LineBreak/><Run FontSize="14" Text="&#x9;"/><InlineUIContainer>
+            		<Image
+
+
+            			Width="455" Source="/Kerbal Space Progam Tools;component/Images/Terminology/dv3.png" x:Name="image2" Height="60"/>
+
+
+            	</InlineUIContainer><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="4) Energy"/><LineBreak/><Run FontSize="14" Text="    The energy of an object in an orbit is the sum of its potential and kinetic energy. The potential energy is"/><LineBreak/><InlineUIContainer>
+            		<Image
+
+
+            			Width="100" Source="/Kerbal Space Progam Tools;component/Images/Terminology/Energy1.png" x:Name="image3" Height="45"/>
+
+
+            	</InlineUIContainer><Run FontSize="14" Text="  and kinetic energy  "/><InlineUIContainer>
+            		<Image
+
+
+            			Width="100" Source="/Kerbal Space Progam Tools;component/Images/Terminology/Energy2.png" x:Name="image4" Height="40"/>
+
+
+            	</InlineUIContainer><Run FontSize="14" Text="where G is the gravitational constant, M is the mass of the body, m is the mass of the craft, R is the distance from the center of the body and v is the velocity. This results in "/><InlineUIContainer>
+            		<Image
+
+
+            			Width="310" Source="/Kerbal Space Progam Tools;component/Images/Terminology/Energy3.png" x:Name="image5" Height="40"/>
+
+
+            	</InlineUIContainer><Run FontSize="14" Text=". The total energy remains the same when no thrust or external forces are applied. When approaching periapsis, potential energy is transferred into kinetic energy. After passing the periapsis, kinetic energy is converted back into potential energy. When the energy or specific orbital energy is greater than zero, the vehicle is on an escape trajectory."/><LineBreak/><Run FontSize="14" Text="    This is the basic idea behind Kepler's laws of planetary motion, which gives rise to KSP's patched conics approximation. An ellipse is the set of all points on a plane such that the sum of the distances to two points - the foci - is some constant. One focus of a Kepler orbit is the center of mass of the object being orbited; as an object approaches it, it exchanges potential energy for kinetic energy. As the object moves away from this focus - equivalently, if the orbit is elliptical, as the object approaches the other focus - it exchanges kinetic energy for potential energy. If the craft going directly towards or away from the object, the foci coincide with the apsides, where the kinetic (apoapsis) or potential (periapsis) energy is zero. If it's perfectly circular (e.g. the Mun's orbit around Kerbin), the two foci coincide and the locations of the apsides are undefined, since every point of the orbit is an apsis."/><LineBreak/><Run FontSize="14" Text="    There is also the specific orbital energy (\epsilon ) which doesn't require the mass of the craft:"/><LineBreak/><InlineUIContainer>
+            		<Image
+
+
+            			Width="115" Source="/Kerbal Space Progam Tools;component/Images/Terminology/Energy4.png" x:Name="image6" Height="25"/>
+
+
+            	</InlineUIContainer><Run FontSize="14" Text=", "/><InlineUIContainer>
+            		<Image
+
+
+            			Width="100" Source="/Kerbal Space Progam Tools;component/Images/Terminology/Energy5.png" x:Name="image7" Height="25"/>
+
+
+            	</InlineUIContainer><Run FontSize="14" Text=", "/><InlineUIContainer>
+            		<Image
+
+
+            			Width="235" Source="/Kerbal Space Progam Tools;component/Images/Terminology/Energy6.png" x:Name="image8" Height="35"/>
+
+
+            	</InlineUIContainer><LineBreak/><Run FontSize="14" Text="All orbits with the same semi-major axis (a) have the same specific orbital energy."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="5) Escape Velocity"/><LineBreak/><Run FontSize="14" Text="    The velocity needed to escape a given planet's gravity well, as given by"/><InlineUIContainer>
+            		<Image
+
+
+            			Width="105" Source="/Kerbal Space Progam Tools;component/Images/Terminology/EscapeVelocity.png" x:Name="image9" Height="40"/>
+
+
+            	</InlineUIContainer><Run FontSize="14" Text=" where G is the gravitational constant, M is the mass of the planet, and r is the radius of the planet."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="6) g-force (g)"/><LineBreak/><Run FontSize="14" Text="    A measurement of acceleration as expressed in the sea-level force of Earth's gravity with 1 g (not to be confused with the unit gram, or the local acceleration or the gravitational constant) being about 9.81 m/s². An object at Earth's surface is accelerated at 1 g. The object weighs twice as much when at 2 g acceleration and is weightless when accelerated with 0 g. In free fall, like in orbit, and without an engine running or an atmosphere applying drag all objects experience no acceleration which can be expressed as 0 g. (Strictly speaking an orbiting body still experiences acceleration, namely in the radial direction due to the gravitation of the body being orbited, but this is not usually included in an expression of g-force.)"/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="7) Gravity"/><LineBreak/><Run FontSize="14" Text="    The force exerted by all objects with mass. Very weak (by comparison with the other fundamental forces, but the only one modelled directly by KSP and the only one that is noticeable over long distances). Usually only objects with very high mass - i.e. planets, moons - have any noticeable effect. Diminishes with the square of distance from the center of mass. So for an object twice as far, experiences only 1/22 = 1/4 of the gravity."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="8) Gravity well"/><LineBreak/><Run FontSize="14" Text="    The area around a planet affected by gravity. Actually extends to infinity, but as gravity decreases quadratically with distance (after twice the distance the gravity is only a quarter), it is only significant within the body's sphere of influence. In fact, in KSP, gravity isn't simulated at all beyond a body's sphere of influence due to its use of the &quot;patched conic approximation&quot;."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="9) Orbit"/><LineBreak/><Run FontSize="14" Text="    When an object has sufficient tangential velocity (without external forces such as drag) so that the planet's surface curves away more than object's path curves due to gravity. Stable orbits are elliptical (with eccentricity between 0 and 1). If the object's tangential speed exceeds escape velocity its orbit will be hyperbolic (with eccentricity more than 1. Parabolic orbits require an eccentricity of exactly 1, and circular orbits require an eccentricity of exactly 0, which are impossible unless its orbit is defined as such, like the Mun)."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="10) Specific Impulse (Isp)"/><LineBreak/><InlineUIContainer>
+            		<Image
+
+
+            			Width="100" Source="/Kerbal Space Progam Tools;component/Images/Terminology/isp1.png" x:Name="image10" Height="40"/>
+
+
+            	</InlineUIContainer><Run FontSize="14" Text="  "/><InlineUIContainer>
+            		<Image
+
+
+            			Width="90" Source="/Kerbal Space Progam Tools;component/Images/Terminology/isp2.png" x:Name="image11" Height="40"/>
+
+
+            	</InlineUIContainer><LineBreak/><Run FontSize="14" Text="The Isp defines how effective a propulsion system is. The higher the Isp the more powerful is the thrust applied to the rocket with the same fuel mass. The Isp is usually given in seconds but actually the physically correct unit is distance per time which is usually given in meters per second or feet per second. To avoid confusion which unit of speed is used, the physical correct Isp (in distance/time) is divided by the surface gravity of Earth (9.81 m/s²). This results in a value given in seconds. To use this Isp in formulas it must to be converted back into distance per time which requires multiplying with the surface gravity of Earth again. As this value is only used to convert between those two units, the "/><Run FontWeight="Bold" FontSize="14" Text="specific impulse doesn't change when the gravity changes."/><Run FontSize="14" Text=" It appears that KSP use a value like 9.82 m/s² and thus using a little less fuel."/><LineBreak/><Run FontSize="14" Text="As the specific impulse is the ratio of thrust and fuel flow"/><InlineUIContainer>
+            		<Image
+
+
+            			Width="40" Source="/Kerbal Space Progam Tools;component/Images/Terminology/isp3.png" x:Name="image12" Height="35"/>
+
+
+            	</InlineUIContainer><Run FontSize="14" Text=" is sometimes given as the unit. This is mathematically another form "/><LineBreak/><InlineUIContainer>
+            		<Image
+
+
+            			Width="130" Source="/Kerbal Space Progam Tools;component/Images/Terminology/isp4.png" x:Name="image13" Height="35"/>
+
+
+            	</InlineUIContainer><Run FontSize="14" Text=" because force is the multiplication of mass and acceleration defining "/><InlineUIContainer>
+            		<Image
+
+
+            			Width="85" Source="/Kerbal Space Progam Tools;component/Images/Terminology/isp5.png" x:Name="image14" Height="35"/>
+
+
+            	</InlineUIContainer><Run FontSize="14" Text=" .  So  "/><InlineUIContainer>
+            		<Image
+
+
+            			Width="100" Source="/Kerbal Space Progam Tools;component/Images/Terminology/isp6.png" x:Name="image15" Height="35"/>
+
+
+            	</InlineUIContainer><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="11) Sphere of influence"/><LineBreak/><Run FontSize="14" Text="    The radius around a celestial body outside of which its gravity is negligible compared to the gravity of another body. Commonly known as SoI/SOI."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="12) Tangential velocity"/><LineBreak/><Run FontSize="14" Text="    The component of the velocity that is tangential to the trajectory. Instantaneous velocity - velocity when the time of measurement approaches zero - is always tangential to the trajectory."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="13) Thrust-to-weight ratio"/><LineBreak/><InlineUIContainer>
+            		<Image
+
+
+            			Width="175" Source="/Kerbal Space Progam Tools;component/Images/Terminology/TWR.png" x:Name="image16" Height="60"/>
+
+
+            	</InlineUIContainer><LineBreak/><Run FontSize="14" Text="The Ratio between the total mass of the vehicle and the available thrust of all propulsion devices of the vehicle/current stage. A TWR greater than 1 means the craft will have enough thrust to accelerate vertically and gain altitude. A TWR below 1 means that the craft won't be able to counteract gravity and drag at low altitudes, although in space it only means that maneuvers will take longer. Because the weight (W) depends on the current gravitational acceleration (g) the TWR depends on which body is currently influencing the craft. The acceleration on the Mun's surface is only 16.6 % of Kerbin's acceleration, so at the surface a TWRKerbin = 1 would be a TWRMun = 6."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="14) Trajectory"/><LineBreak/><Run FontSize="14" Text="    A trajectory is the path that a moving object follows through space as a function of time."/><LineBreak/><LineBreak/><Run Foreground="#FF0017FF" FontWeight="Bold" FontSize="14" Text="15) Velocity"/><LineBreak/><Run FontSize="14" Text="    Rate of change of the position. It is the combination of speed with the direction. Velocity is a vector, measured in meters per second (m/s)."/><LineBreak/></TextBlock>
+
+
+        </ScrollViewer>
+    </Grid>
+</Page>
