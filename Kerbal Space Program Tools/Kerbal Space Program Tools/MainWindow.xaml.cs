@@ -52,27 +52,27 @@ namespace Kerbal_Space_Progam_Tools
         {
             if (comboBoxTerminology.SelectedIndex < 6)
             {
-                frameTerminology.Source = new Uri("/Kerbal Space Progam Tools;component/Pages/PageTerminology.xaml", UriKind.Relative);
+                frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/PageTerminology.xaml", UriKind.Relative);
             }
             else if(comboBoxTerminology.SelectedIndex > 5 && comboBoxTerminology.SelectedIndex < 27)
             {
-                frameTerminology.Source = new Uri("/Kerbal Space Progam Tools;component/Pages/PageTerminologyOrbitalTerms.xaml", UriKind.Relative);
+                frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/PageTerminologyOrbitalTerms.xaml", UriKind.Relative);
             }
             else if(comboBoxTerminology.SelectedIndex > 26 && comboBoxTerminology.SelectedIndex < 35)
             {
-                frameTerminology.Source = new Uri("/Kerbal Space Progam Tools;component/Pages/PageTerminologyShipOrientation.xaml", UriKind.Relative);
+                frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/PageTerminologyShipOrientation.xaml", UriKind.Relative);
             }
             else if (comboBoxTerminology.SelectedIndex > 34 && comboBoxTerminology.SelectedIndex < 47)
             {
-                frameTerminology.Source = new Uri("/Kerbal Space Progam Tools;component/Pages/PageTerminologySpaceManeuvers.xaml", UriKind.Relative);
+                frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/PageTerminologySpaceManeuvers.xaml", UriKind.Relative);
             }
             else if (comboBoxTerminology.SelectedIndex > 46 && comboBoxTerminology.SelectedIndex < 63)
             {
-                frameTerminology.Source = new Uri("/Kerbal Space Progam Tools;component/Pages/PageTerminologyPhysics.xaml", UriKind.Relative);
+                frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/PageTerminologyPhysics.xaml", UriKind.Relative);
             }
             else
             {
-                frameTerminology.Source = new Uri("/Kerbal Space Progam Tools;component/Pages/InterplanetaryHowToGuide.xaml", UriKind.Relative);
+                frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/InterplanetaryHowToGuide.xaml", UriKind.Relative);
             }
         }
 
@@ -80,27 +80,27 @@ namespace Kerbal_Space_Progam_Tools
         {
             if (radioButtonMaths.IsChecked == true)
             {
-                frameTerminology.Source = new Uri("/Kerbal Space Progam Tools;component/Pages/PageTerminology.xaml", UriKind.Relative);
+                frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/PageTerminology.xaml", UriKind.Relative);
             }
             else if (radioButtonOrbitTerms.IsChecked == true)
             {
-                frameTerminology.Source = new Uri("/Kerbal Space Progam Tools;component/Pages/PageTerminologyOrbitalTerms.xaml", UriKind.Relative);
+                frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/PageTerminologyOrbitalTerms.xaml", UriKind.Relative);
             }
             else if (radioButtonShipOrient.IsChecked == true)
             {
-                frameTerminology.Source = new Uri("/Kerbal Space Progam Tools;component/Pages/PageTerminologyShipOrientation.xaml", UriKind.Relative);
+                frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/PageTerminologyShipOrientation.xaml", UriKind.Relative);
             }
             else if (radioButtonSpaceManu.IsChecked == true)
             {
-                frameTerminology.Source = new Uri("/Kerbal Space Progam Tools;component/Pages/PageTerminologySpaceManeuvers.xaml", UriKind.Relative);
+                frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/PageTerminologySpaceManeuvers.xaml", UriKind.Relative);
             }
             else if (radioButtonPhysics.IsChecked == true)
             {
-                frameTerminology.Source = new Uri("/Kerbal Space Progam Tools;component/Pages/PageTerminologyPhysics.xaml", UriKind.Relative);
+                frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/PageTerminologyPhysics.xaml", UriKind.Relative);
             }
             else if (radioButtonInterplanetary.IsChecked == true)
             {
-                frameTerminology.Source = new Uri("/Kerbal Space Progam Tools;component/Pages/InterplanetaryHowToGuide.xaml", UriKind.Relative);
+                frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/InterplanetaryHowToGuide.xaml", UriKind.Relative);
             }
         }
 

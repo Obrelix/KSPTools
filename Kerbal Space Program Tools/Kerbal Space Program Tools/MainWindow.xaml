@@ -66,29 +66,29 @@
             </TabItem>
             <TabItem Header="Mission Calculator" Background="{x:Null}" Margin="298,0,-298,0">
                 <Grid>
-                    <Frame x:Name="frameMission" Content="Frame" Margin="0" Source="/Kerbal Space Progam Tools;component/Pages/PageMissionCalc.xaml" NavigationUIVisibility="Hidden"/>
+                    <Frame x:Name="frameMission" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageMissionCalc.xaml" NavigationUIVisibility="Hidden"/>
 
                 </Grid>
             </TabItem>
             <TabItem Header="Δv Calculator" Background="{x:Null}" Margin="298,0,-298,0">
                 <Grid>
-                    <Frame x:Name="frameDVCalc" Content="Frame" Margin="0" Source="/Kerbal Space Progam Tools;component/Pages/PageDVCalc.xaml" NavigationUIVisibility="Hidden"/>
+                    <Frame x:Name="frameDVCalc" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageDVCalc.xaml" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
 
             <TabItem Header="Biome Maps" Background="{x:Null}" Margin="298,0,-298,0">
                 <Grid>
-                    <Frame x:Name="frameBiomes" Content="Frame" Margin="0" Source="/Kerbal Space Progam Tools;component/Pages/PageBiomes.xaml" NavigationUIVisibility="Hidden"/>
+                    <Frame x:Name="frameBiomes" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageBiomes.xaml" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Δv Maps" Background="{x:Null}" Margin="298,0,-298,0">
                 <Grid>
-                    <Frame x:Name="frameDVMap" Content="Frame" Margin="0" Source="/Kerbal Space Progam Tools;component/Pages/PageDVMap.xaml" NavigationUIVisibility="Hidden"/>
+                    <Frame x:Name="frameDVMap" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageDVMap.xaml" NavigationUIVisibility="Hidden"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Terminology"  Background="{x:Null}" Margin="298,0,-298,0">
                 <Grid>
-                    <Frame x:Name="frameTerminology" Content="Frame" Margin="0"  NavigationUIVisibility="Hidden" Source="/Kerbal Space Progam Tools;component/Pages/PageTerminologyOrbitalTerms.xaml"/>
+                    <Frame x:Name="frameTerminology" Content="Frame" Margin="0"  NavigationUIVisibility="Hidden" Source="/Kerbal Space Program Tools;component/Pages/PageTerminologyOrbitalTerms.xaml"/>
                     <ComboBox x:Name="comboBoxTerminology" HorizontalAlignment="Left" VerticalAlignment="Top" Width="155" SelectionChanged="comboBoxTerminology_SelectionChanged" FontWeight="Bold" Margin="0,10,0,0"/>
                     <Expander x:Name="expander" Header="Terms" HorizontalAlignment="Left" VerticalAlignment="Top" ExpandDirection="Right" Height="158" Width="845" Background="{x:Null}" Margin="175,10,0,0" Foreground="#FF1700FF">
                         <Grid Background="#FFFFF9F9" >
