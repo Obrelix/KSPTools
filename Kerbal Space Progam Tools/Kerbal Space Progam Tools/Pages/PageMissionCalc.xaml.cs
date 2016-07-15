@@ -429,7 +429,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
             return txt;
 
         }
-        S
+        
         private int DeltaVCount(int i, int j)
         {
             bool flag = true;
