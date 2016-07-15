@@ -424,12 +424,12 @@ namespace Kerbal_Space_Progam_Tools.Pages
             txt = ksp[Counter].Name + " To " + ksp[i].Name +
                                 Environment.NewLine + "Trasfer Time : " + string.Format("{0:#,#.00}", HohmannTransferTime / CurrentTime) + " Days" +
                                 Environment.NewLine + "Phase Angle : " + string.Format("{0:#,#.00}", Angle) + "°" +
-                                Environment.NewLine + "Interval between launch windows : " + string.Format("{0:#,#.00}", IntervalTime / CurrentTime) + " Days";
+                                Environment.NewLine + "Interval between launch Windows : " + string.Format("{0:#,#.00}", IntervalTime / CurrentTime) + " Days";
 
             return txt;
 
         }
-
+        S
         private int DeltaVCount(int i, int j)
         {
             bool flag = true;
@@ -487,9 +487,9 @@ namespace Kerbal_Space_Progam_Tools.Pages
             if (ksp[i].Type == Types.Moon)
             {
                 TextBlockTXT =
-                        "Selestial object : " + ksp[i].Name + "    Type : " + ksp[i].Type + "    Moon of : " + ksp[i].System +
+                        "Celestial object : " + ksp[i].Name + "    Type : " + ksp[i].Type + "    Moon of : " + ksp[i].System +
                         Environment.NewLine +
-                        "Surfase Gravity : " + ksp[i].SurfaceGravity + " m/s^2" + "    Low Orbit : " + ksp[i].LowOrbit + Environment.NewLine +
+                        "Surface Gravity : " + ksp[i].SurfaceGravity + " m/s^2" + "    Low Orbit : " + ksp[i].LowOrbit + Environment.NewLine +
                         "Escape Velocity : " + ksp[i].EscapeVelocity + "    Sphere of influence : " + ksp[i].SphereOfInfluence +
                         Environment.NewLine +
                         "Atmosphere Present: " + ksp[i].Atmosphere;
@@ -497,9 +497,9 @@ namespace Kerbal_Space_Progam_Tools.Pages
             else if (ksp[i].Type != Types.Moon)
             {
                 TextBlockTXT =
-                        "Selestial object : " + ksp[i].Name + "    Type : " + ksp[i].Type +
+                        "Celestial object : " + ksp[i].Name + "    Type : " + ksp[i].Type +
                         Environment.NewLine +
-                        "Surfase Gravity : " + ksp[i].SurfaceGravity + " m/s^2" + "    Low Orbit : " + ksp[i].LowOrbit + Environment.NewLine +
+                        "Surface Gravity : " + ksp[i].SurfaceGravity + " m/s^2" + "    Low Orbit : " + ksp[i].LowOrbit + Environment.NewLine +
                         "Escape Velocity : " + ksp[i].EscapeVelocity + "    Sphere of influence : " + ksp[i].SphereOfInfluence +
                         Environment.NewLine +
                         "Atmosphere  Present : " + ksp[i].Atmosphere;
