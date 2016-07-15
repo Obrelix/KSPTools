@@ -7,7 +7,7 @@
     <ProjectGuid>{9A855FBC-70D4-437F-A1D9-1E6A32C89A72}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Kerbal_Space_Progam_Tools</RootNamespace>
+    <RootNamespace>Kerbal_Space_Program_Tools</RootNamespace>
     <AssemblyName>Kerbal Space Program Tools</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -66,6 +66,7 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
