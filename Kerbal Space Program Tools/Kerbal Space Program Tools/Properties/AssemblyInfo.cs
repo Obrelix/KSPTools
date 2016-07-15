@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Kerbal Space Progam Tools")]
+[assembly: AssemblyTitle("Kerbal Space Program Tools")]
 [assembly: AssemblyDescription("A combination of useful tools for Kerbal Space Program")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Kerbal Space Progam Tools")]
+[assembly: AssemblyProduct("Kerbal Space Program Tools")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
