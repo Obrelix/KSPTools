@@ -507,7 +507,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
             if (ksp[i].Atmosphere)
             {
                 TextBlockTXT +=
-                    "   Oxigen Present : " + ksp[i].oxigen + "    Pressure : " + ksp[i].Pressure + " atm";
+                    "   Oxygen Present : " + ksp[i].oxigen + "    Pressure : " + ksp[i].Pressure + " atm";
             }
             TextBlockTXT += Environment.NewLine +
             "Biomes : " + ksp[i].Biomes + "   Scientific Multiplier: " + "   Surface : " + ksp[i].Surface + "    Lower atmo : " + ksp[i].LowerAtmosphere + Environment.NewLine +
