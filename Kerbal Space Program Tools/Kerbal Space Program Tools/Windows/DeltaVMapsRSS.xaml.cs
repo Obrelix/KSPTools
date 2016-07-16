@@ -22,6 +22,11 @@ namespace Kerbal_Space_Program_Tools.Windows
         public DeltaVMapsRSS()
         {
             InitializeComponent();
+            WPFWindow.MouseWheel += MainWindow_MouseWheel;
+
+            image.MouseLeftButtonDown += image_MouseLeftButtonDown;
+            image.MouseLeftButtonUp += image_MouseLeftButtonUp;
+            image.MouseMove += image_MouseMove;
         }
         private Point origin;
         private Point start;

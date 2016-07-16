@@ -27,6 +27,52 @@ namespace Kerbal_Space_Progam_Tools.Pages
             , "Minmus", "Minmus old", "Moho", "Mun", "Mun Old", "Pol", "Tylo", "Vall"};
             comboBoxMaps.ItemsSource = Maps;
             comboBoxMaps.SelectedIndex = 13;
+            WPFWindow.MouseWheel += MainWindow_MouseWheel;
+
+            image.MouseLeftButtonDown += image_MouseLeftButtonDown;
+            image.MouseLeftButtonUp += image_MouseLeftButtonUp;
+            image.MouseMove += image_MouseMove;
+        }
+        private Point origin;
+        private Point start;
+        private void image_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            image.ReleaseMouseCapture();
+        }
+
+        private void image_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!image.IsMouseCaptured) return;
+            Point p = e.MouseDevice.GetPosition(border);
+
+            Matrix m = image.RenderTransform.Value;
+            m.OffsetX = origin.X + (p.X - start.X);
+            m.OffsetY = origin.Y + (p.Y - start.Y);
+
+            image.RenderTransform = new MatrixTransform(m);
+        }
+
+        private void image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (image.IsMouseCaptured) return;
+            image.CaptureMouse();
+
+            start = e.GetPosition(border);
+            origin.X = image.RenderTransform.Value.OffsetX;
+            origin.Y = image.RenderTransform.Value.OffsetY;
+        }
+
+        private void MainWindow_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            Point p = e.MouseDevice.GetPosition(image);
+
+            Matrix m = image.RenderTransform.Value;
+            if (e.Delta > 0)
+                m.ScaleAtPrepend(1.1, 1.1, p.X, p.Y);
+            else
+                m.ScaleAtPrepend(1 / 1.1, 1 / 1.1, p.X, p.Y);
+
+            image.RenderTransform = new MatrixTransform(m);
         }
         private string PlanetName = "";
         private void comboBoxMaps_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -38,7 +84,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Bop_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 1)
             {
@@ -47,7 +93,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Dres_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 2)
             {
@@ -56,7 +102,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Duna_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 3)
             {
@@ -65,7 +111,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Eeloo_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 4)
             {
@@ -74,7 +120,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Eve_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 5)
             {
@@ -83,7 +129,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Gilly_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 6)
             {
@@ -92,7 +138,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Ike_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 7)
             {
@@ -101,7 +147,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Kerbin_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 8)
             {
@@ -110,7 +156,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/KerbinBiomeMap.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 9)
             {
@@ -119,7 +165,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Laythe_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 10)
             {
@@ -128,7 +174,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Minmus_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 11)
             {
@@ -137,7 +183,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Minmusbiome.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 12)
             {
@@ -146,7 +192,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Moho_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 13)
             {
@@ -155,7 +201,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Mun_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 14)
             {
@@ -164,7 +210,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/MunBiomeMap.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 15)
             {
@@ -173,7 +219,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Pol_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 16)
             {
@@ -182,7 +228,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Tylo_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
             if (comboBoxMaps.SelectedIndex == 17)
             {
@@ -191,7 +237,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 logo.BeginInit();
                 logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Vall_Biome_Map_0.90.0.png");
                 logo.EndInit();
-                Main.Source = logo;
+                image.Source = logo;
             }
 
         }
@@ -258,15 +304,15 @@ namespace Kerbal_Space_Progam_Tools.Pages
                     Environment.NewLine +
                     "Administration, Astronaut Complex[Note 1], Crawlerway, Flag Pole, LaunchPad, Mission Control, " +
                     Environment.NewLine +
-                    "R & D, R & D Central Building, R & D Corner Lab, R & D Main Building, R & D Observatory, R & D Side Lab, R & D Small Lab,R & D Tanks, R & D Wind Tunnel," +
+                    "R & D, R & D Central Building, R & D Corner Lab, R & D image Building, R & D Observatory, R & D Side Lab, R & D Small Lab,R & D Tanks, R & D Wind Tunnel," +
                     Environment.NewLine +
                     "Runway" +
                     Environment.NewLine +
-                    "SPH, SPH Main Building, SPH Round Tank, SPH Tanks, SPH Water Tower," +
+                    "SPH, SPH image Building, SPH Round Tank, SPH Tanks, SPH Water Tower," +
                     Environment.NewLine +
                     "Tracking Station, Tracking Station Dish East, Tracking Station Dish North, Tracking Station Dish South, Tracking Station Hub, " +
                     Environment.NewLine +
-                    "VAB, VAB Main Building, VAB Pod Memorial, VAB Round Tank, VAB South Complex[Note 2], VAB Tanks" +
+                    "VAB, VAB image Building, VAB Pod Memorial, VAB Round Tank, VAB South Complex[Note 2], VAB Tanks" +
 
                     Environment.NewLine +
                     Environment.NewLine +

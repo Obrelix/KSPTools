@@ -6,10 +6,13 @@
       xmlns:local="clr-namespace:Kerbal_Space_Progam_Tools.Pages"
       mc:Ignorable="d" 
        d:DesignHeight="590" d:DesignWidth="1180"
-      Title="Biomes" >
+      Title="Biomes" 
+      x:Name="WPFWindow">
 
-    <Grid x:Name="Main1">
-        <Image x:Name="Main" Source="/Images/Biomes/Mun_Biome_Map_0.90.0.png" VerticalAlignment="Bottom"  />
+    <Grid x:Name="LayoutRoot">
+        <Border Grid.Row="1" Name="border" ClipToBounds="True">
+            <Image x:Name="image" Source="/Images/Biomes/Mun_Biome_Map_0.90.0.png" VerticalAlignment="Bottom"  />
+        </Border>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Margin="10,10,0,0" >
             <ComboBox x:Name="comboBoxMaps"  Text="Choose Delta-V Map"   Width="120" SelectionChanged="comboBoxMaps_SelectionChanged" Height="23"/>
             <Button x:Name="button" Content="More info" Width="75"  Height="23" Click="button_Click"/>
