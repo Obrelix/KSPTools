@@ -7,16 +7,30 @@
       mc:Ignorable="d" 
        d:DesignHeight="590" d:DesignWidth="1180"
       Title="Biomes" 
-      x:Name="WPFWindow">
+      x:Name="WPFWindow" Loaded="WPFWindow_Loaded">
 
     <Grid x:Name="LayoutRoot">
         <Border Grid.Row="1" Name="border" ClipToBounds="True">
             <Image x:Name="image" Source="/Images/Biomes/Mun_Biome_Map_0.90.0.png" VerticalAlignment="Bottom"  />
         </Border>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Margin="10,10,0,0" >
-            <ComboBox x:Name="comboBoxMaps"  Text="Choose Delta-V Map"   Width="120" SelectionChanged="comboBoxMaps_SelectionChanged" Height="23"/>
-            <Button x:Name="button" Content="More info" Width="75"  Height="23" Click="button_Click"/>
-            <Button x:Name="buttonNew" Content="New Window" Width="80"  Height="23" Click="button_Click2" Margin="50,0,0,0"/>
+        <Grid Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Rectangle Fill="White" Opacity="0.315" RadiusX="20" RadiusY="20"/>
+            <StackPanel  HorizontalAlignment="Left" VerticalAlignment="Top"  >
+            <StackPanel Height="23" VerticalAlignment="Center" Orientation="Horizontal" Grid.ColumnSpan="2">
+                <RadioButton x:Name="radioButtonNormal" GroupName="mods" Content="Normal  " HorizontalAlignment="Left" Foreground="#FF010CFD"   Checked="radioButtonNormal_Checked" Margin="0,0,0,8"/>
+                <RadioButton x:Name="radioButtonOuter" GroupName="mods" Content="Outer Planets " HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="#FF3AFD01"  Checked="radioButtonNormal_Checked"/>
+                <RadioButton x:Name="radioButtonRss" GroupName="mods" Content="R.S.S" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="#FF0982FB" Checked="radioButtonNormal_Checked"/>
+            </StackPanel>
+            <StackPanel >
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox x:Name="comboBoxMaps"  Text="Choose Delta-V Map"   Width="120" SelectionChanged="comboBoxMaps_SelectionChanged" Height="23"/>
+                    <Button x:Name="button" Content="More info" Width="75"  Height="23" Click="button_Click"/>
+                </StackPanel>
+                    <Label Content="Mousewheel to zoom. Hold left mousebutton to pan." Height="35" HorizontalAlignment="Center" Margin="0" Name="label1" VerticalAlignment="Center" Width="293" />
+
+            </StackPanel>
+            
         </StackPanel>
+        </Grid>
     </Grid>
 </Page>

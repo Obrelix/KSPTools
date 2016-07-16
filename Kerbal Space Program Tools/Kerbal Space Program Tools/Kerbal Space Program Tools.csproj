@@ -646,6 +646,42 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Biomes\OuterPlanets\Hale_Biome_Map.png" />
+    <Resource Include="Images\Biomes\OuterPlanets\Ovok_Biome_Map.png" />
+    <Resource Include="Images\Biomes\OuterPlanets\Polta_Biome_Map.png" />
+    <Resource Include="Images\Biomes\OuterPlanets\Priax_Biome_Map.png" />
+    <Resource Include="Images\Biomes\OuterPlanets\Slate_Biome_Map.png" />
+    <Resource Include="Images\Biomes\OuterPlanets\Tal_Biome_Map.png" />
+    <Resource Include="Images\Biomes\OuterPlanets\Tekto_Biome_Map.png" />
+    <Resource Include="Images\Biomes\OuterPlanets\Wal_Biome_Map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Biomes\RSS\CallistoBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\CharonBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\DeimosBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\DioneBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\EarthBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\EnceladusBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\EuropaBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\GanymedeBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\IapetusBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\IoBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\JupiterBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\MarsBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\MercuryBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\MimasBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\MoonBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\PhobosBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\PlutoBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\RheaBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\SaturnBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\TethysBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\TitanBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\TritonBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\UranusBiomes.png" />
+    <Resource Include="Images\Biomes\RSS\VenusBiomes.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

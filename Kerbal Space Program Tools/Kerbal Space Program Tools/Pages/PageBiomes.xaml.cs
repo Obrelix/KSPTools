@@ -23,16 +23,49 @@ namespace Kerbal_Space_Progam_Tools.Pages
         public PageBiomes()
         {
             InitializeComponent();
-            string[] Maps = new string[18] { "Bop", "Dress", "Duna", "Eeloo", "Eve", "Gilly", "Ike", "Kerbin", "Kerbin Old", "Laythe"
-            , "Minmus", "Minmus old", "Moho", "Mun", "Mun Old", "Pol", "Tylo", "Vall"};
-            comboBoxMaps.ItemsSource = Maps;
-            comboBoxMaps.SelectedIndex = 13;
+            
             WPFWindow.MouseWheel += MainWindow_MouseWheel;
 
             image.MouseLeftButtonDown += image_MouseLeftButtonDown;
             image.MouseLeftButtonUp += image_MouseLeftButtonUp;
             image.MouseMove += image_MouseMove;
         }
+
+        string[] Maps = new string[18] { "Bop", "Dress", "Duna", "Eeloo", "Eve", "Gilly", "Ike", "Kerbin", "Kerbin Old", "Laythe"
+            , "Minmus", "Minmus old", "Moho", "Mun", "Mun Old", "Pol", "Tylo", "Vall"};
+        string[] OuterMaps = new string[8] { "Hale", "Ovoc", "Polta", "Priax", "Slate", "Tal", "Tekto", "Wall" };
+        string[] RSSMaps = new string[24] { "Callisto", "Charon", "Deimos", "Dione", "Earth", "Enceladus", "Europa", "Ganymede",
+                "Iapetus", "Io", "Jupiter", "MarsBiomes", "MercuryBiomes", "Mimas", "Moon", "Phobos", "Pluto", "Rhea", "Saturn",
+                "Tethys", "Titan", "Triton", "Uranus", "Venus"};
+
+        private void WPFWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+            radioButtonNormal.IsChecked = true;
+            
+            
+        }
+
+        private void radioButtonNormal_Checked(object sender, RoutedEventArgs e)
+        {
+            if (radioButtonRss.IsChecked == true)
+            {
+                comboBoxMaps.ItemsSource = RSSMaps;
+                comboBoxMaps.SelectedIndex = 4;
+            }
+            else if (radioButtonOuter.IsChecked == true)
+            {
+                comboBoxMaps.ItemsSource = OuterMaps;
+                comboBoxMaps.SelectedIndex = 3;
+            }
+            else 
+            {
+                comboBoxMaps.ItemsSource = Maps;
+                comboBoxMaps.SelectedIndex = 13;
+            }
+
+        }
+
         private Point origin;
         private Point start;
         private void image_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -74,170 +107,469 @@ namespace Kerbal_Space_Progam_Tools.Pages
 
             image.RenderTransform = new MatrixTransform(m);
         }
+
         private string PlanetName = "";
+
         private void comboBoxMaps_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (comboBoxMaps.SelectedIndex == 0)
+            if (radioButtonRss.IsChecked == true)
             {
-                PlanetName = "Bop";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Bop_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
+                if (comboBoxMaps.SelectedIndex == 0)
+                {
+                    PlanetName = "Callisto";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/CallistoBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 1)
+                {
+                    PlanetName = "Charon";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/CharonBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 2)
+                {
+                    PlanetName = "Deimos";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/DeimosBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 3)
+                {
+                    PlanetName = "Dione";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/DioneBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 4)
+                {
+                    PlanetName = "Earth";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/EarthBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 5)
+                {
+                    PlanetName = "Enceladus";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/EnceladusBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 6)
+                {
+                    PlanetName = "EuropaBiomes.png";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/EuropaBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 7)
+                {
+                    PlanetName = "Ganymede";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/GanymedeBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 8)
+                {
+                    PlanetName = "Iapetus";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/IapetusBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 9)
+                {
+                    PlanetName = "Io";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/IoBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 10)
+                {
+                    PlanetName = "Jupiter";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/JupiterBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 11)
+                {
+                    PlanetName = "Mars";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/MarsBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 12)
+                {
+                    PlanetName = "Mercury";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/MercuryBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 13)
+                {
+                    PlanetName = "Mimas";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/MimasBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 14)
+                {
+                    PlanetName = "MoonBiomes.png";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/MoonBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 15)
+                {
+                    PlanetName = "Phobos";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/PhobosBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 16)
+                {
+                    PlanetName = "PlutoBiomes.png";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/PlutoBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 17)
+                {
+                    PlanetName = "RheaBiomes.png";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/RheaBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 18)
+                {
+                    PlanetName = "Saturn";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/SaturnBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 19)
+                {
+                    PlanetName = "Tethys";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/TethysBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 20)
+                {
+                    PlanetName = "Titan";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/TitanBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 21)
+                {
+                    PlanetName = "Triton";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/TritonBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 22)
+                {
+                    PlanetName = "Uranus";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/UranusBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 23)
+                {
+                    PlanetName = "Venus";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/RSS/VenusBiomes.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
             }
-            if (comboBoxMaps.SelectedIndex == 1)
+            else  if (radioButtonOuter.IsChecked == true)
             {
-                PlanetName = "Dres";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Dres_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
+                if (comboBoxMaps.SelectedIndex == 0)
+                {
+                    PlanetName = "Hale";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/OuterPlanets/Hale_Biome_Map.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 1)
+                {
+                    PlanetName = "Ovok";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/OuterPlanets/Ovok_Biome_Map.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 2)
+                {
+                    PlanetName = "Polta";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/OuterPlanets/Polta_Biome_Map.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 3)
+                {
+                    PlanetName = "Priax";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/OuterPlanets/Priax_Biome_Map.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 4)
+                {
+                    PlanetName = "Slate";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/OuterPlanets/Slate_Biome_Map.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 5)
+                {
+                    PlanetName = "Tal";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/OuterPlanets/Tal_Biome_Map.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 6)
+                {
+                    PlanetName = "Tekto";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/OuterPlanets/Tekto_Biome_Map.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                else if (comboBoxMaps.SelectedIndex == 7)
+                {
+                    PlanetName = "Wal";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/OuterPlanets/Wal_Biome_Map.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
             }
-            if (comboBoxMaps.SelectedIndex == 2)
-            {
-                PlanetName = "Duna";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Duna_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 3)
-            {
-                PlanetName = "Eeloo";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Eeloo_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 4)
-            {
-                PlanetName = "Eve";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Eve_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 5)
-            {
-                PlanetName = "Gilly";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Gilly_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 6)
-            {
-                PlanetName = "Ike";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Ike_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 7)
-            {
-                PlanetName = "Kerbin";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Kerbin_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 8)
-            {
-                PlanetName = "Kerbin";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/KerbinBiomeMap.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 9)
-            {
-                PlanetName = "Laythe";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Laythe_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 10)
-            {
-                PlanetName = "Minmus";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Minmus_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 11)
-            {
-                PlanetName = "Minmus";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Minmusbiome.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 12)
-            {
-                PlanetName = "Moho";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Moho_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 13)
-            {
-                PlanetName = "Mun";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Mun_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 14)
-            {
-                PlanetName = "Mun";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/MunBiomeMap.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 15)
-            {
-                PlanetName = "Pol";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Pol_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 16)
-            {
-                PlanetName = "Tylo";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Tylo_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
-            }
-            if (comboBoxMaps.SelectedIndex == 17)
-            {
-                PlanetName = "Vall";
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Vall_Biome_Map_0.90.0.png");
-                logo.EndInit();
-                image.Source = logo;
+            else if ( radioButtonNormal.IsChecked == true)
+            { 
+                if (comboBoxMaps.SelectedIndex == 0 )
+                {
+                    PlanetName = "Bop";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Bop_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 1)
+                {
+                    PlanetName = "Dres";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Dres_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 2)
+                {
+                    PlanetName = "Duna";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Duna_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 3)
+                {
+                    PlanetName = "Eeloo";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Eeloo_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 4)
+                {
+                    PlanetName = "Eve";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Eve_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 5)
+                {
+                    PlanetName = "Gilly";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Gilly_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 6)
+                {
+                    PlanetName = "Ike";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Ike_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 7)
+                {
+                    PlanetName = "Kerbin";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Kerbin_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 8)
+                {
+                    PlanetName = "Kerbin";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/KerbinBiomeMap.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 9)
+                {
+                    PlanetName = "Laythe";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Laythe_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 10)
+                {
+                    PlanetName = "Minmus";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Minmus_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 11)
+                {
+                    PlanetName = "Minmus";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Minmusbiome.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 12)
+                {
+                    PlanetName = "Moho";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Moho_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 13)
+                {
+                    PlanetName = "Mun";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Mun_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 14)
+                {
+                    PlanetName = "Mun";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/MunBiomeMap.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 15)
+                {
+                    PlanetName = "Pol";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Pol_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 16)
+                {
+                    PlanetName = "Tylo";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Tylo_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
+                if (comboBoxMaps.SelectedIndex == 17)
+                {
+                    PlanetName = "Vall";
+                    BitmapImage logo = new BitmapImage();
+                    logo.BeginInit();
+                    logo.UriSource = new Uri(@"pack://application:,,/Images/Biomes/Vall_Biome_Map_0.90.0.png");
+                    logo.EndInit();
+                    image.Source = logo;
+                }
             }
 
         }
@@ -447,10 +779,6 @@ namespace Kerbal_Space_Progam_Tools.Pages
 
         }
 
-        private void button_Click2(object sender, RoutedEventArgs e)
-        {
-            Biomes wnd = new Biomes();
-            wnd.Show();
-        }
+        
     }
 }
