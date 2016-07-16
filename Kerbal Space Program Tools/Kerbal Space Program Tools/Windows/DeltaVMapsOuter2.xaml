@@ -1,9 +1,9 @@
-﻿<Window x:Class="Kerbal_Space_Progam_Tools.DeltaVMaps"
+﻿<Window x:Class="Kerbal_Space_Program_Tools.Windows.DeltaVMapOuter2"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Kerbal_Space_Progam_Tools"
+        xmlns:local="clr-namespace:Kerbal_Space_Program_Tools.Windows"
         mc:Ignorable="d"
         x:Name="WPFWindow"
         Title="DeltaVMaps" Height="750" Width="570">
@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <Border Grid.Row="1" Name="border" ClipToBounds="True">
-            <Image Name="image" Opacity="1" Source="/Kerbal Space Program Tools;component/Images/DeltaVMaps/Normal.png" />
+            <Image Name="image" Opacity="1" Source="/Kerbal Space Program Tools;component/Images/DeltaVMaps/DeltaVMap.png" />
         </Border>
 
         <Label Content="Mousewheel to zoom. Hold left mousebutton to pan." Height="35" HorizontalAlignment="Center" Margin="0" Name="label1" VerticalAlignment="Center" Width="293" />

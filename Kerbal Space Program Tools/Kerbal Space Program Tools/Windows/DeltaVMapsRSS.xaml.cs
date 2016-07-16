@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Resources;
 using System.Windows.Shapes;
 
-namespace Kerbal_Space_Progam_Tools
+namespace Kerbal_Space_Program_Tools.Windows
 {
     /// <summary>
-    /// Interaction logic for DeltaVMaps.xaml
+    /// Interaction logic for DeltaVMapsRSS.xaml
     /// </summary>
-    public partial class DeltaVMaps : Window
+    public partial class DeltaVMapsRSS : Window
     {
-        
-        public DeltaVMaps()
+        public DeltaVMapsRSS()
         {
-         
             InitializeComponent();
-            WPFWindow.MouseWheel += MainWindow_MouseWheel;
-
-            image.MouseLeftButtonDown += image_MouseLeftButtonDown;
-            image.MouseLeftButtonUp += image_MouseLeftButtonUp;
-            image.MouseMove += image_MouseMove;
         }
         private Point origin;
         private Point start;

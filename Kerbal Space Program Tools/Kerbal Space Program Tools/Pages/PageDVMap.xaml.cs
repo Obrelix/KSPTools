@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kerbal_Space_Program_Tools.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -70,28 +71,28 @@ namespace Kerbal_Space_Progam_Tools.Pages
         private void buttonNormal_Click(object sender, RoutedEventArgs e)
         {
             DeltaVMaps window = new DeltaVMaps();
-            window.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,/Images/DeltaVMaps/Normal.png")));
+            //window.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,/Images/DeltaVMaps/Normal.png")));
             window.Show();
         }
 
         private void buttonOuterStock_Click(object sender, RoutedEventArgs e)
         {
-            DeltaVMaps window = new DeltaVMaps();
-            window.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,/Images/DeltaVMaps/DeltaVMap.png")));
+            DeltaVMapsOuter1 window = new DeltaVMapsOuter1();
+            //window.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,/Images/DeltaVMaps/DeltaVMap.png")));
             window.Show();
         }
 
         private void buttonOuter_Click(object sender, RoutedEventArgs e)
         {
-            DeltaVMaps window = new DeltaVMaps();
-            window.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,/Images/DeltaVMaps/OuterPlanteDeltaVMap.png")));
+            DeltaVMapOuter2 window = new DeltaVMapOuter2();
+            //window.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,/Images/DeltaVMaps/OuterPlanteDeltaVMap.png")));
             window.Show();
         }
 
         private void buttonRss_Click(object sender, RoutedEventArgs e)
         {
-            DeltaVMaps window = new DeltaVMaps();
-            window.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,/Images/DeltaVMaps/RssDeltaVMap.png")));
+            DeltaVMapsRSS window = new DeltaVMapsRSS();
+            //window.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,/Images/DeltaVMaps/RssDeltaVMap.png")));
             window.Show();
         }
     }
