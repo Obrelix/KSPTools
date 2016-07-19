@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Kerbal_Space_Program_Tools;
 
 namespace Kerbal_Space_Progam_Tools
 {
@@ -23,5 +24,19 @@ namespace Kerbal_Space_Progam_Tools
         {
             InitializeComponent();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void PrevBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Pages.PageMissionCalc mypage = new Pages.PageMissionCalc();
+            mypage.buttonStop3.IsChecked = true;
+        }
     }
+
+    
 }

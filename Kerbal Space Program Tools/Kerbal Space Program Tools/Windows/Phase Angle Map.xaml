@@ -5,10 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kerbal_Space_Progam_Tools"
         mc:Ignorable="d"
-        Title="Phase_Angle_Map" Height="722" Width="1269">
-    <Window.Background>
-        <ImageBrush ImageSource="/Images/Backgrounds/Planets.png"/>
-    </Window.Background>
-    <Grid>
-    </Grid>
+        Title="PhaseAngleWindow" Height="750" Width="650" ResizeMode="NoResize"
+        Background="Black" Closing="Window_Closing">
+    
+    <Canvas x:Name="DrawCanvas" Width="600" Height="600" />
 </Window>

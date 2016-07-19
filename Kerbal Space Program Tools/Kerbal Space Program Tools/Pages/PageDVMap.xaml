@@ -24,7 +24,7 @@
 
         <Rectangle Fill="#FF02C6FF" Grid.Row="1" Stroke="Black" RadiusX="20" RadiusY="20" Opacity="0.11" Grid.ColumnSpan="6"/>
 
-        <Button Content="" x:Name="buttonNormal" Template="{DynamicResource BackgroundButton}" Width="290" Height="420" Click="buttonNormal_Click" Margin="2,32,3,35" Cursor="Hand" Grid.Row="1" Grid.Column="1">
+        <Button Content="" x:Name="buttonNormal" Template="{DynamicResource BackgroundButton}" Click="buttonNormal_Click" Margin="2,32,3,35" Cursor="Hand" Grid.Row="1" Grid.Column="1">
             <Button.Resources>
                 <ControlTemplate x:Key="BackgroundButton" TargetType="{x:Type Button}">
                     <Border x:Name="border" BorderThickness="1"  Background="{TemplateBinding Background}">
@@ -46,7 +46,7 @@
             </Button.Background>
         </Button>
 
-        <Button Content="" x:Name="buttonOuterStock" Template="{DynamicResource BackgroundButton}" Width="290" Height="420" Click="buttonOuterStock_Click" Margin="2,32,3,35" Cursor="Hand" Grid.Row="1" Grid.Column="2">
+        <Button Content="" x:Name="buttonOuterStock" Template="{DynamicResource BackgroundButton}" Click="buttonOuterStock_Click" Margin="2,32,3,35" Cursor="Hand" Grid.Row="1" Grid.Column="2">
             <Button.Resources>
                 <ControlTemplate x:Key="BackgroundButton" TargetType="{x:Type Button}">
                     <Border x:Name="border" BorderThickness="1"  Background="{TemplateBinding Background}">
@@ -68,7 +68,7 @@
             </Button.Background>
         </Button>
 
-        <Button Content="" x:Name="buttonOuter" Template="{DynamicResource BackgroundButton}" Width="290" Height="420" Click="buttonOuter_Click" Margin="2,32,3,35" Cursor="Hand" Grid.Row="1" Grid.Column="3">
+        <Button Content="" x:Name="buttonOuter" Template="{DynamicResource BackgroundButton}" Click="buttonOuter_Click" Margin="2,32,3,35" Cursor="Hand" Grid.Row="1" Grid.Column="3">
             <Button.Resources>
                 <ControlTemplate x:Key="BackgroundButton" TargetType="{x:Type Button}">
                     <Border x:Name="border" BorderThickness="1"  Background="{TemplateBinding Background}">
@@ -90,7 +90,7 @@
             </Button.Background>
         </Button>
 
-        <Button Content="" x:Name="buttonRss" Template="{DynamicResource BackgroundButton}" Width="289" Height="420" Click="buttonRss_Click" Margin="2,32,4,35" Cursor="Hand" Grid.Row="1" Grid.Column="4">
+        <Button Content="" x:Name="buttonRss" Template="{DynamicResource BackgroundButton}" Click="buttonRss_Click" Margin="2,32,4,35" Cursor="Hand" Grid.Row="1" Grid.Column="4">
             <Button.Resources>
                 <ControlTemplate x:Key="BackgroundButton" TargetType="{x:Type Button}">
                     <Border x:Name="border" BorderThickness="1"  Background="{TemplateBinding Background}">

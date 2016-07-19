@@ -42,6 +42,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
         Planet.All[] ksprss = new Planet.All[RssPlanetNumber];
 
         public double TotalTime = 0;
+        double PhaseAngle = 0;
 
         public PageMissionCalc()
         {
@@ -68,6 +69,8 @@ namespace Kerbal_Space_Progam_Tools.Pages
             radioButtonKerbinTime.IsChecked = true;
         }
         //Main Event most of the calculations take part here
+        string Planet1, Planet2, Planet3, Planet4, Planet5, Planet6, Planet7, Planet8, Sun;
+        double PhaseAngleStop1, PhaseAngleStop2, PhaseAngleStop3, PhaseAngleRound;
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -196,6 +199,12 @@ namespace Kerbal_Space_Progam_Tools.Pages
                     TotalDV -= ksp[comboBoxStop1.SelectedIndex].SurfaceToLowOrbit;
                 }
 
+                ///Adding the planets names and phase angle to the phase angle window
+                Planet1 = ksp[PreviousPlanet].Name;
+                Planet2 = ksp[comboBoxStop1.SelectedIndex].Name;
+                Sun = ksp[1].Name;
+                PhaseAngleStop1 = phaseAngleCalc(PreviousPlanet, comboBoxStop1.SelectedIndex);
+
                 ///Write text to stop 1 travel textBlock
 
                 this.textBlockStop1Travel.Text = TravelInfo(PreviousPlanet, comboBoxStop1.SelectedIndex, CurrentTime) +
@@ -226,6 +235,13 @@ namespace Kerbal_Space_Progam_Tools.Pages
                     {
                         TotalDV -= ksp[comboBoxStop1.SelectedIndex].SurfaceToLowOrbit;
                     }
+
+
+                    ///Adding the planets names and phase angle to the phase angle window
+                    Planet7 = ksp[comboBoxStop1.SelectedIndex].Name;
+                    Planet8 = ksp[Origin].Name;
+                    Sun = ksp[1].Name;
+                    PhaseAngleRound = phaseAngleCalc(comboBoxStop1.SelectedIndex, Origin);
 
                     ///write text to Origin Travel textBlock
 
@@ -266,6 +282,12 @@ namespace Kerbal_Space_Progam_Tools.Pages
                     TotalDV -= ksp[comboBoxStop2.SelectedIndex].SurfaceToLowOrbit;
                 }
 
+                ///Adding the planets names and phase angle to the phase angle window
+                Planet3 = ksp[PreviousPlanet].Name;
+                Planet4 = ksp[comboBoxStop2.SelectedIndex].Name;
+                Sun = ksp[1].Name;
+                PhaseAngleStop2 = phaseAngleCalc(PreviousPlanet, comboBoxStop2.SelectedIndex);
+
                 this.textBlockStop2Travel.Text = TravelInfo(PreviousPlanet, comboBoxStop2.SelectedIndex, CurrentTime) +
                 TransferDV(TotalDV, DVPrevious);
                 DVPrevious = TotalDV;
@@ -287,6 +309,12 @@ namespace Kerbal_Space_Progam_Tools.Pages
                     {
                         TotalDV -= ksp[comboBoxStop2.SelectedIndex].SurfaceToLowOrbit;
                     }
+
+                    ///Adding the planets names and phase angle to the phase angle window
+                    Planet7 = ksp[comboBoxStop2.SelectedIndex].Name;
+                    Planet8 = ksp[Origin].Name;
+                    Sun = ksp[1].Name;
+                    PhaseAngleRound = phaseAngleCalc(comboBoxStop2.SelectedIndex, Origin);
 
                     this.textBlockOriginTravel.Text = TravelInfo(comboBoxStop2.SelectedIndex, Origin, CurrentTime) +
                     TransferDV(TotalDV, DVPrevious);
@@ -326,6 +354,12 @@ namespace Kerbal_Space_Progam_Tools.Pages
                     TotalDV -= ksp[comboBoxStop3.SelectedIndex].SurfaceToLowOrbit;
                 }
 
+                ///Adding the planets names and phase angle to the phase angle window
+                Planet5 = ksp[PreviousPlanet].Name;
+                Planet6 = ksp[comboBoxStop3.SelectedIndex].Name;
+                Sun = ksp[1].Name;
+                PhaseAngleStop3 = phaseAngleCalc(PreviousPlanet, comboBoxStop3.SelectedIndex);
+
                 this.textBlockStop3Travel.Text = TravelInfo(PreviousPlanet, comboBoxStop3.SelectedIndex, CurrentTime) +
                 TransferDV(TotalDV, DVPrevious);
                 DVPrevious = TotalDV;
@@ -345,6 +379,12 @@ namespace Kerbal_Space_Progam_Tools.Pages
                     {
                         TotalDV -= ksp[comboBoxStop3.SelectedIndex].SurfaceToLowOrbit;
                     }
+
+                    ///Adding the planets names and phase angle to the phase angle window
+                    Planet7 = ksp[comboBoxStop3.SelectedIndex].Name;
+                    Planet8 = ksp[Origin].Name;
+                    Sun = ksp[1].Name;
+                    PhaseAngleRound = phaseAngleCalc(comboBoxStop3.SelectedIndex, Origin);
 
                     this.textBlockOriginTravel.Text = TravelInfo(comboBoxStop3.SelectedIndex, Origin, CurrentTime) +
                     TransferDV(TotalDV, DVPrevious);
@@ -382,7 +422,51 @@ namespace Kerbal_Space_Progam_Tools.Pages
             Environment.NewLine + "Δv : " + string.Format("{0:n0}", (TotalDV - DVPrevius)) + " m/s";
             return txt;
         }
+        private double phaseAngleCalc(int Counter, int i)
+        {
+            
+            PlanetInit();
+            double HohmannTransferTime = 0, Angle = 0, Pow = 0;
+            double OrbitalPeriod1 = 0, OrbitalPeriod2 = 0;
+            const double DioTrita = 0.66666666666666666666666666666667;
+            if (ksp[Counter].Orbits == ksp[i].Orbits)
+            {
+                OrbitalPeriod1 = ksp[Counter].OrbitalPeriod;
+                OrbitalPeriod2 = ksp[i].OrbitalPeriod;
 
+            }
+            else if (ksp[i].System == ksp[Counter].System && ksp[i].Orbits != ksp[Counter].Orbits)
+            {
+                OrbitalPeriod1 = 0;
+                OrbitalPeriod2 = 0;
+            }
+            else
+            {
+                i = ksp[i].ParentIndex;
+                Counter = ksp[Counter].ParentIndex;
+                OrbitalPeriod1 = ksp[Counter].OrbitalPeriod;
+                OrbitalPeriod2 = ksp[i].OrbitalPeriod;
+            }
+
+            Pow = Math.Pow(OrbitalPeriod2, DioTrita) + Math.Pow(OrbitalPeriod1, DioTrita);
+            HohmannTransferTime = Math.Pow(Pow, 1.5) / Math.Sqrt(32);
+
+
+            Angle = 180 - (360 * (HohmannTransferTime / OrbitalPeriod2));
+            if (Angle < -180 && Angle>=-360)
+            {
+                Angle += 360;
+            }
+            else if (Angle < -360)
+            {
+                double flush = 0;
+                flush = Math.Truncate(Angle / 360);
+                Angle += Math.Abs(flush * 360);
+
+            }
+
+            return Angle;
+        }
         private string TravelInfo(int Counter, int i, int CurrentTime)
         {
             PlanetInit();
@@ -410,21 +494,29 @@ namespace Kerbal_Space_Progam_Tools.Pages
 
             Pow = Math.Pow(OrbitalPeriod2, DioTrita) + Math.Pow(OrbitalPeriod1, DioTrita);
             HohmannTransferTime = Math.Pow(Pow, 1.5) / Math.Sqrt(32);
+
+
             Angle = 180 - (360 * (HohmannTransferTime / OrbitalPeriod2));
-            if (Angle < -360)
+            if (Angle < -180 && Angle >= -360)
+            {
+                Angle += 360;
+            }
+            else if(Angle < -360)
             {
                 double flush = 0;
                 flush = Math.Truncate(Angle / 360);
                 Angle += Math.Abs(flush * 360);
 
             }
+
             IntervalTime = Math.Abs(1 / ((1 / OrbitalPeriod1) - (1 / OrbitalPeriod2)));
             TotalTime += HohmannTransferTime;
             string txt = "";
             txt = ksp[Counter].Name + " To " + ksp[i].Name +
                                 Environment.NewLine + "Trasfer Time : " + string.Format("{0:#,#.00}", HohmannTransferTime / CurrentTime) + " Days" +
                                 Environment.NewLine + "Phase Angle : " + string.Format("{0:#,#.00}", Angle) + "°" +
-                                Environment.NewLine + "Interval between launch Windows : " + string.Format("{0:#,#.00}", IntervalTime / CurrentTime) + " Days";
+                                Environment.NewLine + "Interval between Launch" +
+                                Environment.NewLine + "Windows : " + string.Format("{0:#,#.00}", IntervalTime / CurrentTime) + " Days";
 
             return txt;
 
@@ -519,71 +611,367 @@ namespace Kerbal_Space_Progam_Tools.Pages
             return TextBlockTXT;
         }
 
+        public static bool IsWindowOpen<T>(string name = "") where T : Window
+        {
+            return string.IsNullOrEmpty(name)
+               ? Application.Current.Windows.OfType<T>().Any()
+               : Application.Current.Windows.OfType<T>().Any(w => w.Name.Equals(name));
+        }
 
+
+        Phase_Angle_Map window = new Phase_Angle_Map();
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            
+            Ellipse OuterOrbit = new Ellipse();
+            Ellipse InnerOrbit = new Ellipse();
+            Line line = new Line();
+            Line line2 = new Line();
+            Ellipse Sun = new Ellipse();
+            Ellipse InnerPlanet = new Ellipse();
+            Ellipse OuterPlanet = new Ellipse();
+            PathGeometry ArcPath = new PathGeometry();
+            PathFigure ArcFigure = new PathFigure();
+            Path path = new Path();
 
-            if (radioButtonNormal.IsChecked == true)
+            double angle, AngleDegrees;
+            double WindowWidth = 600;
+            double WindowHeight = 600;
+
+            window.DrawCanvas.Children.Clear();
+            window.WindowState = WindowState.Normal;
+            if(buttonRound.IsChecked == true)
             {
-                Phase_Angle_Map window = new Phase_Angle_Map();
-                window.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,/Images/Backgrounds/Planets.png")));
-                window.Show();
-
+                AngleDegrees = PhaseAngleRound;
             }
-            else if (radioButtonOuter.IsChecked == true)
+            else if(buttonStop1.IsChecked == true)
             {
-                Phase_Angle_Map window = new Phase_Angle_Map();
-                window.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,/Images/Backgrounds/Outerplanets.png")));
-                window.Show();
+                AngleDegrees = PhaseAngleStop1;
+            }
+            else if (buttonStop2.IsChecked == true)
+            {
+                AngleDegrees = PhaseAngleStop2;
             }
             else
             {
-                Phase_Angle_Map window = new Phase_Angle_Map();
-                window.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,/Images/Backgrounds/rss.jpg")));
-                window.Show();
+                AngleDegrees = PhaseAngleStop3;
             }
 
-            /* string[] url = new string[20];
-                 url[1] = @"pack://application:,,/PhaseAngleMaps/Moho.jpg";
-                 url[2] = @"pack://application:,,/PhaseAngleMaps/Eve.jpg";
-                 url[4] = @"pack://application:,,/PhaseAngleMaps/Kerbin.jpg";
-                 url[5] = @"pack://application:,,/PhaseAngleMaps/Mun.jpg";
-                 url[6] = @"pack://application:,,/PhaseAngleMaps/Minmus.jpg";
-                 url[7] = @"pack://application:,,/PhaseAngleMaps/Duna.jpg";
-                 url[9] = @"pack://application:,,/PhaseAngleMaps/Dres.jpg";
-                 url[10] = @"pack://application:,,/PhaseAngleMaps/Jool.jpg";
-                 url[11] = @"pack://application:,,/PhaseAngleMaps/Laythe.jpg";
-                 url[12] = @"pack://application:,,/PhaseAngleMaps/Val.jpg";
-                 url[13] = @"pack://application:,,/PhaseAngleMaps/Tylo.jpg";
-                 url[14] = @"pack://application:,,/PhaseAngleMaps/Bop.jpg";
-                 url[15] = @"pack://application:,,/PhaseAngleMaps/Pol.jpg";
-                 url[16] = @"pack://application:,,/PhaseAngleMaps/Moho.jpg";
+            angle = AngleDegrees * Math.PI / 180;//convert to rads
 
-             if (radioButtonOr.IsChecked == true &&(comboBoxOrigin.SelectedIndex != 3) && (comboBoxOrigin.SelectedIndex != 8) && (comboBoxOrigin.SelectedIndex < 15) && (comboBoxOrigin.SelectedIndex != 0))
+            OuterOrbit.SnapsToDevicePixels = true;
+            OuterOrbit.SetValue(RenderOptions.EdgeModeProperty, EdgeMode.Aliased);
+            OuterOrbit.Visibility = Visibility.Visible;
+            OuterOrbit.StrokeThickness = 3;
+            OuterOrbit.Height = WindowHeight;
+            OuterOrbit.Width = WindowWidth;
+            OuterOrbit.Stroke = Brushes.Green;
+            window.DrawCanvas.Children.Add(OuterOrbit);
+
+            
+            InnerOrbit.SnapsToDevicePixels = true;
+            InnerOrbit.SetValue(RenderOptions.EdgeModeProperty, EdgeMode.Aliased);
+            InnerOrbit.Visibility = Visibility.Visible;
+            InnerOrbit.Stroke = Brushes.LightGreen;
+            InnerOrbit.StrokeThickness = 3;
+            InnerOrbit.Height = WindowHeight / 2;
+            InnerOrbit.Width = WindowWidth / 2;
+            InnerOrbit.Margin = new Thickness(((WindowHeight / 2) - (InnerOrbit.Width / 2)),
+                ((WindowHeight / 2) - (InnerOrbit.Height / 2)), 0, 0);
+            window.DrawCanvas.Children.Add(InnerOrbit);
+
+            
+            line.SnapsToDevicePixels = true;
+            line.SetValue(RenderOptions.EdgeModeProperty, EdgeMode.Aliased);
+            line.Visibility = System.Windows.Visibility.Visible;
+            line.StrokeThickness = 3;
+            line.Stroke = System.Windows.Media.Brushes.Cyan;
+            line.X1 = WindowWidth / 2;
+            line.Y1 = WindowHeight / 2;
+
+            line.X2 = (WindowWidth / 2) + (InnerOrbit.Width / 2);
+            line.Y2 = WindowHeight / 2;
+            window.DrawCanvas.Children.Add(line);
+
+
+            
+            line2.SnapsToDevicePixels = true;
+            line2.SetValue(RenderOptions.EdgeModeProperty, EdgeMode.Aliased);
+            line2.Visibility = System.Windows.Visibility.Visible;
+            line2.StrokeThickness = 3;
+            line2.Stroke = System.Windows.Media.Brushes.Cyan;
+            line2.X1 = WindowWidth / 2;
+            line2.Y1 = WindowHeight / 2;
+
+            line2.X2 = (WindowWidth / 2) + Math.Cos(angle) * (OuterOrbit.Width / 2);
+            line2.Y2 = (WindowHeight / 2) - Math.Sin(angle) * (OuterOrbit.Height / 2);
+            window.DrawCanvas.Children.Add(line2);
+
+
+            
+            InnerPlanet.SnapsToDevicePixels = true;
+            InnerPlanet.SetValue(RenderOptions.EdgeModeProperty, EdgeMode.Aliased);
+            InnerPlanet.Visibility = Visibility.Visible;
+            InnerPlanet.Stroke = Brushes.Blue;
+            InnerPlanet.Fill = Brushes.Blue;
+            InnerPlanet.StrokeThickness = 3;
+            InnerPlanet.Height = 30;
+            InnerPlanet.Width = 30;
+            InnerPlanet.Margin = new Thickness((((WindowHeight / 2) + InnerOrbit.Width / 2) - (InnerPlanet.Width / 2)),
+                ((WindowHeight / 2) - (InnerPlanet.Height / 2)), 0, 0);
+            window.DrawCanvas.Children.Add(InnerPlanet);
+
+
+
+
+            
+            OuterPlanet.SnapsToDevicePixels = true;
+            OuterPlanet.SetValue(RenderOptions.EdgeModeProperty, EdgeMode.Aliased);
+            OuterPlanet.Visibility = Visibility.Visible;
+            OuterPlanet.Stroke = Brushes.Orange;
+            OuterPlanet.Fill = Brushes.Orange;
+            OuterPlanet.StrokeThickness = 3;
+            OuterPlanet.Height = 30;
+            OuterPlanet.Width = 30;
+            OuterPlanet.Margin = new Thickness((line2.X2 - (OuterPlanet.Width / 2)),
+                (line2.Y2 - (OuterPlanet.Height / 2)), 0, 0);
+            window.DrawCanvas.Children.Add(OuterPlanet);
+
+            double pathX1 = (WindowWidth / 2) + (InnerOrbit.Width / 4);
+            double pathY1 = (WindowHeight / 2);
+            ArcFigure.StartPoint = new Point(pathX1, pathY1);
+            if ( AngleDegrees >= 0)
+            {
+                ArcFigure.Segments.Add(
+                new ArcSegment(
+                    new Point(
+                        ((WindowWidth / 2) + Math.Cos(angle) * (InnerOrbit.Width / 4)),
+                        ((WindowHeight / 2) - Math.Sin(angle) * (InnerOrbit.Width / 4))),
+                     new Size((InnerOrbit.Width / 4), (InnerOrbit.Width / 4)),
+                      90,
+                       false,
+                        SweepDirection.Counterclockwise,
+                         true
+                          )
+                           );
+            }
+            else
+            {
+                ArcFigure.Segments.Add(
+                new ArcSegment(
+                    new Point(
+                        ((WindowWidth / 2) + Math.Cos(angle) * (InnerOrbit.Width / 4)),
+                        ((WindowHeight / 2) - Math.Sin(angle) * (InnerOrbit.Width / 4))),
+                     new Size((InnerOrbit.Width / 4), (InnerOrbit.Width / 4)),
+                      90,
+                       false,
+                        SweepDirection.Clockwise,
+                         true
+                          )
+                           );
+            }
+
+            ArcPath.Figures.Add(ArcFigure);
+            
+            path.Data = ArcPath;
+            path.SnapsToDevicePixels = true;
+            path.SetValue(RenderOptions.EdgeModeProperty, EdgeMode.Aliased);
+            path.Visibility = Visibility.Visible;
+            path.Stroke = Brushes.Brown;
+            path.StrokeThickness = 3;
+            window.DrawCanvas.Children.Add(path);
+
+
+            
+            Sun.SnapsToDevicePixels = true;
+            Sun.SetValue(RenderOptions.EdgeModeProperty, EdgeMode.Aliased);
+            Sun.Visibility = Visibility.Visible;
+            Sun.Stroke = Brushes.Yellow;
+            Sun.Fill = Brushes.Yellow;
+            Sun.StrokeThickness = 3;
+            Sun.Height = 50;
+            Sun.Width = 50;
+            Sun.Margin = new Thickness(((WindowHeight / 2) - (Sun.Width / 2)),
+                ((WindowHeight / 2) - (Sun.Height / 2)), 0, 0);
+            window.DrawCanvas.Children.Add(Sun);
+
+
+            TextBlock InnerPlanetText = new TextBlock();
+            InnerPlanetText.Foreground = Brushes.White;
+            InnerPlanetText.Margin = new Thickness(460, 320, 0, 0);
+            
+            InnerPlanetText.FontSize = 16;
+            
+
+            TextBlock OuterPlanetText = new TextBlock();
+            OuterPlanetText.Foreground = Brushes.White;
+            OuterPlanetText.Margin = new Thickness(line2.X2 - 60, line2.Y2 + 20, 0, 0);
+            
+            OuterPlanetText.FontSize = 16;
+            
+
+            TextBlock SunText = new TextBlock();
+            SunText.Foreground = Brushes.White;
+            SunText.Margin = new Thickness(280, 330, 0, 0);
+            
+            SunText.FontSize = 16;
+            
+
+            TextBlock AngleText = new TextBlock();
+            AngleText.Foreground = Brushes.White;
+            
+            
+            AngleText.FontSize = 16;
+            AngleText.Text = string.Format("{0:#,#.00}", AngleDegrees) + "°";
+
+            if (buttonRound.IsChecked == true)
+            {
+                
+                if (AngleDegrees < 0)
+                {
+                    InnerPlanetText.Text = Planet8;
+                    OuterPlanetText.Text = Planet7;
+                }
+                else
+                {
+                    InnerPlanetText.Text = Planet7;
+                    OuterPlanetText.Text = Planet8;
+                }
+                
+                
+            }
+            else if (buttonStop1.IsChecked == true)
+            {
+
+                if (AngleDegrees < 0)
+                {
+                    InnerPlanetText.Text = Planet2;
+                    OuterPlanetText.Text = Planet1;
+                }
+                else
+                {
+                    InnerPlanetText.Text = Planet1;
+                    OuterPlanetText.Text = Planet2;
+                }
+
+
+            }
+            else if (buttonStop2.IsChecked == true)
+            {
+
+                if (AngleDegrees < 0)
+                {
+                    InnerPlanetText.Text = Planet4;
+                    OuterPlanetText.Text = Planet3;
+                }
+                else
+                {
+                    InnerPlanetText.Text = Planet3;
+                    OuterPlanetText.Text = Planet4;
+                }
+
+
+            }
+            else 
+            {
+
+                if (AngleDegrees < 0)
+                {
+                    InnerPlanetText.Text = Planet6;
+                    OuterPlanetText.Text = Planet5;
+                }
+                else
+                {
+                    InnerPlanetText.Text = Planet5;
+                    OuterPlanetText.Text = Planet6;
+                }
+
+
+            }
+
+
+            if (AngleDegrees >= 0)
+            {
+                AngleText.Margin = new Thickness(((WindowWidth / 2) + Math.Cos(angle / 2) * (InnerOrbit.Width / 4 + 10)),
+                        ((WindowHeight / 2) - Math.Sin(angle / 2) * (InnerOrbit.Width / 4 )) - 20, 0, 0);
+            }
+            else
+            {
+                AngleText.Margin = new Thickness(((WindowWidth / 2) + Math.Cos(angle / 2) * (InnerOrbit.Width / 4 + 10)),
+                        ((WindowHeight / 2) - Math.Sin(angle / 2) * (InnerOrbit.Width / 4)), 0, 0);
+            }
+
+            window.DrawCanvas.Children.Add(AngleText);
+            window.DrawCanvas.Children.Add(InnerPlanetText);
+            window.DrawCanvas.Children.Add(SunText);
+            window.DrawCanvas.Children.Add(OuterPlanetText);
+            this.window.Show();
+
+
+
+            /* if (radioButtonNormal.IsChecked == true)
              {
                  Phase_Angle_Map window = new Phase_Angle_Map();
-                 window.Background = new ImageBrush(new BitmapImage(new Uri(url[comboBoxOrigin.SelectedIndex])));
-                 window.Show();     
+                 window.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,/Images/Backgrounds/Planets.png")));
+                 window.Show();
+
              }
-             if (radioButtonStop3.IsChecked == true && (comboBoxStop3.SelectedIndex != 3) && (comboBoxStop3.SelectedIndex != 8) && comboBoxStop3.SelectedIndex < 15 && (comboBoxStop3.SelectedIndex != 0))
+             else if (radioButtonOuter.IsChecked == true)
              {
                  Phase_Angle_Map window = new Phase_Angle_Map();
-                 window.Background = new ImageBrush(new BitmapImage(new Uri(url[comboBoxStop3.SelectedIndex])));
+                 window.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,/Images/Backgrounds/Outerplanets.png")));
                  window.Show();
              }
-             if (radioButtonStop1.IsChecked == true && (comboBoxStop1.SelectedIndex != 3) && (comboBoxStop1.SelectedIndex != 8) && comboBoxStop1.SelectedIndex < 15 && (comboBoxStop1.SelectedIndex != 0))
+             else
              {
                  Phase_Angle_Map window = new Phase_Angle_Map();
-                 window.Background = new ImageBrush(new BitmapImage(new Uri(url[comboBoxStop1.SelectedIndex])));
-                 window.Show();    
-             }
-             if (radioButtonStop2.IsChecked == true && (comboBoxStop2.SelectedIndex != 3) && (comboBoxStop2.SelectedIndex != 8) && comboBoxStop2.SelectedIndex < 15 && (comboBoxStop2.SelectedIndex != 0))
-             {
-                 Phase_Angle_Map window = new Phase_Angle_Map();
-                 window.Background = new ImageBrush(new BitmapImage(new Uri(url[comboBoxStop2.SelectedIndex])));
+                 window.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,/Images/Backgrounds/rss.jpg")));
                  window.Show();
-             }*/
+             }
+
+              string[] url = new string[20];
+                  url[1] = @"pack://application:,,/PhaseAngleMaps/Moho.jpg";
+                  url[2] = @"pack://application:,,/PhaseAngleMaps/Eve.jpg";
+                  url[4] = @"pack://application:,,/PhaseAngleMaps/Kerbin.jpg";
+                  url[5] = @"pack://application:,,/PhaseAngleMaps/Mun.jpg";
+                  url[6] = @"pack://application:,,/PhaseAngleMaps/Minmus.jpg";
+                  url[7] = @"pack://application:,,/PhaseAngleMaps/Duna.jpg";
+                  url[9] = @"pack://application:,,/PhaseAngleMaps/Dres.jpg";
+                  url[10] = @"pack://application:,,/PhaseAngleMaps/Jool.jpg";
+                  url[11] = @"pack://application:,,/PhaseAngleMaps/Laythe.jpg";
+                  url[12] = @"pack://application:,,/PhaseAngleMaps/Val.jpg";
+                  url[13] = @"pack://application:,,/PhaseAngleMaps/Tylo.jpg";
+                  url[14] = @"pack://application:,,/PhaseAngleMaps/Bop.jpg";
+                  url[15] = @"pack://application:,,/PhaseAngleMaps/Pol.jpg";
+                  url[16] = @"pack://application:,,/PhaseAngleMaps/Moho.jpg";
+
+              if (radioButtonOr.IsChecked == true &&(comboBoxOrigin.SelectedIndex != 3) && (comboBoxOrigin.SelectedIndex != 8) && (comboBoxOrigin.SelectedIndex < 15) && (comboBoxOrigin.SelectedIndex != 0))
+              {
+                  Phase_Angle_Map window = new Phase_Angle_Map();
+                  window.Background = new ImageBrush(new BitmapImage(new Uri(url[comboBoxOrigin.SelectedIndex])));
+                  window.Show();     
+              }
+              if (radioButtonStop3.IsChecked == true && (comboBoxStop3.SelectedIndex != 3) && (comboBoxStop3.SelectedIndex != 8) && comboBoxStop3.SelectedIndex < 15 && (comboBoxStop3.SelectedIndex != 0))
+              {
+                  Phase_Angle_Map window = new Phase_Angle_Map();
+                  window.Background = new ImageBrush(new BitmapImage(new Uri(url[comboBoxStop3.SelectedIndex])));
+                  window.Show();
+              }
+              if (radioButtonStop1.IsChecked == true && (comboBoxStop1.SelectedIndex != 3) && (comboBoxStop1.SelectedIndex != 8) && comboBoxStop1.SelectedIndex < 15 && (comboBoxStop1.SelectedIndex != 0))
+              {
+                  Phase_Angle_Map window = new Phase_Angle_Map();
+                  window.Background = new ImageBrush(new BitmapImage(new Uri(url[comboBoxStop1.SelectedIndex])));
+                  window.Show();    
+              }
+              if (radioButtonStop2.IsChecked == true && (comboBoxStop2.SelectedIndex != 3) && (comboBoxStop2.SelectedIndex != 8) && comboBoxStop2.SelectedIndex < 15 && (comboBoxStop2.SelectedIndex != 0))
+              {
+                  Phase_Angle_Map window = new Phase_Angle_Map();
+                  window.Background = new ImageBrush(new BitmapImage(new Uri(url[comboBoxStop2.SelectedIndex])));
+                  window.Show();
+              }*/
         }
+
+        
 
         private void radioButtonNormal_Checked(object sender, RoutedEventArgs e)
         {
@@ -2880,7 +3268,10 @@ namespace Kerbal_Space_Progam_Tools.Pages
             
         }
 
-      
+        private void buttonMissonDVCalc_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }
