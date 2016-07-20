@@ -111,7 +111,7 @@
                 </Grid>
 
 
-                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
                     <Grid>
 
                         <Grid.ColumnDefinitions>
@@ -193,7 +193,7 @@
                         </Expander>
                     </Grid>
                 </StackPanel>
-
+                <TextBlock Text="Click on the left pannel to see the Launch Window" TextWrapping="Wrap" Foreground="#FFFFC2B8" FontSize="14" MaxWidth="250" TextAlignment="Center"/>
 
             </StackPanel>
 
