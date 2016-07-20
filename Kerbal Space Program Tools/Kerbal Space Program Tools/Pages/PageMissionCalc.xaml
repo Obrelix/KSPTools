@@ -25,34 +25,30 @@
                 <Grid.ColumnDefinitions>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="5*"/>
-                    <RowDefinition Height="17*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="0*"/>
                     <RowDefinition Height="100*"/>
-                    <RowDefinition Height="17*"/>
+                    <RowDefinition Height="0*"/>
                     <RowDefinition Height="100*"/>
-                    <RowDefinition Height="17*"/>
+                    <RowDefinition Height="0*"/>
                     <RowDefinition Height="100*"/>
-                    <RowDefinition Height="17*"/>
+                    <RowDefinition Height="0*"/>
                     <RowDefinition Height="100*"/>
-                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
 
                 <Rectangle RadiusX="25" RadiusY="25" Stroke="Black"  Opacity="0.1" Fill="#FF01E8FF" Grid.RowSpan="12" Grid.ColumnSpan="2" Margin="0"/>
-                <TextBlock Margin="0" Name="textBlockOriginTravel"  TextWrapping="Wrap" Foreground="#FF02FD69" Text="Round Trip" FontSize="14" TextDecorations="{x:Null}" TextAlignment="Right" Grid.Row="2"/>
-                <TextBlock Margin="0" x:Name="textBlockStop1Travel"  TextWrapping="Wrap" Foreground="#FF9CDBDE" Text="Stop 1 " FontSize="14" TextDecorations="{x:Null}" TextAlignment="Right" Grid.Row="4"/>
-                <TextBlock Margin="0" x:Name="textBlockStop2Travel"  TextWrapping="Wrap" Foreground="#FFDAC5FF" Text="Stop 2" FontSize="14" TextDecorations="{x:Null}" TextAlignment="Right" Grid.Row="6"/>
-                <TextBlock Margin="0" x:Name="textBlockStop3Travel"  TextWrapping="Wrap" Foreground="#FFB3FFC8" Text="Stop 3" FontSize="14" TextDecorations="{x:Null}" LineHeight="6" TextAlignment="Right" Grid.Row="8"/>
+                <TextBlock Margin="0" Name="textBlockOriginTravel"  MouseLeftButtonUp="textBlockOriginTravel_MouseLeftButtonUp" TextWrapping="Wrap" Foreground="#FF02FD69" Text="Round Trip" FontSize="14" TextDecorations="{x:Null}" TextAlignment="Right" Grid.Row="2" Cursor="Hand"/>
+                <TextBlock Margin="0" x:Name="textBlockStop1Travel" MouseLeftButtonUp="textBlockStop1Travel_MouseLeftButtonUp" TextWrapping="Wrap" Foreground="#FF9CDBDE" Text="Stop 1 " FontSize="14" TextDecorations="{x:Null}" TextAlignment="Right" Grid.Row="4" Cursor="Hand"/>
+                <TextBlock Margin="0" x:Name="textBlockStop2Travel" MouseLeftButtonUp="textBlockStop2Travel_MouseLeftButtonUp" TextWrapping="Wrap" Foreground="#FFDAC5FF" Text="Stop 2" FontSize="14" TextDecorations="{x:Null}" TextAlignment="Right" Grid.Row="6" Cursor="Hand"/>
+                <TextBlock Margin="0" x:Name="textBlockStop3Travel" MouseLeftButtonUp="textBlockStop3Travel_MouseLeftButtonUp" TextWrapping="Wrap" Foreground="#FFB3FFC8" Text="Stop 3" FontSize="14" TextDecorations="{x:Null}" LineHeight="6" TextAlignment="Right" Grid.Row="8" Cursor="Hand"/>
 
-                <RadioButton x:Name="buttonRound" Click="button1_Click" Content="" Grid.Row="1" HorizontalAlignment="Right" Foreground="#FF02FD69" GroupName="PhaseAgnle"/>
-                <TextBlock Margin="7,0,0,0"   Foreground="#FF02FD69" Text="Round Trip Launch Window" FontSize="12"  Grid.Row="1" HorizontalAlignment="Left"/>
+                <RadioButton x:Name="buttonRound" Click="button1_Click" Content="" Grid.Row="2" HorizontalAlignment="Left" Foreground="#FF02FD69" GroupName="PhaseAgnle" VerticalAlignment="Top"/>
 
-                <RadioButton x:Name="buttonStop1" Click="button1_Click" Content="" Grid.Row="3" HorizontalAlignment="Right" Foreground="#FF9CDBDE" GroupName="PhaseAgnle"/>
-                <TextBlock Margin="0"   Foreground="#FF9CDBDE" Text="Stop 1 Launch Window" FontSize="12"  Grid.Row="3" HorizontalAlignment="Center"/>
+                <RadioButton x:Name="buttonStop1" Click="button1_Click" Content="" Grid.Row="4" HorizontalAlignment="Left" Foreground="#FF9CDBDE" GroupName="PhaseAgnle" VerticalAlignment="Top"/>
 
-                <RadioButton x:Name="buttonStop2" Click="button1_Click" Content="" Grid.Row="5" HorizontalAlignment="Right" Foreground="#FFDAC5FF" GroupName="PhaseAgnle"/>
-                <TextBlock Margin="0"   Foreground="#FFDAC5FF" Text="Stop 2 Launch Window" FontSize="12"  Grid.Row="5" HorizontalAlignment="Center"/>
-                <RadioButton x:Name="buttonStop3" Click="button1_Click" Content="" Grid.Row="7" HorizontalAlignment="Right" Foreground="#FFB3FFC8" GroupName="PhaseAgnle"/>
-                <TextBlock Margin="0"   Foreground="#FFB3FFC8" Text="Stop 3 Launch Window" FontSize="12"  Grid.Row="7" HorizontalAlignment="Center"/>
+                <RadioButton x:Name="buttonStop2" Click="button1_Click" Content="" Grid.Row="6" HorizontalAlignment="Left" Foreground="#FFDAC5FF" GroupName="PhaseAgnle" VerticalAlignment="Top"/>
+                <RadioButton x:Name="buttonStop3" Click="button1_Click" Content="" Grid.Row="8" HorizontalAlignment="Left" Foreground="#FFB3FFC8" GroupName="PhaseAgnle" VerticalAlignment="Top"/>
             </Grid>
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 

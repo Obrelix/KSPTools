@@ -42,7 +42,6 @@ namespace Kerbal_Space_Progam_Tools.Pages
         Planet.All[] ksprss = new Planet.All[RssPlanetNumber];
 
         public double TotalTime = 0;
-        double PhaseAngle = 0;
 
         public PageMissionCalc()
         {
@@ -467,6 +466,31 @@ namespace Kerbal_Space_Progam_Tools.Pages
 
             return Angle;
         }
+
+        private void textBlockOriginTravel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            buttonRound.IsChecked = true;
+            button1_Click(sender, e);
+        }
+
+        private void textBlockStop1Travel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            buttonStop1.IsChecked = true;
+            button1_Click(sender, e);
+        }
+
+        private void textBlockStop2Travel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            buttonStop2.IsChecked = true;
+            button1_Click(sender, e);
+        }
+
+        private void textBlockStop3Travel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            buttonStop3.IsChecked = true;
+            button1_Click(sender, e);
+        }
+
         private string TravelInfo(int Counter, int i, int CurrentTime)
         {
             PlanetInit();
