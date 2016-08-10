@@ -154,6 +154,11 @@ namespace Kerbal_Space_Progam_Tools
                 Environment.NewLine+ "Released : 13/7/16"
                 + Environment.NewLine + "Version : Beta 0.8");
         }
+        private void test_Click(object sender, RoutedEventArgs e)
+        {
+            MissionCalculator window = new MissionCalculator();
+            window.Show();
+        }
         private void Credit_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Credits for the  Delta-V maps" +

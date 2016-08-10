@@ -61,6 +61,7 @@
                     <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
                         <TextBlock x:Name="textBoxabout"  HorizontalAlignment="Right" TextWrapping="WrapWithOverflow"  VerticalAlignment="Center" Width="66" FontWeight="Bold" FontSize="18" FontFamily="Times New Roman"   ><Hyperlink Click="About_Click"><Run Text="About"/></Hyperlink></TextBlock>
                         <TextBlock x:Name="textBoxcredit"  HorizontalAlignment="Right" TextWrapping="WrapWithOverflow"  VerticalAlignment="Center" Width="66" FontWeight="Bold" FontSize="18" FontFamily="Times New Roman" ><Hyperlink Click="Credit_Click"><Run Text="Credits"/></Hyperlink></TextBlock>
+                    
                     </StackPanel>
                 </Grid>
             </TabItem>

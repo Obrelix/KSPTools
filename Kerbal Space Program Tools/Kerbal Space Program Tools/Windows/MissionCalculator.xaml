@@ -152,10 +152,10 @@
                 <TextBlock Margin="10, -391, 0, 0" x:Name="textBlockStop1" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF9CDBDE" Height="129" Width="535" Text="Stop 1 " FontSize="14" TextDecorations="{x:Null}"/>
                 <TextBlock Margin="10,-262,0,0" x:Name="textBlockStop2" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFDAC5FF" Height="129" Width="535" Text="Stop 2 " FontSize="14" TextDecorations="{x:Null}"/>
                 <TextBlock Margin="10,-133,0,0" x:Name="textBlockStop3" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFB3FFC8" Height="129" Width="535" Text="Stop 3 " FontSize="14" TextDecorations="{x:Null}"/>
-                <Image x:Name="imageOrigin"  Margin="0,-505,35,0" Height="100" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Planets/Kerbin.png" Stretch="UniformToFill"/>
-                <Image x:Name="imageStop1"  Margin="0,-376,35,0" Height="100" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Planets/Duna.png" Stretch="UniformToFill"/>
-                <Image x:Name="imageStop2"  Margin="0,-247,35,0" Height="100" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Planets/Eve.png" Stretch="UniformToFill"/>
-                <Image x:Name="imageStop3"  Margin="0,-118,35,0" Height="100" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Source="Planets/Jool.png" Stretch="UniformToFill"/>
+                <Image x:Name="imageOrigin"  Margin="0,-505,35,0" Height="100" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top"  Stretch="UniformToFill"/>
+                <Image x:Name="imageStop1"  Margin="0,-376,35,0" Height="100" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top"  Stretch="UniformToFill"/>
+                <Image x:Name="imageStop2"  Margin="0,-247,35,0" Height="100" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top"  Stretch="UniformToFill"/>
+                <Image x:Name="imageStop3"  Margin="0,-118,35,0" Height="100" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Stretch="UniformToFill"/>
             </StackPanel>
 
         </StackPanel>
