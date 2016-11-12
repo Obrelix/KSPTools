@@ -425,9 +425,8 @@ namespace Kerbal_Space_Progam_Tools.Pages
         {
             
             PlanetInit();
-            double HohmannTransferTime = 0, Angle = 0, Pow = 0;
+            double HohmannTransferTime = 0, Angle = 0;
             double OrbitalPeriod1 = 0, OrbitalPeriod2 = 0;
-            const double DioTrita = 0.66666666666666666666666666666667;
             if (ksp[Counter].Orbits == ksp[i].Orbits)
             {
                 OrbitalPeriod1 = ksp[Counter].OrbitalPeriod;
@@ -447,8 +446,10 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 OrbitalPeriod2 = ksp[i].OrbitalPeriod;
             }
 
-            Pow = Math.Pow(OrbitalPeriod2, DioTrita) + Math.Pow(OrbitalPeriod1, DioTrita);
-            HohmannTransferTime = Math.Pow(Pow, 1.5) / Math.Sqrt(32);
+
+            ///Calculate the Hohmann Transer Time in seconds
+            ///HTT= ((OrbitalPeriod1^2/3 + OrbitalPeriod2^2/3)^1.5)/sqr32
+            HohmannTransferTime = Math.Pow((Math.Pow(OrbitalPeriod2, (2.0 / 3.0)) + Math.Pow(OrbitalPeriod1, (2.0 / 3.0))), 1.5) / Math.Sqrt(32.0);
 
 
             Angle = 180 - (360 * (HohmannTransferTime / OrbitalPeriod2));

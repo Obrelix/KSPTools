@@ -26,7 +26,7 @@
             <RowDefinition Height="120*"/>
             <RowDefinition Height="105*"/>
         </Grid.RowDefinitions>
-        <Rectangle Grid.ColumnSpan="2" Fill="#FF01E8FF" HorizontalAlignment="Left" Height="116" Margin="44,1,0,0" RadiusY="20" Grid.Row="6" RadiusX="20" Stroke="Black" VerticalAlignment="Top" Width="357" Opacity="0.1"/>
+        <Rectangle Grid.ColumnSpan="2" Fill="#FF052F3C" HorizontalAlignment="Left" Height="116" Margin="44,1,0,0" RadiusY="20" Grid.Row="6" RadiusX="20" VerticalAlignment="Top" Width="357" Opacity="0.5"/>
 
         <TextBox x:Name="TotalMass" Grid.Column="1" Grid.Row="1" FontWeight="Bold" FontSize="18" Margin="0,9" TextChanged="buttonCalc_Click" VerticalAlignment="Center" Width="150" HorizontalAlignment="Left" Height="35" />
         <Label x:Name="label" Content="Total Mass (kg)" HorizontalAlignment="Right" Margin="0,9" VerticalAlignment="Center" Grid.Column="0" Height="35" Width="129" FontSize="18" Foreground="#FF00DCFF" Grid.Row="1"/>
@@ -47,7 +47,10 @@
         <Label x:Name="label1_Copy" Content="Remove&#xD;&#xA;a Stage" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Height="40" Width="55" Foreground="#FFE2E2F1" Grid.Row="6" Margin="206,44,0,0" Grid.Column="1"/>
         <Button x:Name="buttonReset" Content="Reset Stages" HorizontalAlignment="Left" Margin="160,15,0,0" VerticalAlignment="Top" Width="81" Height="32" Click="buttonReset_Click" Grid.Row="4" FontWeight="Bold" Grid.Column="1"/>
         <Expander Grid.ColumnSpan="2" Grid.Column="1" Margin="266,0,60,92" Grid.RowSpan="6" ExpandDirection="Right" Grid.Row="1" Foreground="#FF00FF0C" Header="Stages" FontSize="18" IsExpanded="True">
-            <Grid Background="Black">
+            <Grid>
+                <Grid.Background>
+                    <SolidColorBrush Color="#FF052F3C" Opacity="0.5"/>
+                </Grid.Background>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="35*"/>
@@ -248,7 +251,7 @@
         <Label x:Name="textBlock" HorizontalAlignment="Left" Margin="91,4,0,0" Grid.Row="6"  Content="TWR :" VerticalAlignment="Top" FontSize="18" Foreground="#FFFF5D00" Width="59" Height="34"/>
         <Label x:Name="LabelDeltaV_Copy1" Content="Δv :" HorizontalAlignment="Left" VerticalAlignment="Top" Width="44" Height="34" Foreground="#FF00DCFF" FontSize="18" Grid.Row="6" Margin="99,38,0,0"/>
         <Label x:Name="LabelDeltaV_Copy2" Content="Total Δv : " HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Height="34" Foreground="#FFF52424" FontSize="18" Grid.Row="6" Margin="63,72,0,0"/>
-        
+
         <Button Content="" x:Name="buttonDVCalc" Template="{DynamicResource BackgroundButton}"  Width="110" Height="70" VerticalAlignment="Center" HorizontalAlignment="Center"   Click="buttonDVCalc_Click"   Margin="10,40,539,10" Cursor="Hand" Grid.Column="2" Grid.Row="6"   >
             <Button.Resources>
                 <ControlTemplate x:Key="BackgroundButton" TargetType="{x:Type Button}">

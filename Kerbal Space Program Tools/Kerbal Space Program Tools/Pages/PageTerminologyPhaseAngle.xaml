@@ -1,0 +1,17 @@
+﻿<Page x:Class="Kerbal_Space_Program_Tools.Pages.PageTerminologyPhaseAngle"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Kerbal_Space_Program_Tools.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="2500" d:DesignWidth="1180"
+      Title="Phase Angle Calculations">
+
+    <Grid Background="#FFFDE7E7">
+        <ScrollViewer Margin="0">
+            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Background="White"><Run FontWeight="Bold" FontSize="24" FontFamily="TimesNewRomanPS-BoldMT" Text="&#x9;&#x9;&#x9;&#x9;&#x9;Determining Phase Angle"/><LineBreak/><Run FontStyle="Italic" FontSize="16" FontFamily="TimesNewRomanPS-ItalicMT"/><LineBreak/><Run Text="The calculations below assume that you are already familiar with performing Hohmann Transfer Orbits."/><LineBreak/><Run Text="Thanks to Kepler's Third Law, we don't need to know the mass of the central body or the actual periods of the orbiting bodies to figure out what angle the destination body will move through during your transit time."/><LineBreak/><Run/><LineBreak/><Run Text="All depicted bodies are moving counterclockwise in the image, and are assumed to be in circular orbits in the same plane."/><LineBreak/><Run/><LineBreak/><Run Text="The starting orbit is in red, the transfer orbit in yellow, and the destination orbit in green. "/><LineBreak/><Run Text="The solid red circle is  the entry point of the transfer orbit, the hollow green circle is the exit point, and where your destination object should be at arrival."/><LineBreak/><Run Text="The solid green circle is a representation of where the destination object might be  at the  beginning of the transfer orbit."/><LineBreak/><LineBreak/><Run/><LineBreak/><Run Text="h1 = Altitude of initial orbit."/><LineBreak/><Run Text="h2 = Altitude of final orbit."/><LineBreak/><Run Text="r = radius of central body. "/><LineBreak/><Run Text="ϴ = The Sweep angle, defined as the angle destination object will travel along a circular orbit "/><LineBreak/><Run/><LineBreak/><Run Text="during transfer time, in degrees, measured counterclockwise."/><LineBreak/><Run Text="ϕ = Phase Angle, defined as the angle between the starting point and the position of the destination "/><LineBreak/><Run Text="object at the optimal transfer time, measured counterclockwise."/><LineBreak/><Run/><LineBreak/><Run Text="p"/><Run FontStyle="Oblique" FontSize="9" Text="t"/><Run Text=" is the number of orbits your destination object will complete in the time it takes your spacecraft to complete the transfer orbit."/><LineBreak/><Run/><LineBreak/><Run Text="Define f"/><Run FontStyle="Oblique" FontSize="9" Text="t "/><Run Text=" as the fractional part of  p"/><Run FontStyle="Oblique" FontSize="9" Text="t"/><Run Text=" . For example"/><LineBreak/><Run Text="if p"/><Run FontStyle="Oblique" FontSize="9" Text="t"/><Run Text="  = 1.8392,  f"/><Run FontStyle="Oblique" FontSize="9" Text="t"/><Run Text="= 0.8932   "/><LineBreak/><Run Text="if p"/><Run FontStyle="Oblique" FontSize="9" Text="t"/><Run Text=" &lt;1,  f"/><Run FontStyle="Oblique" FontSize="9" Text="t"/><Run Text=" = p"/><Run FontStyle="Oblique" FontSize="9" Text="t"/><Run Text=" ."/><LineBreak/><Run/></TextBlock>
+        </ScrollViewer>
+
+    </Grid>
+</Page>

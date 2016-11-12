@@ -14,7 +14,7 @@
             <Image x:Name="image" Source="/Images/Biomes/Mun_Biome_Map_0.90.0.png" VerticalAlignment="Bottom"  />
         </Border>
         <Grid Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <Rectangle Fill="White" Opacity="0.315" RadiusX="20" RadiusY="20"/>
+            <Rectangle Fill="White" Opacity="0.315" RadiusX="10" RadiusY="10"/>
             <StackPanel  HorizontalAlignment="Left" VerticalAlignment="Top"  >
             <StackPanel Height="23" VerticalAlignment="Center" Orientation="Horizontal" Grid.ColumnSpan="2">
                 <RadioButton x:Name="radioButtonNormal" GroupName="mods" Content="Normal  " HorizontalAlignment="Left" Foreground="#FF010CFD"   Checked="radioButtonNormal_Checked" Margin="0,0,0,8"/>

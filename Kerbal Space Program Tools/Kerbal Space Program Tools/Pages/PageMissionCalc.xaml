@@ -37,7 +37,11 @@
                     <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
 
-                <Rectangle RadiusX="25" RadiusY="25" Stroke="Black"  Opacity="0.1" Fill="#FF01E8FF" Grid.RowSpan="12" Grid.ColumnSpan="2" Margin="0"/>
+                <Rectangle RadiusX="10" RadiusY="10" Grid.RowSpan="12" Grid.ColumnSpan="2" Margin="0">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF052F3C" Opacity="0.5"/>
+                    </Rectangle.Fill>
+                </Rectangle>
                 <TextBlock Margin="0" Name="textBlockOriginTravel"  MouseLeftButtonUp="textBlockOriginTravel_MouseLeftButtonUp" TextWrapping="Wrap" Foreground="#FF02FD69" Text="Round Trip" FontSize="14" TextDecorations="{x:Null}" TextAlignment="Right" Grid.Row="2" Cursor="Hand"/>
                 <TextBlock Margin="0" x:Name="textBlockStop1Travel" MouseLeftButtonUp="textBlockStop1Travel_MouseLeftButtonUp" TextWrapping="Wrap" Foreground="#FF9CDBDE" Text="Stop 1 " FontSize="14" TextDecorations="{x:Null}" TextAlignment="Right" Grid.Row="4" Cursor="Hand"/>
                 <TextBlock Margin="0" x:Name="textBlockStop2Travel" MouseLeftButtonUp="textBlockStop2Travel_MouseLeftButtonUp" TextWrapping="Wrap" Foreground="#FFDAC5FF" Text="Stop 2" FontSize="14" TextDecorations="{x:Null}" TextAlignment="Right" Grid.Row="6" Cursor="Hand"/>
@@ -82,7 +86,11 @@
                         <RowDefinition Height="12*"/>
                         <RowDefinition Height="3*"/>
                     </Grid.RowDefinitions>
-                    <Rectangle Fill="#FF01E8FF"  RadiusY="20" RadiusX="20" Stroke="Black" Opacity="0.1" Grid.RowSpan="3" Grid.ColumnSpan="7"/>
+                    <Rectangle  RadiusY="10" RadiusX="10" Grid.RowSpan="3" Grid.ColumnSpan="7">
+                        <Rectangle.Fill>
+                            <SolidColorBrush Color="#FF052F3C" Opacity="0.5"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
                     <Viewbox Grid.Column="2">
                         <TextBlock Text="Δv Budget" 
                                FontSize="16" 
@@ -123,7 +131,11 @@
                             <RowDefinition Height="100*"/>
                             <RowDefinition Height="100*"/>
                         </Grid.RowDefinitions>
-                        <Rectangle RadiusX="25" RadiusY="25" Stroke="Black"  Opacity="0.1" Fill="#FF01E8FF" Grid.ColumnSpan="2" Margin="0" Grid.RowSpan="5"/>
+                        <Rectangle RadiusX="10" RadiusY="10" Grid.ColumnSpan="2" Margin="0" Grid.RowSpan="5">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Color="#FF052F3C" Opacity="0.5"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
 
                         <StackPanel Orientation="Horizontal" Margin="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
                             <CheckBox x:Name="checkBox" Content="Show All" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFF1EEEE" FontWeight="Bold" Unchecked="checkBox_Checked" Checked="checkBox_Checked" Width="76" Height="20"/>
@@ -212,7 +224,11 @@
                     <RowDefinition Height="100*"/>
                     <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
-                <Rectangle RadiusX="25" RadiusY="25" Stroke="Black" Opacity="0.1" Fill="#FF01E8FF" Grid.RowSpan="6" Grid.ColumnSpan="4" />
+                <Rectangle RadiusX="10" RadiusY="10" Grid.RowSpan="6" Grid.ColumnSpan="4" >
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF052F3C" Opacity="0.5"/>
+                    </Rectangle.Fill>
+                </Rectangle>
                 <TextBlock Margin="0" Name="textBlockOrigin" HorizontalAlignment="Left"  TextWrapping="Wrap" Foreground="#FF02FD69" Width="535" Text="Origin " FontSize="14" TextDecorations="{x:Null}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
                 <TextBlock Margin="0" x:Name="textBlockStop1" HorizontalAlignment="Left"  TextWrapping="Wrap" Foreground="#FF9CDBDE" Width="535" Text="Stop 1 " FontSize="14" TextDecorations="{x:Null}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
                 <TextBlock Margin="0" x:Name="textBlockStop2" HorizontalAlignment="Left"  TextWrapping="Wrap" Foreground="#FFDAC5FF" Width="535" Text="Stop 2 " FontSize="14" TextDecorations="{x:Null}" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1"/>

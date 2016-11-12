@@ -26,7 +26,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>0.9.5.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -113,6 +113,9 @@
     <Compile Include="Pages\PageTerminologyOrbitalTerms.xaml.cs">
       <DependentUpon>PageTerminologyOrbitalTerms.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageTerminologyPhaseAngle.xaml.cs">
+      <DependentUpon>PageTerminologyPhaseAngle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageTerminologyPhysics.xaml.cs">
       <DependentUpon>PageTerminologyPhysics.xaml</DependentUpon>
     </Compile>
@@ -161,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageTerminologyOrbitalTerms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageTerminologyPhaseAngle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

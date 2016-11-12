@@ -22,7 +22,7 @@
             <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
 
-        <Rectangle Fill="#FF02C6FF" Grid.Row="1" Stroke="Black" RadiusX="20" RadiusY="20" Opacity="0.11" Grid.ColumnSpan="6"/>
+        <Rectangle Fill="#FF052F3C" Grid.Row="1" RadiusX="20" RadiusY="20" Opacity="0.5" Grid.ColumnSpan="6"/>
 
         <Button Content="" x:Name="buttonNormal" Template="{DynamicResource BackgroundButton}" Click="buttonNormal_Click" Margin="2,32,3,35" Cursor="Hand" Grid.Row="1" Grid.Column="1">
             <Button.Resources>
