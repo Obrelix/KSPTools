@@ -151,8 +151,8 @@ namespace Kerbal_Space_Progam_Tools
         private void About_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Created By Obrelix"+
-                Environment.NewLine+ "Released : 13/7/16"
-                + Environment.NewLine + "Version : Beta 0.8");
+                Environment.NewLine+ "Released : 12/11/16"
+                + Environment.NewLine + "Version : Beta 0.9.5.3");
         }
         private void test_Click(object sender, RoutedEventArgs e)
         {
