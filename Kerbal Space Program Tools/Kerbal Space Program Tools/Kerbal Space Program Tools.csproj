@@ -20,13 +20,18 @@
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>60</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>https://github.com/Obrelix/KSPTools/issues</SupportUrl>
     <ErrorReportUrl>https://github.com/Obrelix/KSPTools/issues</ErrorReportUrl>
+    <ProductName>Kerbal Space Program Tools</ProductName>
+    <PublisherName>Obrelix</PublisherName>
+    <SuiteName>KSP TOOLS</SuiteName>
+    <MinimumRequiredVersion>0.9.5.0</MinimumRequiredVersion>
     <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>0.9.5.%2a</ApplicationVersion>

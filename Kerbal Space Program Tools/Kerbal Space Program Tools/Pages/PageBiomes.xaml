@@ -14,8 +14,8 @@
             <Image x:Name="image" Source="/Images/Biomes/Mun_Biome_Map_0.90.0.png" VerticalAlignment="Bottom"  />
         </Border>
         <Grid Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <Rectangle Fill="White" Opacity="0.315" RadiusX="10" RadiusY="10"/>
-            <StackPanel  HorizontalAlignment="Left" VerticalAlignment="Top"  >
+            <Rectangle x:Name="rctMenu" Fill="#FFB0DBF3" Opacity="0.5" RadiusX="10" RadiusY="10"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="293"  >
             <StackPanel Height="23" VerticalAlignment="Center" Orientation="Horizontal" Grid.ColumnSpan="2">
                 <RadioButton x:Name="radioButtonNormal" GroupName="mods" Content="Normal  " HorizontalAlignment="Left" Foreground="#FF010CFD"   Checked="radioButtonNormal_Checked" Margin="0,0,0,8"/>
                 <RadioButton x:Name="radioButtonOuter" GroupName="mods" Content="Outer Planets " HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="#FF3AFD01"  Checked="radioButtonNormal_Checked"/>
@@ -23,11 +23,11 @@
             </StackPanel>
             <StackPanel >
                 <StackPanel Orientation="Horizontal">
-                    <ComboBox x:Name="comboBoxMaps"  Text="Choose Delta-V Map"   Width="120" SelectionChanged="comboBoxMaps_SelectionChanged" Height="23"/>
+                        <ComboBox x:Name="comboBoxMaps"  Text="Choose Delta-V Map"   Width="120" SelectionChanged="comboBoxMaps_SelectionChanged" Height="23"/>
                     <Button x:Name="button" Content="More info" Width="75"  Height="23" Click="button_Click"/>
                 </StackPanel>
                     <Label Content="Mousewheel to zoom. Hold left mousebutton to pan." Height="35" HorizontalAlignment="Center" Margin="0" Name="label1" VerticalAlignment="Center" Width="293" />
-
+                    <TextBlock x:Name="txtb_Info" TextWrapping="Wrap" FontSize="14" Margin="0,0,0,8" TextAlignment="Center"></TextBlock>
             </StackPanel>
             
         </StackPanel>

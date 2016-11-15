@@ -5,144 +5,156 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kerbal_Space_Progam_Tools"
         mc:Ignorable="d"
-        Title="KSP Tools" Height="690" Width="1200">
+        Title="KSP Tools" Height="690" Width="1200" Loaded="parent_Loaded">
     <Window.Background>
         <ImageBrush ImageSource="Images/Backgrounds/kspbg.jpg"/>
     </Window.Background>
-    <Grid>
-        <TabControl x:Name="tabControl" Margin="0,15,0,0" Background="{x:Null}" BorderBrush="{x:Null}">
-            <TabControl.BitmapEffect>
-                <DropShadowBitmapEffect Color="Black" Direction="270"/>
-            </TabControl.BitmapEffect>
-            <TabControl.Resources>
-                <Style TargetType="{x:Type TabItem}">
-                    <Setter Property="BorderThickness" Value="0"/>
-                    <Setter Property="Padding" Value="0" />
-                    <Setter Property="HeaderTemplate">
-                        <Setter.Value>
-                            <DataTemplate>
-                                <Border x:Name="grid" Background="#FF2C656E">
-                                    <ContentPresenter>
-                                        <ContentPresenter.Content>
-                                            <TextBlock Margin="4" FontSize="15" Text="{TemplateBinding Content}"/>
-                                        </ContentPresenter.Content>
-                                    </ContentPresenter>
-                                </Border>
-                                <DataTemplate.Triggers>
-                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type TabItem}},Path=IsSelected}" Value="True">
-                                        <Setter TargetName="grid" Property="Background" Value="#FF8D9E81"/>
-                                    </DataTrigger>
-                                </DataTemplate.Triggers>
-                            </DataTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </TabControl.Resources>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Background="White">
+            <MenuItem Header="_Menu" >
+                <MenuItem Header="_Start KSP" Click="KSP_Click" />
+                <MenuItem Header="_Start Ckan" Click="Ckan_Click" />
+                <MenuItem Header="_KSP Links">
+                    <MenuItem Header="_Forums" Click="Forum_Click" />
+                    <MenuItem Header="_SubReddit" Click="Reddit_Click"/>
+                    <MenuItem Header="_Wiki" Click="Wiki_Click"/>
+                    <MenuItem Header="_Mods" Click="CurseMods_Click"/>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="_Exit" Click="Exit_Click" />
+            </MenuItem>
 
+            <MenuItem Header="Help">
 
+                <MenuItem Header="Git">
+                <MenuItem Header="_Github Page" Click="GitPage_Click" />
+                <MenuItem Header="_Source Code" Click="Git_Click" />
+                </MenuItem>
+                <MenuItem Header="Download" Click="Download"/>
+                <MenuItem Header="Report an _issue" Click="Issues_Click"/>
+                <MenuItem Header="_Credits" Click="Credit_Click" />
+                <MenuItem Header="_About"  Click="About_Click"/>
+            </MenuItem>
+            
+        </Menu>
 
-            <TabItem Header="Main" Background="{x:Null}" Margin="298,0,-298,0">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="400*"/>
-                        <ColumnDefinition Width="305*"/>
-                        <ColumnDefinition Width="400*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="251*"/>
-                        <RowDefinition Height="30*"/>
-                        <RowDefinition Height="23*"/>
-                    </Grid.RowDefinitions>
-
-
-                    <Frame x:Name="frame1" Content="Frame" Margin="0" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
-                    <Image x:Name="image" HorizontalAlignment="Center" Height="143" VerticalAlignment="Top" Width="294" Source="Images/Logo/kspLogo.png" Grid.Column="1" Margin="4,0,7,0"    />
-
-                    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
-                        <TextBlock x:Name="textBoxabout"  HorizontalAlignment="Right" TextWrapping="WrapWithOverflow"  VerticalAlignment="Center" Width="66" FontWeight="Bold" FontSize="18" FontFamily="Times New Roman"   ><Hyperlink Click="About_Click"><Run Text="About"/></Hyperlink></TextBlock>
-                        <TextBlock x:Name="textBoxcredit"  HorizontalAlignment="Right" TextWrapping="WrapWithOverflow"  VerticalAlignment="Center" Width="66" FontWeight="Bold" FontSize="18" FontFamily="Times New Roman" ><Hyperlink Click="Credit_Click"><Run Text="Credits"/></Hyperlink></TextBlock>
+        <Grid>
+            <Grid.ContextMenu>
+                <ContextMenu>
                     
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Mission Calculator" Background="{x:Null}" Margin="298,0,-298,0">
-                <Grid>
-                    <Frame x:Name="frameMission" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageMissionCalc.xaml" NavigationUIVisibility="Hidden"/>
+                </ContextMenu>
+            </Grid.ContextMenu>
 
-                </Grid>
-            </TabItem>
-            <TabItem Header="Δv Calculator" Background="{x:Null}" Margin="298,0,-298,0">
-                <Grid>
-                    <Frame x:Name="frameDVCalc" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageDVCalc.xaml" NavigationUIVisibility="Hidden"/>
-                </Grid>
-            </TabItem>
+            <TabControl x:Name="tabControl"  Background="{x:Null}" BorderBrush="{x:Null}" >
+                <TabControl.BitmapEffect>
+                    <DropShadowBitmapEffect Color="Black" Direction="270"/>
+                </TabControl.BitmapEffect>
+                <TabControl.Resources>
+                    <Style TargetType="{x:Type TabItem}">
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Padding" Value="0" />
+                        <Setter Property="HeaderTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Border x:Name="grid" Background="#FF2C656E">
+                                        <ContentPresenter>
+                                            <ContentPresenter.Content>
+                                                <TextBlock Margin="4" FontSize="15" Text="{TemplateBinding Content}"/>
+                                            </ContentPresenter.Content>
+                                        </ContentPresenter>
+                                    </Border>
+                                    <DataTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type TabItem}},Path=IsSelected}" Value="True">
+                                            <Setter TargetName="grid" Property="Background" Value="#FF8D9E81"/>
+                                        </DataTrigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TabControl.Resources>
 
-            <TabItem Header="Biome Maps" Background="{x:Null}" Margin="298,0,-298,0">
-                <Grid>
-                    <Frame x:Name="frameBiomes" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageBiomes.xaml" NavigationUIVisibility="Hidden"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Δv Maps" Background="{x:Null}" Margin="298,0,-298,0">
-                <Grid>
-                    <Frame x:Name="frameDVMap" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageDVMap.xaml" NavigationUIVisibility="Hidden"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Terminology"  Background="{x:Null}" Margin="298,0,-298,0">
-                <Grid>
-                    <Frame x:Name="frameTerminology" Content="Frame" Margin="0"  NavigationUIVisibility="Hidden" Source="/Kerbal Space Program Tools;component/Pages/PageTerminologyOrbitalTerms.xaml"/>
-                    <ComboBox x:Name="comboBoxTerminology" HorizontalAlignment="Left" VerticalAlignment="Top" Width="155" SelectionChanged="comboBoxTerminology_SelectionChanged" FontWeight="Bold" Margin="0,10,0,0"/>
-                    <Expander x:Name="expander" Header="Terms" HorizontalAlignment="Left" VerticalAlignment="Top" ExpandDirection="Right" Height="158" Width="845" Background="{x:Null}" Margin="175,10,0,0" Foreground="#FF1700FF">
-                        <Grid Background="#FFFFF9F9" >
-                            <RadioButton GroupName="Pages" x:Name="radioButtonMaths" Click="RadioTerms" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0017FF" Height="15" Width="15" Margin="10,15,0,0" />
-                            <RadioButton GroupName="Pages" x:Name="radioButtonOrbitTerms" Checked="RadioTerms" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0017FF" Height="15" Width="15" Margin="140,15,0,0"/>
-                            <RadioButton GroupName="Pages" x:Name="radioButtonShipOrient" Checked="RadioTerms" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0017FF" Height="15" Width="15" Margin="270,15,0,0"/>
-                            <RadioButton GroupName="Pages" x:Name="radioButtonSpaceManu" Checked="RadioTerms" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0017FF" Height="15" Width="15" Margin="410,15,0,0"/>
-                            <RadioButton GroupName="Pages" x:Name="radioButtonPhysics" Checked="RadioTerms" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0017FF" Height="15" Width="15" Margin="555,15,0,0"/>
-                            <RadioButton GroupName="Pages" x:Name="radioButtonInterplanetary" Checked="RadioTerms"  Content="Interplanetary&#xA;How-To Guide &#xA;by Kosmo-not" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0017FF" Height="67" Width="100" Margin="705,15,0,0" />
-                            <Expander x:Name="expander1" Header="Mathematics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="120" Margin="30,10,0,0">
-                                <ScrollViewer>
-                                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="84"><Run Text="1) Elliptical"/><LineBreak/><Run Text="2) Hyperbolic"/><LineBreak/><Run Text="3) Normal vector"/><LineBreak/><Run Text="4) Scalar"/><LineBreak/><Run Text="5) Vector"/></TextBlock>
-                                </ScrollViewer>
-                            </Expander>
-                            <Expander x:Name="expander1_Copy" Header="Orbital Terms" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="120" Margin="160,10,0,0">
-                                <ScrollViewer>
-                                    <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="1) Apsis"/><LineBreak/><Run Text="2) Apoapsis"/><LineBreak/><Run Text="3) Periapsis"/><LineBreak/><Run Text="4) Ascending node"/><LineBreak/><Run Text="5) Descending node"/><LineBreak/><Run Text="6) Eccentricity"/><LineBreak/><Run Text="7) Inclination"/><LineBreak/><Run Text="8) Low orbit"/><LineBreak/><Run Text="9) Orbital node (astronomical definition)"/><LineBreak/><Run Text="10) Orbital nodes (as in game)"/><LineBreak/><Run Text="11) Orbit normal"/><LineBreak/><Run Text="12) Orbital plane"/><LineBreak/><Run Text="13) Orbital speed"/><LineBreak/><Run Text="14) Prograde"/><LineBreak/><Run Text="15) Retrograde"/><LineBreak/><Run Text="16) Reference plane"/><LineBreak/><Run Text="17) Semi-major axis"/><LineBreak/><Run Text="18) Sidereal period"/><LineBreak/><Run Text="19) Sub-orbital"/><LineBreak/><Run Text="20) Synodic period"/><LineBreak/><Run Text="21) True Anomaly"/></TextBlock>
-                                </ScrollViewer>
-                            </Expander>
-                            <Expander x:Name="expander1_Copy1" Header="Ship Orientation" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="120" Margin="290,10,0,0">
-                                <ScrollViewer>
-                                    <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="99" Height="117"><Run Text="1) Attitude"/><LineBreak/><Run Text="2) Zenith "/><LineBreak/><Run Text="3) Nadir"/><LineBreak/><Run Text="4) Port"/><LineBreak/><Run Text="5) Starboard"/><LineBreak/><Run Text="6) Forward (Fore)"/><LineBreak/><Run Text="7) Aft "/></TextBlock>
-                                </ScrollViewer>
-                            </Expander>
-                            <Expander x:Name="expander1_Copy2" Header="Space Maneuvers" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="120" Margin="430,10,0,0">
-                                <ScrollViewer>
-                                    <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" Height="223"><Run Text="1) Atmospheric braking"/><LineBreak/><Run Text="2) Lithobraking"/><LineBreak/><Run Text="3) Atmospheric entry"/><LineBreak/><Run Text="4) Burn"/><LineBreak/><Run Text="5) Circularizing"/><LineBreak/><Run Text="6) Gravity assist"/><LineBreak/><Run Text="7) Maneuver node"/><LineBreak/><Run Text="8) Radial-in burn"/><LineBreak/><Run Text="9) Radial-out burn"/><LineBreak/><Run Text="10) Re-entry"/><LineBreak/><Run Text="11) Retroburn"/></TextBlock>
-                                </ScrollViewer>
-                            </Expander>
-                            <Expander x:Name="expander1_Copy3" Header="Physics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="120" Margin="575,10,0,0">
-                                <ScrollViewer>
-                                    <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" Height="328"><Run Text="1) Acceleration"/><LineBreak/><Run Text="2) Ballistic trajectory"/><LineBreak/><Run Text="3) Delta-v (Δv)"/><LineBreak/><Run Text="4) Energy"/><LineBreak/><Run Text="5) Escape Velocity"/><LineBreak/><Run Text="6) g-force (g)"/><LineBreak/><Run Text="7) Gravity"/><LineBreak/><Run Text="8) Gravity well"/><LineBreak/><Run Text="9) Orbit"/><LineBreak/><Run Text="10) Specific Impulse (Isp)"/><LineBreak/><Run Text="11) Sphere of influence"/><LineBreak/><Run Text="12) Tangential velocity"/><LineBreak/><Run Text="13) Thrust-to-weight ratio"/><LineBreak/><Run Text="14) Trajectory"/><LineBreak/><Run Text="15) Velocity"/></TextBlock>
-                                </ScrollViewer>
-                            </Expander>
-                            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="30,130,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                        </Grid>
-                    </Expander>
-                </Grid>
-            </TabItem>
-        </TabControl>
-        <StackPanel VerticalAlignment="Top" Orientation="Horizontal" HorizontalAlignment="Left" Margin="2,4,0,0">
-            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0" Width="295"   Orientation="Horizontal" >
-                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal"   Width="299" Height="57" VerticalAlignment="Center" >
-                    <Rectangle Fill="#FF01E8FF" HorizontalAlignment="Left" Height="57"  RadiusY="20" RadiusX="20" Stroke="Black" VerticalAlignment="Top" Width="294" Opacity="0.1"/>
-                    <TextBlock x:Name="textBoxForum" Margin="-275, 0, 0, 0" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Center" Width="69" ><Hyperlink Click="Forum_Click" FontSize="16"><Run Text="Forums"/></Hyperlink></TextBlock>
-                    <TextBlock x:Name="textBoxReddit" Margin="-200, 0, 0, 0" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Center" Width="85"  ><Hyperlink Click="Reddit_Click" FontSize="16"><Run Text="SubReddit"/></Hyperlink></TextBlock>
-                    <TextBlock x:Name="textWiki" Margin="-110, 0, 0, 0" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Center" Width="45" ><Hyperlink Click="Wiki_Click" FontSize="16"><Run Text="Wiki"/></Hyperlink></TextBlock>
-                    <TextBlock x:Name="textBoxMods" Margin="-60, 0, 0, 0" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow"  VerticalAlignment="Center" Width="41" ><Hyperlink Click="CurseMods_Click" FontSize="16"><Run Text="Mods"/></Hyperlink></TextBlock>
-                </StackPanel>
-            </StackPanel>
-        </StackPanel>
 
-    </Grid>
 
+                <TabItem Header="Main" Background="{x:Null}" Margin="298,0,-298,0">
+                    <Grid>
+
+
+
+                        <Frame x:Name="frame1" Content="Frame" Margin="0" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+                        <Image x:Name="image" HorizontalAlignment="Center" Height="143" VerticalAlignment="Top" Width="294" Source="Images/Logo/kspLogo.png" Grid.Column="1" Margin="4,0,7,0"    />
+
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Mission Calculator" Background="{x:Null}" Margin="298,0,-298,0">
+                    <Grid>
+                        <Frame x:Name="frameMission" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageMissionCalc.xaml" NavigationUIVisibility="Hidden"/>
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Δv Calculator" Background="{x:Null}" Margin="298,0,-298,0">
+                    <Grid>
+                        <Frame x:Name="frameDVCalc" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageDVCalc.xaml" NavigationUIVisibility="Hidden"/>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Biome Maps" Background="{x:Null}" Margin="298,0,-298,0">
+                    <Grid>
+                        <Frame x:Name="frameBiomes" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageBiomes.xaml" NavigationUIVisibility="Hidden"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Δv Maps" Background="{x:Null}" Margin="298,0,-298,0">
+                    <Grid>
+                        <Frame x:Name="frameDVMap" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageDVMap.xaml" NavigationUIVisibility="Hidden"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Terminology"  Background="{x:Null}" Margin="298,0,-298,0">
+                    <Grid>
+                        <Frame x:Name="frameTerminology" Content="Frame" Margin="0"  NavigationUIVisibility="Hidden" Source="/Kerbal Space Program Tools;component/Pages/PageTerminologyOrbitalTerms.xaml"/>
+                        <ComboBox x:Name="comboBoxTerminology" HorizontalAlignment="Left" VerticalAlignment="Top" Width="155" SelectionChanged="comboBoxTerminology_SelectionChanged" FontWeight="Bold" Margin="0,10,0,0"/>
+                        <Expander x:Name="expander" Header="Terms" HorizontalAlignment="Left" VerticalAlignment="Top" ExpandDirection="Right" Height="158" Width="845" Background="{x:Null}" Margin="175,10,0,0" Foreground="#FF1700FF">
+                            <Grid Background="#FFFFF9F9" >
+                                <RadioButton GroupName="Pages" x:Name="radioButtonMaths" Click="RadioTerms" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0017FF" Height="15" Width="15" Margin="10,15,0,0" />
+                                <RadioButton GroupName="Pages" x:Name="radioButtonOrbitTerms" Checked="RadioTerms" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0017FF" Height="15" Width="15" Margin="140,15,0,0"/>
+                                <RadioButton GroupName="Pages" x:Name="radioButtonShipOrient" Checked="RadioTerms" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0017FF" Height="15" Width="15" Margin="270,15,0,0"/>
+                                <RadioButton GroupName="Pages" x:Name="radioButtonSpaceManu" Checked="RadioTerms" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0017FF" Height="15" Width="15" Margin="410,15,0,0"/>
+                                <RadioButton GroupName="Pages" x:Name="radioButtonPhysics" Checked="RadioTerms" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0017FF" Height="15" Width="15" Margin="555,15,0,0"/>
+                                <RadioButton GroupName="Pages" x:Name="radioButtonInterplanetary" Checked="RadioTerms"  Content="Interplanetary&#xA;How-To Guide &#xA;by Kosmo-not" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0017FF" Height="67" Width="100" Margin="705,15,0,0" />
+                                <Expander x:Name="expander1" Header="Mathematics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="120" Margin="30,10,0,0">
+                                    <ScrollViewer>
+                                        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="84"><Run Text="1) Elliptical"/><LineBreak/><Run Text="2) Hyperbolic"/><LineBreak/><Run Text="3) Normal vector"/><LineBreak/><Run Text="4) Scalar"/><LineBreak/><Run Text="5) Vector"/></TextBlock>
+                                    </ScrollViewer>
+                                </Expander>
+                                <Expander x:Name="expander1_Copy" Header="Orbital Terms" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="120" Margin="160,10,0,0">
+                                    <ScrollViewer>
+                                        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="1) Apsis"/><LineBreak/><Run Text="2) Apoapsis"/><LineBreak/><Run Text="3) Periapsis"/><LineBreak/><Run Text="4) Ascending node"/><LineBreak/><Run Text="5) Descending node"/><LineBreak/><Run Text="6) Eccentricity"/><LineBreak/><Run Text="7) Inclination"/><LineBreak/><Run Text="8) Low orbit"/><LineBreak/><Run Text="9) Orbital node (astronomical definition)"/><LineBreak/><Run Text="10) Orbital nodes (as in game)"/><LineBreak/><Run Text="11) Orbit normal"/><LineBreak/><Run Text="12) Orbital plane"/><LineBreak/><Run Text="13) Orbital speed"/><LineBreak/><Run Text="14) Prograde"/><LineBreak/><Run Text="15) Retrograde"/><LineBreak/><Run Text="16) Reference plane"/><LineBreak/><Run Text="17) Semi-major axis"/><LineBreak/><Run Text="18) Sidereal period"/><LineBreak/><Run Text="19) Sub-orbital"/><LineBreak/><Run Text="20) Synodic period"/><LineBreak/><Run Text="21) True Anomaly"/></TextBlock>
+                                    </ScrollViewer>
+                                </Expander>
+                                <Expander x:Name="expander1_Copy1" Header="Ship Orientation" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="120" Margin="290,10,0,0">
+                                    <ScrollViewer>
+                                        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="99" Height="117"><Run Text="1) Attitude"/><LineBreak/><Run Text="2) Zenith "/><LineBreak/><Run Text="3) Nadir"/><LineBreak/><Run Text="4) Port"/><LineBreak/><Run Text="5) Starboard"/><LineBreak/><Run Text="6) Forward (Fore)"/><LineBreak/><Run Text="7) Aft "/></TextBlock>
+                                    </ScrollViewer>
+                                </Expander>
+                                <Expander x:Name="expander1_Copy2" Header="Space Maneuvers" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="120" Margin="430,10,0,0">
+                                    <ScrollViewer>
+                                        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" Height="223"><Run Text="1) Atmospheric braking"/><LineBreak/><Run Text="2) Lithobraking"/><LineBreak/><Run Text="3) Atmospheric entry"/><LineBreak/><Run Text="4) Burn"/><LineBreak/><Run Text="5) Circularizing"/><LineBreak/><Run Text="6) Gravity assist"/><LineBreak/><Run Text="7) Maneuver node"/><LineBreak/><Run Text="8) Radial-in burn"/><LineBreak/><Run Text="9) Radial-out burn"/><LineBreak/><Run Text="10) Re-entry"/><LineBreak/><Run Text="11) Retroburn"/></TextBlock>
+                                    </ScrollViewer>
+                                </Expander>
+                                <Expander x:Name="expander1_Copy3" Header="Physics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="120" Margin="575,10,0,0">
+                                    <ScrollViewer>
+                                        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" Height="328"><Run Text="1) Acceleration"/><LineBreak/><Run Text="2) Ballistic trajectory"/><LineBreak/><Run Text="3) Delta-v (Δv)"/><LineBreak/><Run Text="4) Energy"/><LineBreak/><Run Text="5) Escape Velocity"/><LineBreak/><Run Text="6) g-force (g)"/><LineBreak/><Run Text="7) Gravity"/><LineBreak/><Run Text="8) Gravity well"/><LineBreak/><Run Text="9) Orbit"/><LineBreak/><Run Text="10) Specific Impulse (Isp)"/><LineBreak/><Run Text="11) Sphere of influence"/><LineBreak/><Run Text="12) Tangential velocity"/><LineBreak/><Run Text="13) Thrust-to-weight ratio"/><LineBreak/><Run Text="14) Trajectory"/><LineBreak/><Run Text="15) Velocity"/></TextBlock>
+                                    </ScrollViewer>
+                                </Expander>
+                                <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="30,130,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                            </Grid>
+                        </Expander>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+
+
+        </Grid>
+    </DockPanel>
 </Window>
 

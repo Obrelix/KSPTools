@@ -37,6 +37,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
         string[] RSSMaps = new string[24] { "Callisto", "Charon", "Deimos", "Dione", "Earth", "Enceladus", "Europa", "Ganymede",
                 "Iapetus", "Io", "Jupiter", "MarsBiomes", "MercuryBiomes", "Mimas", "Moon", "Phobos", "Pluto", "Rhea", "Saturn",
                 "Tethys", "Titan", "Triton", "Uranus", "Venus"};
+        bool btnchk = true;
 
         private void WPFWindow_Loaded(object sender, RoutedEventArgs e)
         {
@@ -110,7 +111,8 @@ namespace Kerbal_Space_Progam_Tools.Pages
 
         private string PlanetName = "";
 
-        private void comboBoxMaps_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        
+        private void cmbxChange()
         {
             if (radioButtonRss.IsChecked == true)
             {
@@ -331,7 +333,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                     image.Source = logo;
                 }
             }
-            else  if (radioButtonOuter.IsChecked == true)
+            else if (radioButtonOuter.IsChecked == true)
             {
                 if (comboBoxMaps.SelectedIndex == 0)
                 {
@@ -406,9 +408,9 @@ namespace Kerbal_Space_Progam_Tools.Pages
                     image.Source = logo;
                 }
             }
-            else if ( radioButtonNormal.IsChecked == true)
-            { 
-                if (comboBoxMaps.SelectedIndex == 0 )
+            else if (radioButtonNormal.IsChecked == true)
+            {
+                if (comboBoxMaps.SelectedIndex == 0)
                 {
                     PlanetName = "Bop";
                     BitmapImage logo = new BitmapImage();
@@ -571,14 +573,13 @@ namespace Kerbal_Space_Progam_Tools.Pages
                     image.Source = logo;
                 }
             }
-
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void txtbxText()
         {
             if (PlanetName == "Moho")
             {
-                MessageBox.Show("Moho" +
+                txtb_Info.Text = "Moho" +
                     Environment.NewLine +
                     "The planet Moho has 12 biomes.It is one of two bodies(the other being Ike) that have their own North and South Pole biome.On the North Pole there is a big sinkhole called the Northern Sinkhole." +
                     Environment.NewLine +
@@ -588,11 +589,11 @@ namespace Kerbal_Space_Progam_Tools.Pages
                     "North Pole, Northern Sinkhole Ridge, Northern Sinkhole," + Environment.NewLine +
                     "Highlands, Midlands, Minor Craters, Central Lowlands," + Environment.NewLine +
                     "Western Lowlands, South Western Lowlands," + Environment.NewLine +
-                    "South Eastern Lowlands, Canyon, South Pole ");
+                    "South Eastern Lowlands, Canyon, South Pole ";
             }
             if (PlanetName == "Eve")
             {
-                MessageBox.Show("Eve" +
+                txtb_Info.Text = "Eve" +
                     Environment.NewLine +
                     "The planet Eve has 7 biomes. It has several Explodium Seas, among which lie large continents." +
                     Environment.NewLine +
@@ -600,22 +601,22 @@ namespace Kerbal_Space_Progam_Tools.Pages
                     "Eve biome list:" +
                     Environment.NewLine +
                     "Poles, Explodium Sea, Lowlands, Midlands," + Environment.NewLine +
-                    "Highlands, Peaks, Impact Ejecta");
+                    "Highlands, Peaks, Impact Ejecta";
             }
             if (PlanetName == "Gilly")
             {
-                MessageBox.Show("Gilly" +
+                txtb_Info.Text = "Gilly" +
                     Environment.NewLine +
                     "With only 3 biomes, the moon of Eve, called Gilly, has the fewest number of biomes." +
                     Environment.NewLine +
                     Environment.NewLine +
                     "Gilly  biome list:" +
                     Environment.NewLine +
-                    "Lowlands, Midlands, Highlands");
+                    "Lowlands, Midlands, Highlands";
             }
             if (PlanetName == "Kerbin")
             {
-                MessageBox.Show("Kerbin" +
+                txtb_Info.Text = "Kerbin" +
                     Environment.NewLine +
                     "The planet Kerbin has 9 biomes, plus a large number of surface-only “location biomes” comprising Kerbal Space Center. Roughly 60% Kerbin's surface is Water biome. Grasslands and Highlands biomes cover most of the land area." +
                     Environment.NewLine +
@@ -652,133 +653,166 @@ namespace Kerbal_Space_Progam_Tools.Pages
                     Environment.NewLine +
                     "1.↑ In career mode, the Astronaut Complex location biome is available with a first - level building if in contact with the structure, or anywhere on its hex after the first upgrade." +
                     Environment.NewLine +
-                    "2. ↑ The South Complex location biome is only accessible with a second-level VAB, making the science available there missable content.");
+                    "2. ↑ The South Complex location biome is only accessible with a second-level VAB, making the science available there missable content.";
             }
             if (PlanetName == "Mun")
             {
-                MessageBox.Show("Mun" +
+                txtb_Info.Text = "Mun" +
                     Environment.NewLine +
                     "The biggest moon of Kerbin, called the Mun, has a total of 15 biomes, 7 of which are uniquely named major craters.The Mun has the largest amount of biomes in the Kerbol System.Most of the surface area belongs to the Midlands biome followed by the Highlands.Canyon biomes extend off a few major craters." +
                     Environment.NewLine +
                     Environment.NewLine +
                     "Mun  biome list:" +
                     Environment.NewLine +
-                    "Poles Polar, Lowlands, Polar Crater, Highlands, Highland Craters, Midlands, Midland Craters, Northern Basin, Northwest Crater, East Farside Crater, Canyons Farside Crater, East Crater, Twin Craters, Southwest Crater");
+                    "Poles Polar, Lowlands, Polar Crater, Highlands, Highland Craters, Midlands, Midland Craters, Northern Basin, Northwest Crater, East Farside Crater, Canyons Farside Crater, East Crater, Twin Craters, Southwest Crater";
             }
             if (PlanetName == "Minmus")
             {
-                MessageBox.Show("Minmus" +
+                txtb_Info.Text = "Minmus" +
                     Environment.NewLine +
                     "The moon of Kerbin, called Minmus, has a total of 9 biomes. The most distinctive quality of Minmus's biomes is the variety of Flats, which in-game text describe as “lake beds”. They are almost perfectly flat and may represent salt flats. Roughly two-thirds of the surface area is irregular terrain transitioning between Highlands, Midlands, and Lowlands with Slopes in-between." +
                     Environment.NewLine +
                     Environment.NewLine +
                     "Minmus  biome list:" +
                     Environment.NewLine +
-                    "Poles, Lowlands, Midlands, Highlands, Slopes, Flats, Lesser Flats, Great Flats, Greater Flats");
+                    "Poles, Lowlands, Midlands, Highlands, Slopes, Flats, Lesser Flats, Great Flats, Greater Flats";
             }
             if (PlanetName == "Duna")
             {
-                MessageBox.Show("Duna" +
+                txtb_Info.Text = "Duna" +
                     Environment.NewLine +
                     "The planet Duna has 5 biomes." +
                     Environment.NewLine +
                     Environment.NewLine +
                     "Duna  biome list:" +
                     Environment.NewLine +
-                    "Poles, Highlands, Midlands, Lowlands, Craters");
+                    "Poles, Highlands, Midlands, Lowlands, Craters";
             }
             if (PlanetName == "Ike")
             {
-                MessageBox.Show("Ike" +
+                txtb_Info.Text = "Ike" +
                     Environment.NewLine +
                     "The moon of Duna, called Ike, has 8 biomes. It is one of two bodies (the other being Moho) that has their own North and South Pole biome." +
                     Environment.NewLine +
                     Environment.NewLine +
                     "Ike biome list:" +
                     Environment.NewLine +
-                    "Polar Lowlands, Midlands, Lowlands, Eastern Mountain Ridge, Western Mountain Ridge, Central Mountain Range, South Eastern Mountain Range, South Pole");
+                    "Polar Lowlands, Midlands, Lowlands, Eastern Mountain Ridge, Western Mountain Ridge, Central Mountain Range, South Eastern Mountain Range, South Pole";
             }
             if (PlanetName == "Dres")
             {
-                MessageBox.Show("Dres" +
+                txtb_Info.Text = "Dres" +
                     Environment.NewLine +
                     "The planet Dres has 8 biomes." +
                     Environment.NewLine +
                     Environment.NewLine +
                     "Dres biome list:" +
                     Environment.NewLine +
-                    "Poles, Highlands, Midlands, Lowlands, Ridges, Impact Ejecta, Impact Craters, Canyons");
+                    "Poles, Highlands, Midlands, Lowlands, Ridges, Impact Ejecta, Impact Craters, Canyons";
             }
             if (PlanetName == "Laythe")
             {
-                MessageBox.Show("Laythe" +
+                txtb_Info.Text = "Laythe" +
                     Environment.NewLine +
                     "The first moon of Jool, called Laythe, has 5 biomes. Laythe exists of a huge ocean, called The Sagen Sea, with some small Dunes and Shores biomes. It also has bay, called the Cresent Bay and a Poles biome.." +
                     Environment.NewLine +
                     Environment.NewLine +
                     "Laythe biome list:" +
                     Environment.NewLine +
-                    "Poles, Shores, Dunes, Cresent Bay, The Sagen Sea");
+                    "Poles, Shores, Dunes, Cresent Bay, The Sagen Sea";
             }
             if (PlanetName == "Vall")
             {
-                MessageBox.Show("Vall" +
+                txtb_Info.Text = "Vall" +
                     Environment.NewLine +
                     "The second moon of Jool, called Vall, has 4 biomes." +
                     Environment.NewLine +
                     Environment.NewLine +
                     "Vall biome list:" +
                     Environment.NewLine +
-                    "Poles, Highlands, Midlands, Lowlands");
+                    "Poles, Highlands, Midlands, Lowlands";
             }
             if (PlanetName == "Tylo")
             {
-                MessageBox.Show("Tylo" +
+                txtb_Info.Text = "Tylo" +
                     Environment.NewLine +
                     "The third moon of Jool, called Tylo, has 8 biomes. Three biomes have the exact same name but are seen separately in KSP. It is unknown if this is a bug, a failed reference to the novel Catch 22, or was simply overlooked by Squad." +
                     Environment.NewLine +
                     Environment.NewLine +
                     "Tylo biome list:" +
                     Environment.NewLine +
-                    "Highlands, Midlands, Lowlands, Mara, Minor Craters, Major Crater, Major Crater, Major Crater");
+                    "Highlands, Midlands, Lowlands, Mara, Minor Craters, Major Crater, Major Crater, Major Crater";
             }
             if (PlanetName == "Bop")
             {
-                MessageBox.Show("Bop" +
+                txtb_Info.Text = "Bop" +
                     Environment.NewLine +
                     "The fourth moon of Jool, called Bop, has 5 biomes." +
                     Environment.NewLine +
                     Environment.NewLine +
                     "Bop biome list:" +
                     Environment.NewLine +
-                    "Poles, Slopes, Peaks, Mara, Valley, Ridges");
+                    "Poles, Slopes, Peaks, Mara, Valley, Ridges";
             }
             if (PlanetName == "Pol")
             {
-                MessageBox.Show("Pol" +
+                txtb_Info.Text = "Pol" +
                     Environment.NewLine +
                     "The fifth moon of Jool, called Pol, has 4 biomes." +
                     Environment.NewLine +
                     Environment.NewLine +
                     "Pol biome list:" +
                     Environment.NewLine +
-                    "Poles, Lowlands, Midlands, Highlands");
+                    "Poles, Lowlands, Midlands, Highlands";
             }
             if (PlanetName == "Eeloo")
             {
-                MessageBox.Show("Eeloo" +
+                txtb_Info.Text = "Eeloo" +
                     Environment.NewLine +
                     "The planet Eeloo has a total of 7 biomes." +
                     Environment.NewLine +
                     Environment.NewLine +
                     "Eeloo biome list:" +
                     Environment.NewLine +
-                    "Poles, Glaciers, Midlands, Lowlands, Ice Canyons, Highlands Craters");
+                    "Poles, Glaciers, Midlands, Lowlands, Ice Canyons, Highlands Craters";
             }
+        }
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            
+            btnchk = !btnchk;
+            if (btnchk)
+            {
+                
+                button.Content = "Less Info";
+                rctMenu.Opacity = 0.9;
+                txtbxText();
 
+
+            }
+            else
+            {
+                txtbxText();
+                txtb_Info.Text = "";
+                button.Content = "More Info";
+                rctMenu.Opacity = 0.5;
+            }
 
         }
 
-        
+        private void comboBoxMaps_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (btnchk)
+            {
+                cmbxChange();
+                txtbxText();
+                
+            }
+            else
+            {
+                cmbxChange();
+                txtb_Info.Text = "";
+            }
+        }
     }
 }

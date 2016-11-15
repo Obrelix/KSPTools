@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 
 namespace Kerbal_Space_Progam_Tools
 {
@@ -26,25 +27,25 @@ namespace Kerbal_Space_Progam_Tools
         public MainWindow()
         {
             InitializeComponent();
-            string[] TermiCombo = new string[] 
+            string[] TermiCombo = new string[]
             { "----->Mathematics", "1) Elliptical", "2) Hyperbolic","3) Normal vector", "4) Scalar", "5) Vector",
 
              "----->Orbital Terms" , "1) Apsis", "2) Periapsis","3) Apoapsis",  "4) Ascending node" , "5) Descending node" ,
             "6) Eccentricity",   "7) Inclination" ,"8) Low orbit", "9) Orbital node" ,   "10) Orbit normal" ,    "11) Orbital plane" , "12) Orbital speed",
             "13) Prograde",  "14) Retrograde",  "15) Reference plane"  , "16) Semi-major axis",   "17) Sidereal period",
             "18) Sub-orbital","19) Synodic period" , "20) True Anomaly" ,
-            
+
 
             "----->Ship Orientation" , "1) Attitude" , "2) Zenith", "3) Nadir", "4) Port" ,"5) Starboard", "6) Forward (Fore)", "7) Aft" ,
 
-            "----->Space Maneuvers" , "1) Aerobraking", "2) Lithobraking", "3) Atmospheric entry" ,"4) Burn", "5) Circularizing", 
+            "----->Space Maneuvers" , "1) Aerobraking", "2) Lithobraking", "3) Atmospheric entry" ,"4) Burn", "5) Circularizing",
             "6) Gravity assist" , "7) Maneuver node" , "8) Radial-in burn" , "9) Radial-out burn", "10) Re-entry", "11) Retroburn ",
 
             "----->Physics", "1) Acceleration", "2) Ballistic trajectory", "3) Delta-v (Δv)", "4) Energy", "5) Escape Velocity", "6) g-force (g)",
             "7) Gravity", "8) Gravity well", "9) Orbit", "10) Specific Impulse (Isp)", "11) Sphere of influence" , "12) Tangential velocity",
             "13) Thrust-to-weight ratio", "14) Trajectory", "15) Velocity",
 
-            "----->Interplanetary How-to Guide by Kosmo-not "} ;
+            "----->Interplanetary How-to Guide by Kosmo-not "};
             comboBoxTerminology.ItemsSource = TermiCombo;
             comboBoxTerminology.SelectedIndex = 0;
         }
@@ -54,11 +55,11 @@ namespace Kerbal_Space_Progam_Tools
             {
                 frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/PageTerminology.xaml", UriKind.Relative);
             }
-            else if(comboBoxTerminology.SelectedIndex > 5 && comboBoxTerminology.SelectedIndex < 27)
+            else if (comboBoxTerminology.SelectedIndex > 5 && comboBoxTerminology.SelectedIndex < 27)
             {
                 frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/PageTerminologyOrbitalTerms.xaml", UriKind.Relative);
             }
-            else if(comboBoxTerminology.SelectedIndex > 26 && comboBoxTerminology.SelectedIndex < 35)
+            else if (comboBoxTerminology.SelectedIndex > 26 && comboBoxTerminology.SelectedIndex < 35)
             {
                 frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/PageTerminologyShipOrientation.xaml", UriKind.Relative);
             }
@@ -144,21 +145,14 @@ namespace Kerbal_Space_Progam_Tools
             System.Diagnostics.Process.Start("http://mods.curse.com/ksp-mods/kerbal?filter-project-sort=3");
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            ExecuteCommands("cd" + @" C:\Program Files (x86)\Steam", "start steam \"steam://rungameid/220200\"");
-        }
+        
         private void About_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Created By Obrelix"+
-                Environment.NewLine+ "Released : 12/11/16"
-                + Environment.NewLine + "Version : Beta 0.9.5.3");
+            MessageBox.Show("Created By Obrelix" +
+                Environment.NewLine + "Released : 12/11/16"
+                + Environment.NewLine + "Version : Beta 0.9.5.4");
         }
-        private void test_Click(object sender, RoutedEventArgs e)
-        {
-            MissionCalculator window = new MissionCalculator();
-            window.Show();
-        }
+      
         private void Credit_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Credits for the  Delta-V maps" +
@@ -181,46 +175,9 @@ namespace Kerbal_Space_Progam_Tools
 
 
 
-        private void buttonMissonDVCalc_Click(object sender, RoutedEventArgs e)
-        {
 
-            //MissionCalculator Window = new MissionCalculator();
-            //Window.Show();
-            tabControl.SelectedIndex = 1;
-        }
 
-        private void buttonDVCalc_Click(object sender, RoutedEventArgs e)
-        {
-            //DeltaVCalculator Stage = new DeltaVCalculator();
-            //Stage.Show();
-            tabControl.SelectedIndex = 2;
-        }
-
-        private void buttonTerminology_Click(object sender, RoutedEventArgs e)
-        {
-            //Terminology Window = new Terminology();
-            //Window.Show();
-            tabControl.SelectedIndex = 5;
-        }
-
-        private void buttonBiomes_Click(object sender, RoutedEventArgs e)
-        {
-            //Biomes Window = new Biomes();
-            //Window.Show();
-            tabControl.SelectedIndex = 3;
-        }
-
-        private void buttonDeltaVMaps_Click(object sender, RoutedEventArgs e)
-        {
-            // DeltaVMaps map = new DeltaVMaps();
-            //map.Show();
-            tabControl.SelectedIndex = 4;
-        }
-
-        private void button_ClickCkan(object sender, RoutedEventArgs e)
-        {
-            ExecuteCommands("cd" + @" C:\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program", "start ckan.exe");
-        }
+       
 
         protected override void OnClosed(EventArgs e)
         {
@@ -229,6 +186,63 @@ namespace Kerbal_Space_Progam_Tools
             Application.Current.Shutdown();
         }
 
+        private void GitPage_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://obrelix.github.io/KSPTools/");
+        }
+
+        private void Git_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Obrelix/KSPTools");
+        }
+
+        private void Issues_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Obrelix/KSPTools/issues");
+        }
+
+        private void Download(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Obrelix/KSPTools/releases");
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
+        }
+
+        private void parent_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+
+        }
+        private void StartKsp()
+        {
+            ExecuteCommands("cd" + @" C:\Program Files (x86)\Steam", "start steam \"steam://rungameid/220200\"");
+            
+        }
+        private void StartCkan()
+        {
+            //ExecuteCommands("cd" + @" C:\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program", "start ckan.exe");
+            ExecuteCommands("dir" + " /s" + " c:\\ckan.exe", "for" + " /f" + " \"delims" + " =\"" + " %%a" + " in" + " ('dir" + " /b" + " /s" + " \"ckan.exe\"')" + " do" + " (start" + " %%a");
+        }
+        private void Ckan_Click(object sender, RoutedEventArgs e)
+        {
+            
+            Thread Ckan = new Thread(new ThreadStart(StartCkan));
+            Ckan.IsBackground = true;
+            Ckan.Start();
+        }
+
+        private void KSP_Click(object sender, RoutedEventArgs e)
+        {
+            Thread KSP = new Thread(new ThreadStart(StartKsp));
+            KSP.IsBackground = true;
+            KSP.Start();
+        }
+
         
     }
-}
+    }
