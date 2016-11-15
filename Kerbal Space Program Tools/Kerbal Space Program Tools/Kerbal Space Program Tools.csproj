@@ -142,6 +142,9 @@
     <Compile Include="Windows\Terminology.xaml.cs">
       <DependentUpon>Terminology.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\wnd_Info.xaml.cs">
+      <DependentUpon>wnd_Info.xaml</DependentUpon>
+    </Compile>
     <Page Include="Pages\InterplanetaryHowToGuide.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -232,6 +235,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Terminology.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\wnd_Info.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

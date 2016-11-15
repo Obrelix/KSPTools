@@ -16,6 +16,8 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Reflection;
 using System.Threading;
+using Kerbal_Space_Program_Tools.Windows;
+using Kerbal_Space_Program_Tools;
 
 namespace Kerbal_Space_Progam_Tools
 {
@@ -104,30 +106,61 @@ namespace Kerbal_Space_Progam_Tools
                 frameTerminology.Source = new Uri("/Kerbal Space Program Tools;component/Pages/InterplanetaryHowToGuide.xaml", UriKind.Relative);
             }
         }
+       
 
-        private string ExecuteCommands(string command1, string command2)
+        
+      
+        private void Credit_Click(object sender, RoutedEventArgs e)
         {
-            ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd.exe");
-            processStartInfo.RedirectStandardInput = true;
-            processStartInfo.RedirectStandardOutput = true;
-            processStartInfo.UseShellExecute = false;
-
-            Process process = Process.Start(processStartInfo);
-
-            if (process != null)
-            {
-                process.StandardInput.WriteLine(command1);
-                process.StandardInput.WriteLine(command2);
-                process.StandardInput.WriteLine("exit");
-
-                process.StandardInput.Close(); // line added to stop process from hanging on ReadToEnd()
-
-                string outputString = process.StandardOutput.ReadToEnd();
-                return outputString;
-            }
-
-            return string.Empty;
+            wnd_Info windowInfo = new wnd_Info();
+            //if (isopen.open)
+            //{
+            //    wnd_Info windowInfo = new wnd_Info();
+            //}
+            windowInfo.txtblInfo.Text="Credits for the  Delta-V maps" +
+                Environment.NewLine + "JellyCubes (Original concept)"
+                + Environment.NewLine + "WAC (Original design)"
+                + Environment.NewLine + "CuriousMetaphor (Original out-of-atmosphere numbers)"
+                + Environment.NewLine + "Kowgan (Design, original in-atmosphere numbers)"
+                + Environment.NewLine + "Swashlebucky (Design)"
+                + Environment.NewLine + "AlexMoon (Time of flight)"
+                + Environment.NewLine
+                + Environment.NewLine + "Credits for the  Biome maps"
+                + Environment.NewLine + "http://wiki.kerbalspaceprogram.com/wiki/Biome"
+                + Environment.NewLine + "http://outer-planets.wikia.com/wiki/Outer_Planets_Wiki"
+                + Environment.NewLine
+                + Environment.NewLine + "Credits for the  Terminology"
+                + Environment.NewLine + "http://wiki.kerbalspaceprogram.com/wiki/Main_Page"
+                + Environment.NewLine + "http://www.braeunig.us/space/"
+                + Environment.NewLine + "Kosmo-not for his amazing guide.";
+            windowInfo.Show();
         }
+
+
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+            wnd_Info windowInfo = new wnd_Info();
+            //if (!isopen.open)
+            //{
+            //    wnd_Info windowInfo = new wnd_Info();
+            //}
+            windowInfo.txtblInfo.Text = "Created By Obrelix" +
+                Environment.NewLine + "Released : 12/11/16"
+                + Environment.NewLine + "Version :0.9.6.0";
+            windowInfo.Show();
+        }
+
+
+
+
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
+        }
+
         private void Reddit_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.reddit.com/r/KerbalSpaceProgram");
@@ -145,47 +178,8 @@ namespace Kerbal_Space_Progam_Tools
             System.Diagnostics.Process.Start("http://mods.curse.com/ksp-mods/kerbal?filter-project-sort=3");
         }
 
-        
-        private void About_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Created By Obrelix" +
-                Environment.NewLine + "Released : 12/11/16"
-                + Environment.NewLine + "Version : Beta 0.9.5.4");
-        }
-      
-        private void Credit_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Credits for the  Delta-V maps" +
-                Environment.NewLine + "JellyCubes (Original concept)"
-                + Environment.NewLine + "WAC (Original design)"
-                + Environment.NewLine + "CuriousMetaphor (Original out-of-atmosphere numbers)"
-                + Environment.NewLine + "Kowgan (Design, original in-atmosphere numbers)"
-                + Environment.NewLine + "Swashlebucky (Design)"
-                + Environment.NewLine + "AlexMoon (Time of flight)"
-                + Environment.NewLine
-                + Environment.NewLine + "Credits for the  Biome maps"
-                + Environment.NewLine + "http://wiki.kerbalspaceprogram.com/wiki/Biome"
-                + Environment.NewLine + "http://outer-planets.wikia.com/wiki/Outer_Planets_Wiki"
-                + Environment.NewLine
-                + Environment.NewLine + "Credits for the  Terminology"
-                + Environment.NewLine + "http://wiki.kerbalspaceprogram.com/wiki/Main_Page"
-                + Environment.NewLine + "http://www.braeunig.us/space/"
-                + Environment.NewLine + "Kosmo-not for his amazing guide.");
-        }
-
-
-
-
 
        
-
-        protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
-
-            Application.Current.Shutdown();
-        }
-
         private void GitPage_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://obrelix.github.io/KSPTools/");
@@ -217,6 +211,29 @@ namespace Kerbal_Space_Progam_Tools
         {
             
 
+        }
+        private string ExecuteCommands(string command1, string command2)
+        {
+            ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd.exe");
+            processStartInfo.RedirectStandardInput = true;
+            processStartInfo.RedirectStandardOutput = true;
+            processStartInfo.UseShellExecute = false;
+
+            Process process = Process.Start(processStartInfo);
+
+            if (process != null)
+            {
+                process.StandardInput.WriteLine(command1);
+                process.StandardInput.WriteLine(command2);
+                process.StandardInput.WriteLine("exit");
+
+                process.StandardInput.Close(); // line added to stop process from hanging on ReadToEnd()
+
+                string outputString = process.StandardOutput.ReadToEnd();
+                return outputString;
+            }
+
+            return string.Empty;
         }
         private void StartKsp()
         {

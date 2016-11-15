@@ -27,21 +27,21 @@
             <MenuItem Header="Help">
 
                 <MenuItem Header="Git">
-                <MenuItem Header="_Github Page" Click="GitPage_Click" />
-                <MenuItem Header="_Source Code" Click="Git_Click" />
+                    <MenuItem Header="_Github Page" Click="GitPage_Click" />
+                    <MenuItem Header="_Source Code" Click="Git_Click" />
                 </MenuItem>
                 <MenuItem Header="Download" Click="Download"/>
                 <MenuItem Header="Report an _issue" Click="Issues_Click"/>
                 <MenuItem Header="_Credits" Click="Credit_Click" />
                 <MenuItem Header="_About"  Click="About_Click"/>
             </MenuItem>
-            
+
         </Menu>
 
         <Grid>
             <Grid.ContextMenu>
                 <ContextMenu>
-                    
+
                 </ContextMenu>
             </Grid.ContextMenu>
 
@@ -76,7 +76,7 @@
 
 
 
-                <TabItem Header="Main" Background="{x:Null}" Margin="298,0,-298,0">
+                <TabItem Header="Main" Background="{x:Null}" Margin="112,0,-112,0">
                     <Grid>
 
 
@@ -87,29 +87,29 @@
 
                     </Grid>
                 </TabItem>
-                <TabItem Header="Mission Calculator" Background="{x:Null}" Margin="298,0,-298,0">
+                <TabItem Header="Mission Calculator" Background="{x:Null}" Margin="112,0,-112,0">
                     <Grid>
                         <Frame x:Name="frameMission" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageMissionCalc.xaml" NavigationUIVisibility="Hidden"/>
 
                     </Grid>
                 </TabItem>
-                <TabItem Header="Δv Calculator" Background="{x:Null}" Margin="298,0,-298,0">
+                <TabItem Header="Δv Calculator" Background="{x:Null}" Margin="112,0,-112,0">
                     <Grid>
                         <Frame x:Name="frameDVCalc" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageDVCalc.xaml" NavigationUIVisibility="Hidden"/>
                     </Grid>
                 </TabItem>
 
-                <TabItem Header="Biome Maps" Background="{x:Null}" Margin="298,0,-298,0">
+                <TabItem Header="Biome Maps" Background="{x:Null}" Margin="112,0,-112,0">
                     <Grid>
                         <Frame x:Name="frameBiomes" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageBiomes.xaml" NavigationUIVisibility="Hidden"/>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Δv Maps" Background="{x:Null}" Margin="298,0,-298,0">
+                <TabItem Header="Δv Maps" Background="{x:Null}" Margin="112,0,-112,0">
                     <Grid>
                         <Frame x:Name="frameDVMap" Content="Frame" Margin="0" Source="/Kerbal Space Program Tools;component/Pages/PageDVMap.xaml" NavigationUIVisibility="Hidden"/>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Terminology"  Background="{x:Null}" Margin="298,0,-298,0">
+                <TabItem Header="Terminology"  Background="{x:Null}" Margin="112,0,-112,0">
                     <Grid>
                         <Frame x:Name="frameTerminology" Content="Frame" Margin="0"  NavigationUIVisibility="Hidden" Source="/Kerbal Space Program Tools;component/Pages/PageTerminologyOrbitalTerms.xaml"/>
                         <ComboBox x:Name="comboBoxTerminology" HorizontalAlignment="Left" VerticalAlignment="Top" Width="155" SelectionChanged="comboBoxTerminology_SelectionChanged" FontWeight="Bold" Margin="0,10,0,0"/>
