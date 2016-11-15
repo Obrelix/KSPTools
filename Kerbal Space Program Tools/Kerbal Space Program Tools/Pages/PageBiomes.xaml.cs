@@ -37,7 +37,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
         string[] RSSMaps = new string[24] { "Callisto", "Charon", "Deimos", "Dione", "Earth", "Enceladus", "Europa", "Ganymede",
                 "Iapetus", "Io", "Jupiter", "MarsBiomes", "MercuryBiomes", "Mimas", "Moon", "Phobos", "Pluto", "Rhea", "Saturn",
                 "Tethys", "Titan", "Triton", "Uranus", "Venus"};
-        bool btnchk = true;
+        bool btnchk = false;
 
         private void WPFWindow_Loaded(object sender, RoutedEventArgs e)
         {
