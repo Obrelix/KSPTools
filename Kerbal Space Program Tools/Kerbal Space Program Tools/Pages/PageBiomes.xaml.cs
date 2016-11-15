@@ -787,7 +787,7 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 button.Content = "Less Info";
                 rctMenu.Opacity = 0.9;
                 txtbxText();
-
+                stcpnlInfo.Width = 450;
 
             }
             else
@@ -796,6 +796,8 @@ namespace Kerbal_Space_Progam_Tools.Pages
                 txtb_Info.Text = "";
                 button.Content = "More Info";
                 rctMenu.Opacity = 0.5;
+                stcpnlInfo.Width = 293;
+
             }
 
         }
@@ -806,12 +808,14 @@ namespace Kerbal_Space_Progam_Tools.Pages
             {
                 cmbxChange();
                 txtbxText();
-                
+                stcpnlInfo.Width = 450;
+
             }
             else
             {
                 cmbxChange();
                 txtb_Info.Text = "";
+                stcpnlInfo.Width = 293;
             }
         }
     }

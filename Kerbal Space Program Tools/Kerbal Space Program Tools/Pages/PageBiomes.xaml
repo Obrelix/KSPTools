@@ -15,7 +15,7 @@
         </Border>
         <Grid Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Rectangle x:Name="rctMenu" Fill="#FFB0DBF3" Opacity="0.5" RadiusX="10" RadiusY="10"/>
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Width="293"  >
+            <StackPanel x:Name="stcpnlInfo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="293"  >
             <StackPanel Height="23" VerticalAlignment="Center" Orientation="Horizontal" Grid.ColumnSpan="2">
                 <RadioButton x:Name="radioButtonNormal" GroupName="mods" Content="Normal  " HorizontalAlignment="Left" Foreground="#FF010CFD"   Checked="radioButtonNormal_Checked" Margin="0,0,0,8"/>
                 <RadioButton x:Name="radioButtonOuter" GroupName="mods" Content="Outer Planets " HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="#FF3AFD01"  Checked="radioButtonNormal_Checked"/>
@@ -27,10 +27,16 @@
                     <Button x:Name="button" Content="More info" Width="75"  Height="23" Click="button_Click"/>
                 </StackPanel>
                     <Label Content="Mousewheel to zoom. Hold left mousebutton to pan." Height="35" HorizontalAlignment="Center" Margin="0" Name="label1" VerticalAlignment="Center" Width="293" />
-                    <TextBlock x:Name="txtb_Info" TextWrapping="Wrap" FontSize="14" Margin="0,0,0,8" TextAlignment="Center"></TextBlock>
+                    <ScrollViewer>
+                    <TextBlock x:Name="txtb_Info" TextWrapping="Wrap" FontSize="14" Margin="0,0,0,8" TextAlignment="Center" HorizontalAlignment="Right">
+                        
+                    </TextBlock>
+                    </ScrollViewer>
+                </StackPanel>
+                
+
             </StackPanel>
             
-        </StackPanel>
         </Grid>
     </Grid>
 </Page>

@@ -12,28 +12,25 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top" Background="White">
             <MenuItem Header="_Menu" >
+                <Separator />
                 <MenuItem Header="_Start KSP" Click="KSP_Click" />
                 <!--<MenuItem Header="_Start Ckan" Click="Ckan_Click" />-->
-                <MenuItem Header="_KSP Links">
+                <Separator />
                     <MenuItem Header="_Forums" Click="Forum_Click" />
                     <MenuItem Header="_SubReddit" Click="Reddit_Click"/>
                     <MenuItem Header="_Wiki" Click="Wiki_Click"/>
                     <MenuItem Header="_Mods" Click="CurseMods_Click"/>
-                </MenuItem>
+                
                 <Separator />
                 <MenuItem Header="_Exit" Click="Exit_Click" />
             </MenuItem>
 
             <MenuItem Header="Help">
 
-                <MenuItem Header="Git">
-                    <MenuItem Header="_Github Page" Click="GitPage_Click" />
-                    <MenuItem Header="_Source Code" Click="Git_Click" />
-                </MenuItem>
+                
                 <MenuItem Header="Download" Click="Download"/>
                 <MenuItem Header="Report an _issue" Click="Issues_Click"/>
-                <MenuItem Header="_Credits" Click="Credit_Click" />
-                <MenuItem Header="_About"  Click="About_Click"/>
+               
             </MenuItem>
 
         </Menu>
@@ -84,7 +81,51 @@
                         <Frame x:Name="frame1" Content="Frame" Margin="0" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
                         <Image x:Name="image" HorizontalAlignment="Center" Height="143" VerticalAlignment="Top" Width="294" Source="Images/Logo/kspLogo.png" Grid.Column="1" Margin="4,0,7,0"    />
 
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Grid>
+                            <Rectangle Fill="#FF052F3C" Opacity="0.5" RadiusX="8" RadiusY="8"/>
+                            
+                                <Expander x:Name="expanderAbout" Header="About" Margin="0" Foreground="#FF89DFFF" FontWeight="Bold">
+                                    <Grid>
+                                        <TextBlock Margin="20" Background="{x:Null}" >
+                                                <Run FontWeight="Bold" FontSize="12" Text="Created by : Obrelix"/>
+                                                <Run FontWeight="Bold" FontSize="12" Text="&#x0a;Released : 15/11/2016"/>
+                                                <Run FontWeight="Bold" FontSize="12" Text="&#x0a;Version : 0.9.6.0"/>
+                                                <Run FontWeight="Bold" FontSize="12" Text="&#x0a;GitHub Page : https://obrelix.github.io/KSPTools/"/>
+                                                <Run FontWeight="Bold" FontSize="12" Text="&#x0a;Source Code : https://github.com/Obrelix/KSPTools"/>
 
+                                        </TextBlock>
+                                    </Grid>
+                                </Expander>
+                           
+                        </Grid>
+                        <Grid>
+                                <Rectangle Fill="#FF052F3C" Opacity="0.5" RadiusX="8" RadiusY="8"/>
+                                
+                            <Expander x:Name="expanderCredits" Header="Credits" Margin="0" Foreground="#FFFF6B6B" FontWeight="Bold">
+                                    <Grid >
+                                        <TextBlock Margin="20" Background="{x:Null}" >
+                                                <Run FontWeight="Bold" FontSize="16" Text="Delta-V maps"/>
+                                                <Run  FontSize="12" Text="&#x0a;JellyCubes (Original concept)"/>
+                                                <Run  FontSize="12" Text="&#x0a;WAC (Original design)"/>
+                                                <Run  FontSize="12" Text="&#x0a;CuriousMetaphor (Original out-of-atmosphere numbers)"/>
+                                                <Run  FontSize="12" Text="&#x0a;Kowgan (Design, original in-atmosphere numbers)"/>
+                                                <Run  FontSize="12" Text="&#x0a;Swashlebucky (Design)"/>
+                                                <Run  FontSize="12" Text="&#x0a;AlexMoon (Time of flight)"/>
+                                                <Run  FontWeight="Bold" FontSize="16" Text="&#x0a;&#x0a;Biome maps"/>
+                                                <Run  FontSize="12" Text="&#x0a;http://wiki.kerbalspaceprogram.com/wiki/Biome"/>
+                                                <Run  FontSize="12" Text="&#x0a;http://outer-planets.wikia.com/wiki/Outer_Planets_Wiki"/>
+                                                <Run  FontWeight="Bold" FontSize="16" Text="&#x0a;&#x0a;Terminology"/>
+                                                <Run  FontSize="12" Text="&#x0a;http://wiki.kerbalspaceprogram.com/wiki/Main_Page"/>
+                                                <Run  FontSize="12" Text=" &#x0a;http://www.braeunig.us/space/"/>
+                                                <Run  FontWeight="Bold" FontSize="16" Text="&#x0a;Kosmo-not for his amazing guide.&#x0a;"/>
+                                                   
+                                        </TextBlock>
+                                    </Grid>
+                                </Expander>
+                           
+                        </Grid>
+                    </StackPanel>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Mission Calculator" Background="{x:Null}" Margin="112,0,-112,0">
