@@ -13,7 +13,7 @@
         <Menu DockPanel.Dock="Top" Background="White">
             <MenuItem Header="_Menu" >
                 <MenuItem Header="_Start KSP" Click="KSP_Click" />
-                <MenuItem Header="_Start Ckan" Click="Ckan_Click" />
+                <!--<MenuItem Header="_Start Ckan" Click="Ckan_Click" />-->
                 <MenuItem Header="_KSP Links">
                     <MenuItem Header="_Forums" Click="Forum_Click" />
                     <MenuItem Header="_SubReddit" Click="Reddit_Click"/>
