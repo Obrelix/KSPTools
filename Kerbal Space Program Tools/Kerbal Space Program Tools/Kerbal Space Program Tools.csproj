@@ -99,6 +99,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Checker.cs" />
     <Compile Include="Pages\InterplanetaryHowToGuide.xaml.cs">
       <DependentUpon>InterplanetaryHowToGuide.xaml</DependentUpon>
     </Compile>

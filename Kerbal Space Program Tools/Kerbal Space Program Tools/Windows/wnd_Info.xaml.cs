@@ -11,17 +11,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
 namespace Kerbal_Space_Program_Tools.Windows
 {
     /// <summary>
     /// Interaction logic for wnd_Info.xaml
     /// </summary>
     /// 
-    public static class isopen
-    {
-        public static bool open;
-    }
+    
     public partial class wnd_Info : Window
     {
         
@@ -32,12 +28,12 @@ namespace Kerbal_Space_Program_Tools.Windows
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            isopen.open = false;
+            WindowCheck.setOpencheck(false);
         }
 
         private void Window_Activated(object sender, EventArgs e)
         {
-            isopen.open = true;
+            WindowCheck.setOpencheck(true);
         }
     }
 }
