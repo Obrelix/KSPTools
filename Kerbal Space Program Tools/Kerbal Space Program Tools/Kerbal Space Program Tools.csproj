@@ -62,10 +62,10 @@
     <ApplicationIcon>Images\icon\favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>FB998DB5E349106DC749DCE48F93C4A5826030E6</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>176FC987ACD8A4083FB79932CD7846B30A18375F</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Kerbal Space Progam Tools_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Kerbal Space Program Tools_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -266,6 +266,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Kerbal Space Progam Tools_TemporaryKey.pfx" />
+    <None Include="Kerbal Space Program Tools_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
