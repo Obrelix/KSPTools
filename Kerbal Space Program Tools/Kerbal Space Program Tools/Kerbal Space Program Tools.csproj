@@ -16,7 +16,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Obrelix\Desktop\ksp tools\</PublishUrl>
+    <PublishUrl>C:\Users\Obrelix\Desktop\ksp Tool\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -32,7 +32,6 @@
     <PublisherName>Obrelix</PublisherName>
     <SuiteName>KSP TOOLS</SuiteName>
     <MinimumRequiredVersion>0.9.5.0</MinimumRequiredVersion>
-    <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>0.9.6.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
